@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | ArtLife Studio</title>
+    <meta name="description" content="ArtLife Studio blogi: veb-dizayn, ishlab chiqish, marketing va brending bo'yicha foydali maqolalar.">
+    <link rel="canonical" href="https://artlife-studio.uz/blog.html">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="ArtLife Studio">
+    <meta name="theme-color" content="#2563eb">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ArtLife Studio">
+    <meta property="og:locale" content="uz_UZ">
+    <meta property="og:title" content="Blog | ArtLife Studio">
+    <meta property="og:description" content="ArtLife Studio blogi: veb-dizayn, ishlab chiqish, marketing va brending bo'yicha foydali maqolalar.">
+    <meta property="og:url" content="https://artlife-studio.uz/blog.html">
+    <meta property="og:image" content="https://artlife-studio.uz/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ArtLife Studio — kreativ raqamli agentlik">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog | ArtLife Studio">
+    <meta name="twitter:description" content="ArtLife Studio blogi: veb-dizayn, ishlab chiqish, marketing va brending bo'yicha foydali maqolalar.">
+    <meta name="twitter:image" content="https://artlife-studio.uz/og-image.png">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold'>A</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #121212;
+            --paper: #ffffff;
+            --blue: #2563eb;
+            --blue-deep: #1e40af;
+            --line: #ececec;
+        }
+        * { -webkit-font-smoothing: antialiased; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--paper);
+            color: var(--ink);
+            position: relative;
+        }
+        ::selection { background: var(--blue); color: #fff; }
+
+        .serif { font-family: 'Fraunces', serif; font-optical-sizing: auto; }
+
+        .grid-bg {
+            background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+            background-size: 24px 24px;
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            opacity: 0.4;
+        }
+        /* subtle film grain for editorial texture */
+        .grain {
+            position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .035;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+        .glow {
+            position: absolute; width: 540px; height: 540px; border-radius: 9999px;
+            background: radial-gradient(circle, rgba(37,99,235,0.16), transparent 70%);
+            filter: blur(40px); z-index: -1; pointer-events: none;
+        }
+
+        /* ---------- Scroll & load reveals ---------- */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
+        .reveal.in { opacity: 1; transform: none; }
+        .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; } .d4 { transition-delay: .32s; }
+
+        /* hero line clip reveal */
+        .line-mask { display: block; overflow: hidden; }
+        .line-mask > span { display: block; transform: translateY(110%); transition: transform 1s cubic-bezier(.16,1,.3,1); }
+        .hero-in .line-mask > span { transform: translateY(0); }
+        .hero-in .lm2 > span { transition-delay: .12s; }
+        .hero-in .lm3 > span { transition-delay: .24s; }
+
+        /* ---------- Masthead rule ---------- */
+        .rule { height: 1px; background: var(--ink); transform-origin: left; transform: scaleX(0); transition: transform 1.1s cubic-bezier(.16,1,.3,1) .3s; }
+        .hero-in .rule { transform: scaleX(1); }
+
+        /* ---------- Topic marquee ---------- */
+        .marquee { display: flex; width: max-content; animation: slide 32s linear infinite; }
+        @keyframes slide { to { transform: translateX(-50%); } }
+        .marquee:hover { animation-play-state: paused; }
+        .marquee .tok { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.1rem; color: #9ca3af; padding: 0 1.1rem; white-space: nowrap; }
+        .marquee .dot { width: 5px; height: 5px; border-radius: 9999px; background: var(--blue); align-self: center; }
+
+        /* ---------- Featured cover ---------- */
+        .feature-cover {
+            position: relative; overflow: hidden; border-radius: 26px;
+            background: var(--ink);
+        }
+        .feature-cover::before {
+            content:""; position:absolute; inset:0;
+            background-image: radial-gradient(rgba(255,255,255,.10) 1px, transparent 1px);
+            background-size: 22px 22px;
+        }
+        .feature-cover::after {
+            content:""; position:absolute; width:360px; height:360px; right:-80px; top:-90px; border-radius:9999px;
+            background: radial-gradient(circle, rgba(37,99,235,.55), transparent 68%); filter: blur(6px);
+            transition: transform .9s cubic-bezier(.16,1,.3,1);
+        }
+        .feature-cover:hover::after { transform: scale(1.18) translate(-20px, 20px); }
+        .feature-no { font-family:'Fraunces',serif; }
+
+        /* ---------- Editorial filter tabs ---------- */
+        .tabs { position: relative; display: flex; flex-wrap: wrap; gap: .25rem 2rem; }
+        .tab { position: relative; padding: .35rem 0; font-size: .82rem; font-weight: 700; letter-spacing: .02em; color: #9ca3af; background: none; border: none; cursor: pointer; transition: color .25s ease; }
+        .tab:hover { color: var(--ink); }
+        .tab.active { color: var(--ink); }
+        .tab-underline { position: absolute; bottom: -1px; height: 2px; background: var(--blue); transition: left .45s cubic-bezier(.16,1,.3,1), width .45s cubic-bezier(.16,1,.3,1); }
+
+        /* ---------- Editorial index rows ---------- */
+        .entry {
+            position: relative; display: grid; grid-template-columns: 56px 1fr auto; align-items: baseline; gap: 1.5rem;
+            padding: 1.9rem 0; border-top: 1px solid var(--line);
+            transition: opacity .4s ease, transform .4s ease;
+        }
+        .entry:last-child { border-bottom: 1px solid var(--line); }
+        .entry::after { /* animated baseline */
+            content:""; position:absolute; left:0; bottom:-1px; height:1px; width:0; background: var(--ink); transition: width .55s cubic-bezier(.16,1,.3,1); z-index:1;
+        }
+        .entry:hover::after { width:100%; }
+        .entry-no { font-family:'Fraunces',serif; font-size: 1.05rem; color:#c4c4c4; font-weight:500; transition: color .3s ease; padding-top:.15rem; }
+        .entry:hover .entry-no { color: var(--blue); }
+        .entry-cat { font-size:.7rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color: var(--blue); margin-bottom:.55rem; display:inline-block; }
+        .entry-title { font-family:'Fraunces',serif; font-weight:500; font-size: 1.65rem; line-height: 1.15; letter-spacing:-.01em; transition: transform .45s cubic-bezier(.16,1,.3,1), color .3s ease; }
+        .entry:hover .entry-title { transform: translateX(10px); }
+        .entry-desc { color:#6b7280; font-size:.95rem; line-height:1.6; margin-top:.6rem; max-width: 46ch; }
+        .entry-side { display:flex; align-items:center; gap:1.1rem; white-space:nowrap; }
+        .entry-date { font-size:.78rem; color:#9ca3af; font-weight:600; }
+        .entry-arrow { width:38px; height:38px; border-radius:9999px; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; color:var(--ink); transition: all .35s cubic-bezier(.16,1,.3,1); flex-shrink:0; }
+        .entry:hover .entry-arrow { background: var(--blue); border-color: var(--blue); color:#fff; transform: rotate(-45deg); }
+        .entry.hide { display:none; }
+
+        /* floating cursor preview (desktop pointer only) */
+        .hover-preview {
+            position: fixed; top:0; left:0; width: 230px; height: 290px; border-radius: 16px; overflow:hidden;
+            pointer-events:none; z-index: 40; opacity:0; transform: translate(-50%,-50%) scale(.8) rotate(-4deg);
+            transition: opacity .35s ease, transform .45s cubic-bezier(.16,1,.3,1);
+            background: var(--ink); box-shadow: 0 30px 60px -20px rgba(0,0,0,.5);
+        }
+        .hover-preview.show { opacity:1; transform: translate(-50%,-50%) scale(1) rotate(-4deg); }
+        .hover-preview::before { content:""; position:absolute; inset:0; background-image: radial-gradient(rgba(255,255,255,.12) 1px, transparent 1px); background-size:18px 18px; }
+        .hover-preview .hp-blue { position:absolute; width:240px; height:240px; right:-70px; bottom:-90px; border-radius:9999px; background: radial-gradient(circle, rgba(37,99,235,.7), transparent 65%); filter: blur(4px); }
+        .hover-preview .hp-no { position:absolute; left:16px; top:12px; font-family:'Fraunces',serif; font-size:3.4rem; line-height:1; color:rgba(255,255,255,.18); }
+        .hover-preview .hp-cat { position:absolute; left:18px; bottom:18px; font-size:.66rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#fff; }
+        @media (hover: none) { .hover-preview { display:none; } }
+
+        /* magnetic CTA */
+        .magnetic { transition: transform .25s cubic-bezier(.16,1,.3,1); }
+
+        @media (max-width: 768px) {
+            .entry { grid-template-columns: 40px 1fr; gap: .9rem; padding:1.5rem 0; }
+            .entry-side { grid-column: 2; margin-top:.9rem; }
+            .entry-title { font-size:1.3rem; }
+            .entry:hover .entry-title { transform:none; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .line-mask > span, .rule { opacity:1 !important; transform:none !important; transition:none !important; }
+            .marquee { animation:none; }
+        }
+    </style>
+</head>
+<body class="px-6 md:px-12">
+
+    <div class="grid-bg"></div>
+    <div class="grain"></div>
+    <div class="hover-preview" id="hoverPreview">
+        <div class="hp-blue"></div>
+        <div class="hp-no serif" id="hpNo">01</div>
+        <div class="hp-cat" id="hpCat">Dizayn</div>
+    </div>
+
+    <!-- Full Screen Menu Overlay -->
+    <div id="menuOverlay" class="fixed inset-0 z-[60] bg-white translate-y-full transition-transform duration-500 ease-in-out">
+        <div class="grid-bg"></div>
+
+        <div class="flex justify-between items-center px-6 md:px-12 pt-6 pb-4">
+            <a href="index.html" class="flex flex-col leading-none">
+                <span class="text-2xl font-extrabold tracking-tight">ArtLife</span>
+                <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 ml-0.5">Studio</span>
+            </a>
+            <div onclick="toggleMenu()" class="cursor-pointer group">
+                <div class="relative w-8 h-8 flex items-center justify-center">
+                    <div class="absolute w-6 h-0.5 bg-black rotate-45"></div>
+                    <div class="absolute w-6 h-0.5 bg-black -rotate-45"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col items-center justify-center h-[60vh] space-y-8">
+            <a href="index.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Asosiy</a>
+            <a href="loyihalar.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Loyihalar</a>
+            <a href="about-us.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Biz haqimizda</a>
+            <a href="index.html#services" class="text-xl font-bold hover:text-blue-600 transition text-center">Xizmatlar</a>
+            <a href="blog.html" class="text-xl font-bold text-blue-600 transition text-center">Blog</a>
+
+            <a href="#contact" onclick="toggleMenu()" class="mt-4 border-2 border-blue-600 text-blue-600 px-10 py-3 rounded-full font-bold hover:bg-blue-600 hover:text-white transition">
+                Bog'lanish
+            </a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-[55] bg-white/80 backdrop-blur-md -mx-6 md:-mx-12 px-6 md:px-12 border-b border-gray-50/50">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center py-6">
+            <a href="index.html" class="flex flex-col leading-none">
+                <span class="text-2xl font-extrabold tracking-tight">ArtLife</span>
+                <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 ml-0.5">Studio</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-10">
+                <a href="index.html" class="text-sm font-semibold hover:text-blue-600 transition">Asosiy</a>
+                <a href="loyihalar.html" class="text-sm font-semibold hover:text-blue-600 transition">Loyihalar</a>
+                <a href="about-us.html" class="text-sm font-semibold hover:text-blue-600 transition">Biz haqimizda</a>
+                <a href="index.html#services" class="text-sm font-semibold hover:text-blue-600 transition">Xizmatlar</a>
+                <a href="blog.html" class="text-sm font-semibold text-blue-600 transition">Blog</a>
+                <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="border border-gray-400 px-6 py-2 rounded-full text-sm font-bold hover:border-black transition">Biz bilan bog'lanish</a>
+            </div>
+
+            <div id="menuBtn" onclick="toggleMenu()" class="md:hidden group cursor-pointer w-6 h-5 relative flex flex-col justify-between">
+                <div id="bar1" class="w-6 h-0.5 bg-black transition-all duration-300 origin-center"></div>
+                <div id="bar2" class="w-6 h-0.5 bg-black transition-all duration-300 origin-center"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto">
+
+        <!-- Hero / Masthead -->
+        <section id="hero" class="relative pt-16 md:pt-24 pb-10">
+            <div class="glow -top-20 -left-10 hidden md:block"></div>
+
+            <!-- editorial masthead line -->
+            <div class="flex items-end justify-between gap-4 mb-7 reveal">
+                <span class="text-[11px] font-bold tracking-[0.28em] uppercase text-blue-600">ArtLife Jurnali</span>
+                <span class="serif italic text-sm text-gray-400">№ 06 — 2026</span>
+            </div>
+            <div class="rule mb-10"></div>
+
+            <h1 class="serif font-light text-[44px] md:text-[88px] leading-[1.0] tracking-[-0.02em] max-w-5xl mb-9">
+                <span class="line-mask lm1"><span>Bilim, <em class="text-blue-600">g'oya</em></span></span>
+                <span class="line-mask lm2"><span>va foydali</span></span>
+                <span class="line-mask lm3"><span>maqolalar.</span></span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-gray-600 font-medium leading-relaxed max-w-2xl reveal d2">
+                Veb-dizayn, ishlab chiqish, marketing va brending haqida — tajribamizdan kelib chiqqan amaliy maslahatlar va yangiliklar.
+            </p>
+        </section>
+
+        <!-- Topic marquee strip -->
+        <section class="relative -mx-6 md:-mx-12 py-6 border-y border-gray-100 overflow-hidden mb-16 reveal">
+            <div class="marquee">
+                <span class="tok">Veb-dizayn</span><i class="dot"></i>
+                <span class="tok">Marketing</span><i class="dot"></i>
+                <span class="tok">Brending</span><i class="dot"></i>
+                <span class="tok">Texnologiya</span><i class="dot"></i>
+                <span class="tok">UI / UX</span><i class="dot"></i>
+                <span class="tok">SEO</span><i class="dot"></i>
+                <span class="tok">Veb-dizayn</span><i class="dot"></i>
+                <span class="tok">Marketing</span><i class="dot"></i>
+                <span class="tok">Brending</span><i class="dot"></i>
+                <span class="tok">Texnologiya</span><i class="dot"></i>
+                <span class="tok">UI / UX</span><i class="dot"></i>
+                <span class="tok">SEO</span><i class="dot"></i>
+            </div>
+        </section>
+
+        <!-- Featured Post -->
+        <section class="pb-20">
+            <div class="flex items-center gap-3 mb-7 reveal">
+                <span class="serif italic text-blue-600 text-lg">Tanlangan</span>
+                <div class="flex-1 h-px bg-gray-200"></div>
+            </div>
+
+            <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="group grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center reveal d1">
+                <div class="feature-cover lg:col-span-7 w-full aspect-[16/10]">
+                    <span class="feature-no absolute left-7 top-6 text-white/20 text-[5rem] leading-none">01</span>
+                    <div class="absolute left-7 bottom-7 right-7 z-[1]">
+                        <span class="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-300">Dizayn</span>
+                        <div class="serif text-white text-2xl md:text-3xl font-light leading-snug mt-2 max-w-md">2026-yil veb-dizayn tili</div>
+                    </div>
+                </div>
+                <div class="lg:col-span-5">
+                    <div class="flex items-center gap-3 mb-5 text-[11px] font-bold uppercase tracking-[0.12em] text-gray-400">
+                        <span>14-Iyun, 2026</span>
+                        <span class="w-1 h-1 bg-gray-300 rounded-full"></span>
+                        <span>6 daqiqa o'qish</span>
+                    </div>
+                    <h2 class="serif text-3xl md:text-[40px] font-light tracking-tight leading-[1.1] mb-5 group-hover:text-blue-600 transition-colors">
+                        2026-yilda veb-dizayn trendlari: nimaga e'tibor berish kerak?
+                    </h2>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-7 max-w-xl">
+                        Minimalizm, tezkor interfeyslar va shaxsiylashtirilgan tajriba — bu yil saytingizni zamonaviy ko'rsatadigan asosiy yo'nalishlarni ko'rib chiqamiz.
+                    </p>
+                    <span class="inline-flex items-center gap-2 text-blue-600 font-bold text-sm group-hover:gap-4 transition-all">
+                        Maqolani o'qish
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </span>
+                </div>
+            </a>
+        </section>
+
+        <!-- Index header + Filters -->
+        <section class="pb-8">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 reveal">
+                <h2 class="serif text-3xl md:text-4xl font-light tracking-tight">Barcha maqolalar</h2>
+                <div class="tabs" id="tabs">
+                    <button class="tab active" data-filter="all">Hammasi</button>
+                    <button class="tab" data-filter="dizayn">Dizayn</button>
+                    <button class="tab" data-filter="marketing">Marketing</button>
+                    <button class="tab" data-filter="texnologiya">Texnologiya</button>
+                    <button class="tab" data-filter="brending">Brending</button>
+                    <span class="tab-underline" id="tabUnderline"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Editorial index -->
+        <section id="postsGrid" class="pb-24">
+            <div id="entryList">
+
+                <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="entry post-card reveal" data-category="dizayn" data-no="02" data-cat="Dizayn">
+                    <span class="entry-no">02</span>
+                    <div>
+                        <span class="entry-cat">Dizayn</span>
+                        <h3 class="entry-title">UI/UX dizayn nima va nega muhim?</h3>
+                        <p class="entry-desc">Yaxshi dizayn shunchaki chiroyli emas — u foydalanuvchini maqsadga olib boradigan tizim.</p>
+                    </div>
+                    <div class="entry-side">
+                        <span class="entry-date">2-Iyun, 2026 · 5 daq.</span>
+                        <span class="entry-arrow"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+                    </div>
+                </a>
+
+                <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="entry post-card reveal" data-category="marketing" data-no="03" data-cat="Marketing">
+                    <span class="entry-no">03</span>
+                    <div>
+                        <span class="entry-cat">Marketing</span>
+                        <h3 class="entry-title">Veb-sayt biznesingizga qanday foyda keltiradi?</h3>
+                        <p class="entry-desc">Professional sayt — bu 24/7 ishlaydigan sotuvchi. U mijoz ishonchini qanday oshiradi?</p>
+                    </div>
+                    <div class="entry-side">
+                        <span class="entry-date">26-May, 2026 · 4 daq.</span>
+                        <span class="entry-arrow"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+                    </div>
+                </a>
+
+                <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="entry post-card reveal" data-category="texnologiya" data-no="04" data-cat="Texnologiya">
+                    <span class="entry-no">04</span>
+                    <div>
+                        <span class="entry-cat">Texnologiya</span>
+                        <h3 class="entry-title">Mobil ilova yoki veb-sayt: qaysi biri kerak?</h3>
+                        <p class="entry-desc">Har birining kuchli tomonlari bor. Biznesingiz uchun to'g'ri tanlovni qanday qilish kerak?</p>
+                    </div>
+                    <div class="entry-side">
+                        <span class="entry-date">18-May, 2026 · 6 daq.</span>
+                        <span class="entry-arrow"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+                    </div>
+                </a>
+
+                <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="entry post-card reveal" data-category="marketing" data-no="05" data-cat="Marketing">
+                    <span class="entry-no">05</span>
+                    <div>
+                        <span class="entry-cat">Marketing</span>
+                        <h3 class="entry-title">SEO asoslari: saytingiz Google'da yuqorida tursin</h3>
+                        <p class="entry-desc">Qidiruv tizimlarida ko'rinish — bepul mijozlar manbai. Boshlash uchun amaliy qadamlar.</p>
+                    </div>
+                    <div class="entry-side">
+                        <span class="entry-date">9-May, 2026 · 7 daq.</span>
+                        <span class="entry-arrow"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+                    </div>
+                </a>
+
+                <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="entry post-card reveal" data-category="texnologiya" data-no="06" data-cat="Texnologiya">
+                    <span class="entry-no">06</span>
+                    <div>
+                        <span class="entry-cat">Texnologiya</span>
+                        <h3 class="entry-title">Tezkor veb-sayt: tezlik nega muhim?</h3>
+                        <p class="entry-desc">Sayt 3 soniyada ochilmasa, mijoz ketadi. Tezlikni oshirishning oddiy usullari.</p>
+                    </div>
+                    <div class="entry-side">
+                        <span class="entry-date">28-Aprel, 2026 · 5 daq.</span>
+                        <span class="entry-arrow"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+                    </div>
+                </a>
+
+                <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="entry post-card reveal" data-category="brending" data-no="07" data-cat="Brending">
+                    <span class="entry-no">07</span>
+                    <div>
+                        <span class="entry-cat">Brending</span>
+                        <h3 class="entry-title">Brend identifikatsiyasi nima uchun kerak?</h3>
+                        <p class="entry-desc">Logotip, ranglar va ovoz — brendingizni esda qolarli qiladigan elementlar haqida.</p>
+                    </div>
+                    <div class="entry-side">
+                        <span class="entry-date">20-Aprel, 2026 · 4 daq.</span>
+                        <span class="entry-arrow"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+                    </div>
+                </a>
+
+            </div>
+
+            <p id="emptyState" class="hidden text-center text-gray-400 py-20 serif italic text-lg">Bu turkumda hozircha maqola yo'q.</p>
+        </section>
+
+        <!-- CTA / Subscribe -->
+        <section class="pb-24">
+            <div class="relative overflow-hidden rounded-[32px] bg-[#121212] text-white px-8 md:px-16 py-20 md:py-24 text-center reveal">
+                <div class="glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                <span class="serif italic text-blue-400 text-lg block mb-6">Obuna bo'ling</span>
+                <h2 class="serif text-3xl md:text-5xl font-light tracking-tight leading-tight max-w-3xl mx-auto mb-8">
+                    Yangi maqolalardan birinchi bo'lib xabardor bo'ling.
+                </h2>
+                <p class="text-gray-400 text-lg max-w-xl mx-auto mb-10">
+                    Telegram kanalimizga obuna bo'ling — foydali maslahatlar va yangiliklarni o'tkazib yubormang.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="magnetic bg-[#2563eb] text-white px-10 py-4 rounded-full font-bold text-sm hover:bg-blue-700 transition">
+                        Telegramda obuna bo'lish
+                    </a>
+                    <a href="https://instagram.com/shaha.gxl" target="_blank" rel="noopener" class="px-10 py-4 rounded-full font-bold text-sm border border-gray-600 hover:border-white transition">
+                        Instagram'da kuzatish
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] bg-[#151515] text-white pt-24 pb-10 scroll-mt-24">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 mb-24">
+                <div>
+                    <p class="text-sm text-gray-400 mb-6">Keling, suhbatlashamiz</p>
+                    <a href="tel:+998900376699" class="text-4xl md:text-[44px] font-medium tracking-tight hover:text-gray-300 transition-colors inline-block mb-16">
+                        +998 90 037 66 99
+                    </a>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3">Telegram</h4>
+                            <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-white transition-colors">@artlife_studio_uz</a>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3">Instagram</h4>
+                            <a href="https://instagram.com/shaha.gxl" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-white transition-colors">@shaha.gxl</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:flex md:justify-end">
+                    <div class="flex flex-col gap-6">
+                        <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Telegram
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                        <a href="https://instagram.com/shaha.gxl" target="_blank" rel="noopener" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Instagram
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                        <a href="tel:+998900376699" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Telefon
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <a href="index.html" class="flex flex-col leading-none">
+                    <span class="text-2xl font-extrabold tracking-tight text-white">ArtLife</span>
+                    <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 ml-0.5">Studio</span>
+                </a>
+                <p class="text-gray-500 text-sm">© 2026 ArtLife Studio. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Menu Toggle Logic
+    const menuOverlay = document.getElementById('menuOverlay');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+            menuOverlay.classList.remove('translate-y-full');
+            menuOverlay.classList.add('translate-y-0');
+            bar1.classList.add('rotate-45', 'translate-y-[9px]');
+            bar2.classList.add('-rotate-45', '-translate-y-[9px]');
+        } else {
+            menuOverlay.classList.add('translate-y-full');
+            menuOverlay.classList.remove('translate-y-0');
+            bar1.classList.remove('rotate-45', 'translate-y-[9px]');
+            bar2.classList.remove('-rotate-45', '-translate-y-[9px]');
+        }
+    }
+
+    // Hero load animation
+    window.addEventListener('load', () => {
+        requestAnimationFrame(() => document.getElementById('hero').classList.add('hero-in'));
+    });
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ---- Filter tabs with sliding underline ----
+    const tabs = document.querySelectorAll('.tab');
+    const cards = document.querySelectorAll('.post-card');
+    const emptyState = document.getElementById('emptyState');
+    const underline = document.getElementById('tabUnderline');
+
+    function moveUnderline(el) {
+        underline.style.left = el.offsetLeft + 'px';
+        underline.style.width = el.offsetWidth + 'px';
+    }
+    const activeTab = document.querySelector('.tab.active');
+    if (activeTab) moveUnderline(activeTab);
+    window.addEventListener('resize', () => {
+        const a = document.querySelector('.tab.active'); if (a) moveUnderline(a);
+    });
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            moveUnderline(tab);
+            const filter = tab.dataset.filter;
+            let visible = 0;
+            cards.forEach(card => {
+                const match = filter === 'all' || card.dataset.category === filter;
+                card.classList.toggle('hide', !match);
+                if (match) visible++;
+            });
+            emptyState.classList.toggle('hidden', visible > 0);
+        });
+    });
+
+    // ---- Cursor-following cover preview on index rows ----
+    const preview = document.getElementById('hoverPreview');
+    const hpNo = document.getElementById('hpNo');
+    const hpCat = document.getElementById('hpCat');
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    if (finePointer) {
+        let px = 0, py = 0, cx = 0, cy = 0, raf = null;
+        function loop() {
+            cx += (px - cx) * 0.16; cy += (py - cy) * 0.16;
+            preview.style.transform = `translate(${cx}px, ${cy}px) translate(-50%,-50%) scale(1) rotate(-4deg)`;
+            raf = requestAnimationFrame(loop);
+        }
+        document.querySelectorAll('.entry').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                hpNo.textContent = row.dataset.no || '';
+                hpCat.textContent = row.dataset.cat || '';
+                preview.classList.add('show');
+                if (!raf) loop();
+            });
+            row.addEventListener('mousemove', (e) => { px = e.clientX + 40; py = e.clientY; });
+            row.addEventListener('mouseleave', () => {
+                preview.classList.remove('show');
+                cancelAnimationFrame(raf); raf = null;
+            });
+        });
+    }
+
+    // ---- Magnetic button ----
+    document.querySelectorAll('.magnetic').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const r = btn.getBoundingClientRect();
+            const mx = e.clientX - r.left - r.width / 2;
+            const my = e.clientY - r.top - r.height / 2;
+            btn.style.transform = `translate(${mx * 0.25}px, ${my * 0.35}px)`;
+        });
+        btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0,0)'; });
+    });
+    </script>
+</body>
+</html>

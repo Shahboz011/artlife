@@ -1,0 +1,7 @@
+# Local backup of the original project images (kept out of the repo)
+site/Project-imgs/_backup-original/
+
+# OS / editor cruft
+Thumbs.db
+desktop.ini
+.DS_Store

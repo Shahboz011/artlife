@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtLife Studio | Kreativ Agentlik</title>
+    <meta name="description" content="ArtLife Studio — biznesingiz uchun veb-dizayn, veb va mobil ilovalar ishlab chiqish hamda raqamli marketing yechimlari.">
+    <link rel="canonical" href="https://artlife-studio.uz/">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="ArtLife Studio">
+    <meta name="theme-color" content="#2563eb">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ArtLife Studio">
+    <meta property="og:locale" content="uz_UZ">
+    <meta property="og:title" content="ArtLife Studio | Kreativ Agentlik">
+    <meta property="og:description" content="ArtLife Studio — biznesingiz uchun veb-dizayn, veb va mobil ilovalar ishlab chiqish hamda raqamli marketing yechimlari.">
+    <meta property="og:url" content="https://artlife-studio.uz/">
+    <meta property="og:image" content="https://artlife-studio.uz/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ArtLife Studio — kreativ raqamli agentlik">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ArtLife Studio | Kreativ Agentlik">
+    <meta name="twitter:description" content="ArtLife Studio — biznesingiz uchun veb-dizayn, veb va mobil ilovalar ishlab chiqish hamda raqamli marketing yechimlari.">
+    <meta name="twitter:image" content="https://artlife-studio.uz/og-image.png">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold'>A</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #ffffff; 
+            color: #1a1a1a; 
+            position: relative;
+        }
+        /* The Grid Background from the screenshot */
+        .grid-bg {
+    background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+    background-size: 24px 24px; /* Nuqtalar orasi masofasi */
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.4;
+}
+/* Animatsiyalar faqat desktop (768px dan katta) uchun */
+        @media (min-width: 768px) {
+            @keyframes scrollLeft {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+            @keyframes scrollRight {
+                0% { transform: translateX(-50%); }
+                100% { transform: translateX(0); }
+            }
+            .animate-scroll-left {
+                animation: scrollLeft 40s linear infinite;
+                display: flex;
+                width: max-content;
+            }
+            .animate-scroll-right {
+                animation: scrollRight 40s linear infinite;
+                display: flex;
+                width: max-content;
+            }
+            .logo-item {
+                width: 280px;
+                height: 140px;
+                background-color: #f8f9fa;
+                flex-shrink: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .logo-item img {
+                width: 120px;
+                opacity: 0.5;
+                filter: grayscale(1);
+            }
+            .logo-item span {
+                font-size: 22px;
+                font-weight: 800;
+                letter-spacing: -0.02em;
+                color: #6b7280;
+                opacity: 0.6;
+                white-space: nowrap;
+                transition: opacity .3s ease, color .3s ease;
+            }
+            .logo-item:hover span {
+                opacity: 1;
+                color: #2563eb;
+            }
+        }
+        .proj-extra.hide { display: none; }
+    </style>
+</head>
+<body class="antialiased px-6 md:px-12">
+
+    <div class="grid-bg"></div>
+
+    <!-- Full Screen Menu Overlay -->
+    <div id="menuOverlay" class="fixed inset-0 z-[60] bg-white translate-y-full transition-transform duration-500 ease-in-out">
+        <div class="grid-bg"></div>
+        
+        <!-- Menu Header (Logo + Close) -->
+        <div class="flex justify-between items-center px-6 md:px-12 pt-6 pb-4">
+            <div class="flex flex-col leading-none">
+                <span class="text-2xl font-extrabold tracking-tight">ArtLife</span>
+                <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 ml-0.5">Studio</span>
+            </div>
+            <!-- This button toggles the menu closed -->
+            <div onclick="toggleMenu()" class="cursor-pointer group">
+                <div class="relative w-8 h-8 flex items-center justify-center">
+                    <div class="absolute w-6 h-0.5 bg-black rotate-45"></div>
+                    <div class="absolute w-6 h-0.5 bg-black -rotate-45"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Links -->
+        <div class="flex flex-col items-center justify-center h-[60vh] space-y-8">
+            <a href="index.html" onclick="toggleMenu()" class="text-xl font-bold hover:text-blue-600 transition text-center">Asosiy</a>
+            <a href="loyihalar.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Loyihalar</a>
+            <a href="about-us.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Biz haqimizda</a>
+            <a href="#services" onclick="toggleMenu()" class="text-xl font-bold hover:text-blue-600 transition text-center">Xizmatlar</a>
+            <a href="blog.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Blog</a>
+
+            <a href="#contact" onclick="toggleMenu()" class="mt-4 border-2 border-blue-600 text-blue-600 px-10 py-3 rounded-full font-bold hover:bg-blue-600 hover:text-white transition">
+                Bog'lanish
+            </a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+ <header class="sticky top-0 z-[55] bg-white/80 backdrop-blur-md -mx-6 md:-mx-12 px-6 md:px-12 border-b border-gray-50/50">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center py-6">
+            <a href="index.html" class="flex flex-col leading-none">
+                <span class="text-2xl font-extrabold tracking-tight">ArtLife</span>
+                <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 ml-0.5">Studio</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-10">
+                <a href="index.html" class="text-sm font-semibold hover:text-blue-600 transition">Asosiy</a>
+                <a href="loyihalar.html" class="text-sm font-semibold hover:text-blue-600 transition">Loyihalar</a>
+                <a href="about-us.html" class="text-sm font-semibold hover:text-blue-600 transition">Biz haqimizda</a>
+                <a href="#services" class="text-sm font-semibold hover:text-blue-600 transition">Xizmatlar</a>
+                <a href="blog.html" class="text-sm font-semibold hover:text-blue-600 transition">Blog</a>
+                <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="border border-gray-400 px-6 py-2 rounded-full text-sm font-bold hover:border-black transition">Biz bilan bog'lanish</a>
+            </div>
+
+            <div id="menuBtn" onclick="toggleMenu()" class="md:hidden group cursor-pointer w-6 h-5 relative flex flex-col justify-between">
+                <div id="bar1" class="w-6 h-0.5 bg-black transition-all duration-300 origin-center"></div>
+                <div id="bar2" class="w-6 h-0.5 bg-black transition-all duration-300 origin-center"></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Content -->
+   <main class="max-w-7xl mx-auto pt-16 relative">
+        <div class="absolute right-0 top-10 hidden md:block">
+            <svg class="w-20 h-20 text-gray-200" viewBox="0 0 100 100" fill="none"><path d="M20 20L80 80M80 80V30M80 80H30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+
+        <div class="max-w-4xl">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="w-8 h-[1px] bg-gray-400"></div>
+                <span class="text-gray-600 text-sm font-medium">Biznesingiz uchun IT-yechimlar</span>
+            </div>
+
+            <h1 id="typewriter" class="text-[48px] md:text-[92px] leading-[1.05] font-extrabold tracking-tight mb-12">
+                G'oyalardan,<br>Haqiqiy Natijagacha 
+            </h1>
+        </div> <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-16 w-full">
+            <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="bg-[#2563eb] text-white px-10 py-4 rounded-full font-bold text-sm hover:bg-blue-700 transition w-fit inline-block">
+                Bepul maslahat olish
+            </a>
+                    
+            <div class="flex items-center gap-6">
+                <div class="hidden md:block w-32 h-[1px] bg-gray-200"></div>
+                
+                <div class="flex gap-3">
+                    <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" aria-label="Telegram" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition text-gray-700">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1.01-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.11.02-1.93 1.23-5.46 3.62-.51.35-.98.53-1.39.52-.46-.01-1.33-.26-1.98-.48-.8-.27-1.43-.42-1.37-.89.03-.25.38-.51 1.03-.78 4.04-1.76 6.74-2.92 8.09-3.48 3.85-1.6 4.64-1.88 5.17-1.89.11 0 .37.03.54.17.14.12.18.28.2.45-.02.07-.02.13-.03.19z"/></svg>
+                    </a>
+
+                    <a href="https://instagram.com/shaha.gxl" target="_blank" rel="noopener" aria-label="Instagram" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition text-gray-700">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 0.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Hero Video -->
+        <div class="w-full aspect-video rounded-3xl overflow-hidden bg-gray-100 mb-12 shadow-2xl">
+            <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                <source src="loop.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- About Section -->
+       <section class="py-24 border-t border-gray-100">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            
+            <div class="flex items-center gap-3">
+                <div class="w-2 h-2 bg-blue-600"></div>
+                <span class="text-xs font-bold tracking-[0.2em] uppercase text-gray-900">Biz Haqimizda</span>
+            </div>
+
+            <div class="flex flex-col items-start max-w-2xl">
+                <p class="text-[28px] md:text-[38px] font-semibold leading-[1.3] tracking-tight text-[#1a1a1a] mb-10">
+                Strategiya va raqamli texnologiyalar uyg'unligi orqali biz sizning biznesingiz uchun mukammal va yuqori sifatli yechimlarni yaratamiz.
+                </p>
+
+                <a href="about-us.html" class="inline-flex items-center px-8 py-3 border-2 border-blue-600 rounded-full text-sm font-bold text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300">
+                    Batafsil
+                </a>
+            </div>
+        </div>
+    </section>
+        <!-- Partner/Brand Grid -->
+   <div class="mb-32">
+            
+            <div class="grid grid-cols-2 gap-2 md:hidden">
+                <div class="h-32 bg-gray-50 flex items-center justify-center font-extrabold text-gray-500 tracking-tight text-center px-2">Chovkar</div>
+                <div class="h-32 bg-gray-50 flex items-center justify-center font-extrabold text-gray-500 tracking-tight text-center px-2">Rizqana</div>
+                <div class="h-32 bg-gray-50 flex items-center justify-center font-extrabold text-gray-500 tracking-tight text-center px-2">Humotib</div>
+                <div class="h-32 bg-gray-50 flex items-center justify-center font-extrabold text-gray-500 tracking-tight text-center px-2">Solid Industries</div>
+                <div class="h-32 bg-gray-50 flex items-center justify-center font-extrabold text-gray-500 tracking-tight text-center px-2">Munfareed</div>
+                <div class="h-32 bg-gray-50 flex items-center justify-center font-extrabold text-gray-500 tracking-tight text-center px-2">Aura Agency</div>
+                <div class="h-32 bg-gray-50 flex items-center justify-center font-extrabold text-gray-500 tracking-tight text-center px-2">Aurum Tabac</div>
+                <div class="h-32 bg-gray-50 flex items-center justify-center font-extrabold text-gray-500 tracking-tight text-center px-2">Wallet-Z</div>
+                <div class="h-32 bg-gray-50 flex items-center justify-center font-extrabold text-gray-500 tracking-tight text-center px-2">KBR Dental</div>
+            </div>
+
+            <div class="hidden md:block overflow-hidden space-y-2 -mx-12">
+                
+                <div class="flex overflow-hidden">
+                    <div class="animate-scroll-left flex gap-2">
+                        <div class="logo-item"><span>Chovkar</span></div>
+                        <div class="logo-item"><span>Rizqana</span></div>
+                        <div class="logo-item"><span>Humotib</span></div>
+                        <div class="logo-item"><span>Solid Industries</span></div>
+                        <div class="logo-item"><span>Munfareed</span></div>
+                        <div class="logo-item"><span>Aura Agency</span></div>
+                        <div class="logo-item"><span>Aurum Tabac</span></div>
+                        <div class="logo-item"><span>Wallet-Z</span></div>
+                        <div class="logo-item"><span>KBR Dental</span></div>
+                        <div class="logo-item"><span>Chovkar</span></div>
+                        <div class="logo-item"><span>Rizqana</span></div>
+                        <div class="logo-item"><span>Humotib</span></div>
+                        <div class="logo-item"><span>Solid Industries</span></div>
+                        <div class="logo-item"><span>Munfareed</span></div>
+                        <div class="logo-item"><span>Aura Agency</span></div>
+                        <div class="logo-item"><span>Aurum Tabac</span></div>
+                        <div class="logo-item"><span>Wallet-Z</span></div>
+                        <div class="logo-item"><span>KBR Dental</span></div>
+                    </div>
+                </div>
+
+                <div class="flex overflow-hidden">
+                    <div class="animate-scroll-right flex gap-2">
+                        <div class="logo-item"><span>KBR Dental</span></div>
+                        <div class="logo-item"><span>Wallet-Z</span></div>
+                        <div class="logo-item"><span>Aurum Tabac</span></div>
+                        <div class="logo-item"><span>Aura Agency</span></div>
+                        <div class="logo-item"><span>Munfareed</span></div>
+                        <div class="logo-item"><span>Solid Industries</span></div>
+                        <div class="logo-item"><span>Humotib</span></div>
+                        <div class="logo-item"><span>Rizqana</span></div>
+                        <div class="logo-item"><span>Chovkar</span></div>
+                        <div class="logo-item"><span>KBR Dental</span></div>
+                        <div class="logo-item"><span>Wallet-Z</span></div>
+                        <div class="logo-item"><span>Aurum Tabac</span></div>
+                        <div class="logo-item"><span>Aura Agency</span></div>
+                        <div class="logo-item"><span>Munfareed</span></div>
+                        <div class="logo-item"><span>Solid Industries</span></div>
+                        <div class="logo-item"><span>Humotib</span></div>
+                        <div class="logo-item"><span>Rizqana</span></div>
+                        <div class="logo-item"><span>Chovkar</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Next Section Label -->
+        <div id="projects" class="flex items-center gap-3 mb-12 scroll-mt-24">
+            <div class="w-2 h-2 bg-blue-600"></div>
+            <span class="text-xs font-bold tracking-[0.2em] uppercase text-gray-900">Loyihalarimiz</span>
+        </div>
+
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-20 mb-32">
+            
+            <a href="https://aura-agency.uz/" target="_blank" rel="noopener" class="group cursor-pointer block">
+                <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
+                    <img src="Project-imgs/aura.png" loading="lazy" alt="Aura Agency" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Aura Agency.</h3>
+                        <p class="text-gray-500 text-sm font-medium">Web Sayt</p>
+                    </div>
+
+                    <div class="flex items-center gap-4 pt-2">
+                        <div class="w-12 h-[1px] bg-gray-300"></div>
+                        <span class="text-sm font-medium text-gray-400">2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://munfareedlogistics.com/" target="_blank" rel="noopener" class="group cursor-pointer block">
+                <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
+                    <img src="Project-imgs/munfareed.png" loading="lazy" alt="Munfareed Logistics" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Munfareed.</h3>
+                        <p class="text-gray-500 text-sm font-medium">Web Sayt</p>
+                    </div>
+
+                    <div class="flex items-center gap-4 pt-2">
+                        <div class="w-12 h-[1px] bg-gray-300"></div>
+                        <span class="text-sm font-medium text-gray-400">2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://humotib.uz/" target="_blank" rel="noopener" class="group cursor-pointer block">
+                <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
+                    <img src="Project-imgs/humotib.png" loading="lazy" alt="Humotib Klinikasi" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Humotib.</h3>
+                        <p class="text-gray-500 text-sm font-medium">Web Sayt</p>
+                    </div>
+
+                    <div class="flex items-center gap-4 pt-2">
+                        <div class="w-12 h-[1px] bg-gray-300"></div>
+                        <span class="text-sm font-medium text-gray-400">2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.aurum-tabac.uz/" target="_blank" rel="noopener" class="group cursor-pointer block">
+                <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
+                    <img src="Project-imgs/aurum.png" loading="lazy" alt="Aurum Tabac" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Aurum Tabac.</h3>
+                        <p class="text-gray-500 text-sm font-medium">Web Sayt</p>
+                    </div>
+
+                    <div class="flex items-center gap-4 pt-2">
+                        <div class="w-12 h-[1px] bg-gray-300"></div>
+                        <span class="text-sm font-medium text-gray-400">2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://myferma.uz/" target="_blank" rel="noopener" class="proj-extra hide group cursor-pointer block">
+                <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
+                    <img src="Project-imgs/myferma.png" alt="Chovkar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Chovkar.</h3>
+                        <p class="text-gray-500 text-sm font-medium">Web Ilova</p>
+                    </div>
+
+                    <div class="flex items-center gap-4 pt-2">
+                        <div class="w-12 h-[1px] bg-gray-300"></div>
+                        <span class="text-sm font-medium text-gray-400">2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://rizqana.uz/" target="_blank" rel="noopener" class="proj-extra hide group cursor-pointer block">
+                <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
+                    <img src="Project-imgs/Rizqana.png" loading="lazy" alt="Rizqana" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Rizqana.</h3>
+                        <p class="text-gray-500 text-sm font-medium">Web Ilova</p>
+                    </div>
+
+                    <div class="flex items-center gap-4 pt-2">
+                        <div class="w-12 h-[1px] bg-gray-300"></div>
+                        <span class="text-sm font-medium text-gray-400">2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://wallet-z.uz/" target="_blank" rel="noopener" class="proj-extra hide group cursor-pointer block">
+                <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
+                    <img src="Project-imgs/walletz.png" loading="lazy" alt="Wallet-Z" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Wallet-Z.</h3>
+                        <p class="text-gray-500 text-sm font-medium">Web Ilova</p>
+                    </div>
+
+                    <div class="flex items-center gap-4 pt-2">
+                        <div class="w-12 h-[1px] bg-gray-300"></div>
+                        <span class="text-sm font-medium text-gray-400">2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://kbrdentalclinic.uz/" target="_blank" rel="noopener" class="proj-extra hide group cursor-pointer block">
+                <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
+                    <img src="Project-imgs/kbr.png" loading="lazy" alt="KBR Dental Clinic" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">KBR Dental.</h3>
+                        <p class="text-gray-500 text-sm font-medium">Web Sayt</p>
+                    </div>
+
+                    <div class="flex items-center gap-4 pt-2">
+                        <div class="w-12 h-[1px] bg-gray-300"></div>
+                        <span class="text-sm font-medium text-gray-400">2026</span>
+                    </div>
+                </div>
+            </a>
+
+            </div>
+
+            <div id="showMoreWrap" class="flex justify-center mt-16">
+                <button id="showMoreBtn" type="button" class="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-gray-300 font-bold text-sm tracking-tight hover:border-gray-900 hover:bg-gray-900 hover:text-white transition-all">
+                    Ko'proq ko'rish
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+            </div>
+    </section>
+
+   
+
+    </main>
+
+  <section id="services" class="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] bg-[#121212] text-white py-28 mt-20 scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+
+        <div class="flex items-center gap-3 mb-16">
+            <div class="w-2 h-2 bg-[#2563eb]"></div>
+            <span class="text-xs font-bold tracking-[0.15em] uppercase text-white">Bizning Xizmatlar</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 border-t border-gray-800">
+            
+            <div class="p-10 md:p-16 border-b md:border-r border-gray-800 group hover:bg-[#1a1a1a] transition-colors duration-300">
+                <div class="mb-8 text-white">
+                    <svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="14" rx="2" ry="2"/>
+                        <path d="M3 7h18"/><path d="M8 21h8"/><path d="M12 17v4"/><circle cx="8" cy="12" r="1"/><circle cx="16" cy="12" r="1"/><path d="M8 12h8"/>
+                    </svg>
+                </div>
+                <h3 class="text-3xl md:text-[32px] font-semibold mb-4 tracking-tight">UI/UX Dizayn</h3>
+                <p class="text-gray-400 text-[15px] leading-[1.8] font-medium max-w-[90%]">
+                    Veb-dizayn, UI/UX dizayn, brending va front-end ishlab chiqish orqali innovatsion yechimlar taqdim etamiz — ijodkorlik va funksionallikni uyg'unlashtirib, brendingizni yangi bosqichga olib chiqamiz.
+                </p>
+            </div>
+
+            <div class="p-10 md:p-16 border-b border-gray-800 group hover:bg-[#1a1a1a] transition-colors duration-300">
+                <div class="mb-8 text-white">
+                    <svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M10 9l-2 2 2 2"/><path d="M14 9l2 2-2 2"/>
+                    </svg>
+                </div>
+                <h3 class="text-3xl md:text-[32px] font-semibold mb-4 tracking-tight">Veb Ishlab Chiqish</h3>
+                <p class="text-gray-400 text-[15px] leading-[1.8] font-medium max-w-[90%]">
+                    Zamonaviy texnologiyalar yordamida ishonchli va kengaytiriladigan veb-saytlar yaratamiz: yuqori tezlik, uzluksiz ishlash va barcha qurilmalarga moslashuvchan dizaynni kafolatlaymiz.
+                </p>
+            </div>
+
+            <div class="p-10 md:p-16 border-b md:border-b-0 md:border-r border-gray-800 group hover:bg-[#1a1a1a] transition-colors duration-300">
+                <div class="mb-8 text-white">
+                    <svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/><path d="M9 10l-2 2 2 2"/><path d="M15 10l2 2-2 2"/>
+                    </svg>
+                </div>
+                <h3 class="text-3xl md:text-[32px] font-semibold mb-4 tracking-tight">Ilova Ishlab Chiqish</h3>
+                <p class="text-gray-400 text-[15px] leading-[1.8] font-medium max-w-[90%]">
+                    Foydalanuvchi tajribasi, samarali kodlash va platformalararo moslikka e'tibor qaratgan holda qulay va yuqori unumli mobil hamda veb ilovalar yaratamiz.
+                </p>
+            </div>
+
+            <div class="p-10 md:p-16 group hover:bg-[#1a1a1a] transition-colors duration-300">
+                <div class="mb-8 text-white">
+                    <svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19 5a10 10 0 010 14M15 9a5 5 0 010 6"/>
+                    </svg>
+                </div>
+                <h3 class="text-3xl md:text-[32px] font-semibold mb-4 tracking-tight">Raqamli Marketing</h3>
+                <p class="text-gray-400 text-[15px] leading-[1.8] font-medium max-w-[90%]">
+                    SEO, ijtimoiy tarmoqlar, kontent strategiyasi va onlayn reklamani o'z ichiga olgan keng qamrovli raqamli marketing yechimlari bilan biznesingiz rivojiga hissa qo'shamiz.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="mt-40 mb-10 grid grid-cols-1 md:grid-cols-12 gap-12">
+            
+            <div class="md:col-span-3 pt-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-2.5 h-2.5 bg-[#2563eb]"></div>
+                    <span class="text-[11px] font-black tracking-[0.25em] uppercase text-white">Mijozlar Fikri</span>
+                </div>
+            </div>
+
+            <div class="md:col-span-9 flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+                
+                <div class="shrink-0 mt-2">
+                    <svg class="w-12 h-12 md:w-16 md:h-16 text-[#6039ff]" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                    </svg>
+                </div>
+                
+                <div class="flex-1 min-h-[200px]">
+                    <p id="feedbackText" class="text-[26px] md:text-[34px] leading-[1.4] font-medium text-white mb-12 transition-opacity duration-300">
+                        Ajoyib dizayn tajribasi! Ularning innovatsiyasi va aniqligi g'oyalarimizni hayotga tatbiq etdi. Hamkorlik qulay kechdi va natijalar kutilganidan ham yaxshi bo'ldi.
+                    </p>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <img id="feedbackImage" src="https://ui-avatars.com/api/?name=Aziz+Karimov&background=333&color=fff" alt="Author" class="w-12 h-12 rounded-full object-cover">
+                            <div>
+                                <h4 id="feedbackName" class="text-white font-bold text-lg mb-0.5">Aziz Karimov</h4>
+                                <p id="feedbackRole" class="text-gray-400 text-sm">Bosh Dizayner</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-6">
+                            <button onclick="prevFeedback()" class="text-gray-500 hover:text-white transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                            </button>
+                            <button onclick="nextFeedback()" class="text-white hover:text-gray-300 transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+</section>
+
+
+    <section class="py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-6 md:px-12">
+                
+                <div class="flex items-center gap-3 mb-16">
+                    <div class="w-2.5 h-2.5 bg-[#2563eb]"></div>
+                    <span class="text-[11px] font-black tracking-[0.25em] uppercase text-gray-900">Bizning Jarayon</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 border border-gray-200">
+                    
+                    <div class="p-16 border-b md:border-b-0 md:border-r border-gray-200 flex flex-col items-center justify-center text-center group hover:bg-gray-50 transition-colors">
+                        <span class="text-xl font-medium text-gray-500 mb-6">01.</span>
+                        <h3 class="text-4xl font-medium tracking-tight text-[#1a1a1a]">Murojaat</h3>
+                    </div>
+
+                    <div class="p-16 border-b md:border-b-0 md:border-r border-gray-200 flex flex-col items-center justify-center text-center group hover:bg-gray-50 transition-colors">
+                        <span class="text-xl font-medium text-gray-500 mb-6">02.</span>
+                        <h3 class="text-4xl font-medium tracking-tight text-[#1a1a1a]">So'rov</h3>
+                    </div>
+
+                    <div class="p-16 flex flex-col items-center justify-center text-center group hover:bg-gray-50 transition-colors">
+                        <span class="text-xl font-medium text-gray-500 mb-6">03.</span>
+                        <h3 class="text-4xl font-medium tracking-tight text-[#1a1a1a]">Natija</h3>
+                    </div>
+
+                </div>
+            </div>
+    </section>
+
+    <section class="py-32 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+                
+                <div class="md:col-span-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-2.5 h-2.5 bg-[#2563eb]"></div>
+                        <span class="text-[11px] font-black tracking-[0.25em] uppercase text-gray-900">Ko'p Beriladigan Savollar</span>
+                    </div>
+                </div>
+
+                <div class="md:col-span-8">
+                    
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-[19px] font-medium text-gray-900">Hamkorlikka nimalar kiradi?</span>
+                            <svg class="w-5 h-5 text-gray-900 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-500 leading-relaxed text-[15px]">
+                                Hamkorligimizga cheksiz dizayn so'rovlari, cheksiz tahrirlar, tez yetkazib berish va barcha loyihalaringiz uchun manba fayllar kiradi. UI/UX dan brendinggacha bo'lgan barcha yo'nalishlarni qamrab olamiz.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-[19px] font-medium text-gray-900">Dizaynni tayyorlash qancha vaqt oladi?</span>
+                            <svg class="w-5 h-5 text-gray-900 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-500 leading-relaxed text-[15px]">
+                                Aksariyat dizaynlar so'rov murakkabligiga qarab 24–48 soat ichida yetkaziladi. Yirik loyihalar kichikroq bosqichlarga bo'linishi mumkin.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-[19px] font-medium text-gray-900">Tahrirlar soniga cheklov bormi?</span>
+                            <svg class="w-5 h-5 text-gray-900 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-500 leading-relaxed text-[15px]">
+                                Yo'q! Yakuniy natijadan 100% mamnun bo'lguningizgacha cheksiz tahrirlar taklif qilamiz. Sizning mamnuniyatingiz biz uchun ustuvor.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-[19px] font-medium text-gray-900">Hamkorlikni istalgan vaqtda to'xtata olamanmi?</span>
+                            <svg class="w-5 h-5 text-gray-900 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-500 leading-relaxed text-[15px]">
+                                Albatta. Hech qanday uzoq muddatli majburiyat yoki yashirin to'lovlar yo'q. Hamkorlikni istalgan vaqtda to'xtatib turishingiz yoki yakunlashingiz mumkin.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-[19px] font-medium text-gray-900">Reja doirasidan tashqari maxsus dizayn kerak bo'lsa-chi?</span>
+                            <svg class="w-5 h-5 text-gray-900 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-500 leading-relaxed text-[15px]">
+                                Standart doiradan tashqaridagi murakkab yoki maxsus loyihalar uchun ehtiyojlaringizga moslashtirilgan alohida taklif tayyorlab beramiz.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] bg-[#151515] text-white pt-24 pb-10 mt-10 scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 mb-24">
+            
+            <div>
+                <p class="text-sm text-gray-400 mb-6">Keling, suhbatlashamiz</p>
+                <a href="tel:+998900376699" class="text-4xl md:text-[44px] font-medium tracking-tight hover:text-gray-300 transition-colors inline-block mb-16">
+                    +998 90 037 66 99
+                </a>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-sm font-semibold mb-3">Telegram</h4>
+                        <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-white transition-colors">@artlife_studio_uz</a>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold mb-3">Instagram</h4>
+                        <a href="https://instagram.com/shaha.gxl" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-white transition-colors">@shaha.gxl</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:flex md:justify-end">
+                <div class="flex flex-col gap-6">
+                    <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                        Telegram
+                        <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    </a>
+                    <a href="https://instagram.com/shaha.gxl" target="_blank" rel="noopener" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                        Instagram
+                        <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    </a>
+                    <a href="tel:+998900376699" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                        Telefon
+                        <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex flex-col leading-none">
+                <span class="text-2xl font-extrabold tracking-tight text-white">ArtLife</span>
+                <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 ml-0.5">Studio</span>
+            </div>
+            <p class="text-gray-500 text-sm">© 2026 ArtLife Studio. Barcha huquqlar himoyalangan.</p>
+        </div>
+
+    </div>
+</footer>
+
+    <script>
+    // Typewriter Logic
+    const text = "G'oyalardan,<br>Haqiqiy Natijagacha";
+    const element = document.getElementById("typewriter");
+    let i = 0;
+    let isTag = false;
+    let currentText = "";
+
+    function type() {
+        if (i < text.length) {
+            let char = text.charAt(i);
+            if (char === "<") isTag = true;
+            if (char === ">") isTag = false;
+            currentText += char;
+            element.innerHTML = currentText;
+            i++;
+            setTimeout(type, isTag ? 0 : 30); 
+        }
+    }
+    window.onload = type;
+
+    // Menu Toggle Logic
+    const menuOverlay = document.getElementById('menuOverlay');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        
+        if (isMenuOpen) {
+            // Open Menu
+            menuOverlay.classList.remove('translate-y-full');
+            menuOverlay.classList.add('translate-y-0');
+            // Animate Hamburger to X
+            bar1.classList.add('rotate-45', 'translate-y-[9px]');
+            bar2.classList.add('-rotate-45', '-translate-y-[9px]');
+        } else {
+            // Close Menu
+            menuOverlay.classList.add('translate-y-full');
+            menuOverlay.classList.remove('translate-y-0');
+            // Animate X back to Hamburger
+            bar1.classList.remove('rotate-45', 'translate-y-[9px]');
+            bar2.classList.remove('-rotate-45', '-translate-y-[9px]');
+        }
+    }
+
+    // Feedback Slider Logic
+    const feedbacks = [
+        {
+            text: "Ajoyib dizayn tajribasi! Ularning innovatsiyasi va aniqligi g'oyalarimizni hayotga tatbiq etdi. Hamkorlik qulay kechdi va natijalar kutilganidan ham yaxshi bo'ldi.",
+            name: "Aziz Karimov",
+            role: "Bosh Dizayner",
+            img: "https://ui-avatars.com/api/?name=Aziz+Karimov&background=333&color=fff"
+        },
+        {
+            text: "Biz ishlagan eng yaxshi jamoa. Ular yuqori sifatli kod va chiroyli interfeys taqdim etishdi. Kelgusi loyihalar uchun albatta yana murojaat qilamiz.",
+            name: "Dilnoza Yusupova",
+            role: "Mahsulot Menejeri",
+            img: "https://ui-avatars.com/api/?name=Dilnoza+Yusupova&background=333&color=fff"
+        },
+        {
+            text: "Tafsilotlarga yuqori e'tibor va juda tez yetkazib berish. Butun jarayon boshidan oxirigacha muammosiz kechdi. Albatta tavsiya qilaman!",
+            name: "Sardor Aliyev",
+            role: "TechFlow asoschisi",
+            img: "https://ui-avatars.com/api/?name=Sardor+Aliyev&background=333&color=fff"
+        }
+    ];
+
+    let currentFeedback = 0;
+    const fbText = document.getElementById('feedbackText');
+    const fbName = document.getElementById('feedbackName');
+    const fbRole = document.getElementById('feedbackRole');
+    const fbImg = document.getElementById('feedbackImage');
+
+    function updateFeedback() {
+        // Kichik animatsiya effekti uchun
+        fbText.style.opacity = 0;
+        setTimeout(() => {
+            fbText.innerText = feedbacks[currentFeedback].text;
+            fbName.innerText = feedbacks[currentFeedback].name;
+            fbRole.innerText = feedbacks[currentFeedback].role;
+            fbImg.src = feedbacks[currentFeedback].img;
+            fbText.style.opacity = 1;
+        }, 150);
+    }
+
+    function nextFeedback() {
+        currentFeedback = (currentFeedback + 1) % feedbacks.length;
+        updateFeedback();
+    }
+
+    function prevFeedback() {
+        currentFeedback = (currentFeedback - 1 + feedbacks.length) % feedbacks.length;
+        updateFeedback();
+    }
+
+    // FAQ Accordion Logic
+    function toggleFAQ(button) {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('svg');
+        
+        // Agar ochiq bo'lsa, yopamiz
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+            icon.classList.remove('rotate-45');
+        } else {
+            // Avval boshqa hamma ochiqlarni yopish (ixtiyoriy, agar faqat bittasi ochiq turishini xohlasangiz)
+            document.querySelectorAll('.max-h-0').forEach(el => {
+                el.style.maxHeight = null;
+            });
+            document.querySelectorAll('button[onclick="toggleFAQ(this)"] svg').forEach(svg => {
+                svg.classList.remove('rotate-45');
+            });
+
+            // Tanlanganini ochamiz
+            content.style.maxHeight = content.scrollHeight + "px";
+            icon.classList.add('rotate-45');
+        }
+    }
+    </script>
+
+<script>
+    (function () {
+        var btn = document.getElementById('showMoreBtn');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+            document.querySelectorAll('.proj-extra').forEach(function (c) { c.classList.remove('hide'); });
+            var wrap = document.getElementById('showMoreWrap');
+            if (wrap) wrap.remove();
+        });
+    })();
+</script>
+</body>
+</html>
