@@ -5,3 +5,6 @@ site/Project-imgs/_backup-original/
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Firebase local deploy cache
+.firebase/
