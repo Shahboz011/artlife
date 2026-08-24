@@ -93,6 +93,23 @@
             }
         }
         .proj-extra.hide { display: none; }
+        /* "Batafsil ma'lumot" link on a project card */
+        .case-link {
+            display: inline-flex;
+            align-items: center;
+            gap: .3rem;
+            white-space: nowrap;
+            font-size: .8rem;
+            font-weight: 700;
+            color: #4b5563;
+            border: 1px solid #e5e7eb;
+            border-radius: 9999px;
+            padding: .4rem .5rem .4rem .9rem;
+            transition: color .25s ease, border-color .25s ease, background-color .25s ease;
+        }
+        .case-link svg { width: .85rem; height: .85rem; transition: transform .25s ease; }
+        .case-link:hover { color: #2563eb; border-color: #bfdbfe; background: #eff6ff; }
+        .case-link:hover svg { transform: translateX(2px); }
     </style>
 </head>
 <body class="antialiased px-6 md:px-12">
@@ -146,7 +163,7 @@
                 <a href="about-us.html" class="text-sm font-semibold hover:text-blue-600 transition">Biz haqimizda</a>
                 <a href="#services" class="text-sm font-semibold hover:text-blue-600 transition">Xizmatlar</a>
                 <a href="blog.html" class="text-sm font-semibold hover:text-blue-600 transition">Blog</a>
-                <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="border border-gray-400 px-6 py-2 rounded-full text-sm font-bold hover:border-black transition">Biz bilan bog'lanish</a>
+                <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="border border-gray-400 px-6 py-2 rounded-full text-sm font-bold hover:border-black transition">Biz bilan bog'lanish</a>
             </div>
 
             <div id="menuBtn" onclick="toggleMenu()" class="md:hidden group cursor-pointer w-6 h-5 relative flex flex-col justify-between">
@@ -172,7 +189,7 @@
                 G'oyalardan,<br>Haqiqiy Natijagacha 
             </h1>
         </div> <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-16 w-full">
-            <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="bg-[#2563eb] text-white px-10 py-4 rounded-full font-bold text-sm hover:bg-blue-700 transition w-fit inline-block">
+            <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="bg-[#2563eb] text-white px-10 py-4 rounded-full font-bold text-sm hover:bg-blue-700 transition w-fit inline-block">
                 Bepul maslahat olish
             </a>
                     
@@ -180,11 +197,11 @@
                 <div class="hidden md:block w-32 h-[1px] bg-gray-200"></div>
                 
                 <div class="flex gap-3">
-                    <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" aria-label="Telegram" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition text-gray-700">
+                    <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" aria-label="Telegram" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition text-gray-700">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1.01-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.11.02-1.93 1.23-5.46 3.62-.51.35-.98.53-1.39.52-.46-.01-1.33-.26-1.98-.48-.8-.27-1.43-.42-1.37-.89.03-.25.38-.51 1.03-.78 4.04-1.76 6.74-2.92 8.09-3.48 3.85-1.6 4.64-1.88 5.17-1.89.11 0 .37.03.54.17.14.12.18.28.2.45-.02.07-.02.13-.03.19z"/></svg>
                     </a>
 
-                    <a href="https://instagram.com/shaha.gxl" target="_blank" rel="noopener" aria-label="Instagram" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition text-gray-700">
+                    <a href="https://www.instagram.com/artlifestudio.uz" target="_blank" rel="noopener" aria-label="Instagram" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition text-gray-700">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 0.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
                 </div>
@@ -294,149 +311,197 @@
 
        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-20 mb-32">
             
-            <a href="https://aura-agency.uz/" target="_blank" rel="noopener" class="group cursor-pointer block">
-                <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
+            <div class="group block">
+                <a href="https://aura-agency.uz/" target="_blank" rel="noopener" class="block cursor-pointer"><div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
                     <img src="Project-imgs/aura.png" loading="lazy" alt="Aura Agency" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                </div>
+                </div></a>
 
-                <div class="flex items-start justify-between">
+                <div class="flex items-start justify-between gap-4">
                     <div>
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Aura Agency.</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1"><a href="https://aura-agency.uz/" target="_blank" rel="noopener" class="hover:text-blue-600 transition-colors">Aura Agency.</a></h3>
                         <p class="text-gray-500 text-sm font-medium">Web Sayt</p>
                     </div>
 
-                    <div class="flex items-center gap-4 pt-2">
-                        <div class="w-12 h-[1px] bg-gray-300"></div>
-                        <span class="text-sm font-medium text-gray-400">2026</span>
+                    <div class="flex flex-col items-end gap-3 pt-2 shrink-0">
+                        <a href="loyiha-aura.html" class="case-link">
+                            Batafsil ma'lumot
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-[1px] bg-gray-300"></div>
+                            <span class="text-sm font-medium text-gray-400">2026</span>
+                        </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://munfareedlogistics.com/" target="_blank" rel="noopener" class="group cursor-pointer block">
-                <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
+            <div class="group block">
+                <a href="https://munfareedlogistics.com/" target="_blank" rel="noopener" class="block cursor-pointer"><div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
                     <img src="Project-imgs/munfareed.png" loading="lazy" alt="Munfareed Logistics" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                </div>
+                </div></a>
 
-                <div class="flex items-start justify-between">
+                <div class="flex items-start justify-between gap-4">
                     <div>
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Munfareed.</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1"><a href="https://munfareedlogistics.com/" target="_blank" rel="noopener" class="hover:text-blue-600 transition-colors">Munfareed.</a></h3>
                         <p class="text-gray-500 text-sm font-medium">Web Sayt</p>
                     </div>
 
-                    <div class="flex items-center gap-4 pt-2">
-                        <div class="w-12 h-[1px] bg-gray-300"></div>
-                        <span class="text-sm font-medium text-gray-400">2026</span>
+                    <div class="flex flex-col items-end gap-3 pt-2 shrink-0">
+                        <a href="loyiha-munfareed.html" class="case-link">
+                            Batafsil ma'lumot
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-[1px] bg-gray-300"></div>
+                            <span class="text-sm font-medium text-gray-400">2026</span>
+                        </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://humotib.uz/" target="_blank" rel="noopener" class="group cursor-pointer block">
-                <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
+            <div class="group block">
+                <a href="https://humotib.uz/" target="_blank" rel="noopener" class="block cursor-pointer"><div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
                     <img src="Project-imgs/humotib.png" loading="lazy" alt="Humotib Klinikasi" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                </div>
+                </div></a>
 
-                <div class="flex items-start justify-between">
+                <div class="flex items-start justify-between gap-4">
                     <div>
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Humotib.</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1"><a href="https://humotib.uz/" target="_blank" rel="noopener" class="hover:text-blue-600 transition-colors">Humotib.</a></h3>
                         <p class="text-gray-500 text-sm font-medium">Web Sayt</p>
                     </div>
 
-                    <div class="flex items-center gap-4 pt-2">
-                        <div class="w-12 h-[1px] bg-gray-300"></div>
-                        <span class="text-sm font-medium text-gray-400">2026</span>
+                    <div class="flex flex-col items-end gap-3 pt-2 shrink-0">
+                        <a href="loyiha-humotib.html" class="case-link">
+                            Batafsil ma'lumot
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-[1px] bg-gray-300"></div>
+                            <span class="text-sm font-medium text-gray-400">2026</span>
+                        </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://www.aurum-tabac.uz/" target="_blank" rel="noopener" class="group cursor-pointer block">
-                <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
+            <div class="group block">
+                <a href="https://www.aurum-tabac.uz/" target="_blank" rel="noopener" class="block cursor-pointer"><div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
                     <img src="Project-imgs/aurum.png" loading="lazy" alt="Aurum Tabac" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                </div>
+                </div></a>
 
-                <div class="flex items-start justify-between">
+                <div class="flex items-start justify-between gap-4">
                     <div>
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Aurum Tabac.</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1"><a href="https://www.aurum-tabac.uz/" target="_blank" rel="noopener" class="hover:text-blue-600 transition-colors">Aurum Tabac.</a></h3>
                         <p class="text-gray-500 text-sm font-medium">Web Sayt</p>
                     </div>
 
-                    <div class="flex items-center gap-4 pt-2">
-                        <div class="w-12 h-[1px] bg-gray-300"></div>
-                        <span class="text-sm font-medium text-gray-400">2026</span>
+                    <div class="flex flex-col items-end gap-3 pt-2 shrink-0">
+                        <a href="loyiha-aurum.html" class="case-link">
+                            Batafsil ma'lumot
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-[1px] bg-gray-300"></div>
+                            <span class="text-sm font-medium text-gray-400">2026</span>
+                        </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://myferma.uz/" target="_blank" rel="noopener" class="proj-extra hide group cursor-pointer block">
-                <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
+            <div class="proj-extra hide group block">
+                <a href="https://myferma.uz/" target="_blank" rel="noopener" class="block cursor-pointer"><div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
                     <img src="Project-imgs/myferma.png" alt="Chovkar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                </div>
+                </div></a>
 
-                <div class="flex items-start justify-between">
+                <div class="flex items-start justify-between gap-4">
                     <div>
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Chovkar.</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1"><a href="https://myferma.uz/" target="_blank" rel="noopener" class="hover:text-blue-600 transition-colors">Chovkar.</a></h3>
                         <p class="text-gray-500 text-sm font-medium">Web Ilova</p>
                     </div>
 
-                    <div class="flex items-center gap-4 pt-2">
-                        <div class="w-12 h-[1px] bg-gray-300"></div>
-                        <span class="text-sm font-medium text-gray-400">2026</span>
+                    <div class="flex flex-col items-end gap-3 pt-2 shrink-0">
+                        <a href="loyiha-chovkar.html" class="case-link">
+                            Batafsil ma'lumot
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-[1px] bg-gray-300"></div>
+                            <span class="text-sm font-medium text-gray-400">2026</span>
+                        </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://rizqana.uz/" target="_blank" rel="noopener" class="proj-extra hide group cursor-pointer block">
-                <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
+            <div class="proj-extra hide group block">
+                <a href="https://rizqana.uz/" target="_blank" rel="noopener" class="block cursor-pointer"><div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
                     <img src="Project-imgs/Rizqana.png" loading="lazy" alt="Rizqana" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                </div>
+                </div></a>
 
-                <div class="flex items-start justify-between">
+                <div class="flex items-start justify-between gap-4">
                     <div>
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Rizqana.</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1"><a href="https://rizqana.uz/" target="_blank" rel="noopener" class="hover:text-blue-600 transition-colors">Rizqana.</a></h3>
                         <p class="text-gray-500 text-sm font-medium">Web Ilova</p>
                     </div>
 
-                    <div class="flex items-center gap-4 pt-2">
-                        <div class="w-12 h-[1px] bg-gray-300"></div>
-                        <span class="text-sm font-medium text-gray-400">2026</span>
+                    <div class="flex flex-col items-end gap-3 pt-2 shrink-0">
+                        <a href="loyiha-rizqana.html" class="case-link">
+                            Batafsil ma'lumot
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-[1px] bg-gray-300"></div>
+                            <span class="text-sm font-medium text-gray-400">2026</span>
+                        </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://wallet-z.uz/" target="_blank" rel="noopener" class="proj-extra hide group cursor-pointer block">
-                <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
+            <div class="proj-extra hide group block">
+                <a href="https://wallet-z.uz/" target="_blank" rel="noopener" class="block cursor-pointer"><div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
                     <img src="Project-imgs/walletz.png" loading="lazy" alt="Wallet-Z" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                </div>
+                </div></a>
 
-                <div class="flex items-start justify-between">
+                <div class="flex items-start justify-between gap-4">
                     <div>
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Wallet-Z.</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1"><a href="https://wallet-z.uz/" target="_blank" rel="noopener" class="hover:text-blue-600 transition-colors">Wallet-Z.</a></h3>
                         <p class="text-gray-500 text-sm font-medium">Web Ilova</p>
                     </div>
 
-                    <div class="flex items-center gap-4 pt-2">
-                        <div class="w-12 h-[1px] bg-gray-300"></div>
-                        <span class="text-sm font-medium text-gray-400">2026</span>
+                    <div class="flex flex-col items-end gap-3 pt-2 shrink-0">
+                        <a href="loyiha-walletz.html" class="case-link">
+                            Batafsil ma'lumot
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-[1px] bg-gray-300"></div>
+                            <span class="text-sm font-medium text-gray-400">2026</span>
+                        </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://kbrdentalclinic.uz/" target="_blank" rel="noopener" class="proj-extra hide group cursor-pointer block">
-                <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
+            <div class="proj-extra hide group block">
+                <a href="https://kbrdentalclinic.uz/" target="_blank" rel="noopener" class="block cursor-pointer"><div class="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gray-50 mb-6">
                     <img src="Project-imgs/kbr.png" loading="lazy" alt="KBR Dental Clinic" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                </div>
+                </div></a>
 
-                <div class="flex items-start justify-between">
+                <div class="flex items-start justify-between gap-4">
                     <div>
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">KBR Dental.</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1"><a href="https://kbrdentalclinic.uz/" target="_blank" rel="noopener" class="hover:text-blue-600 transition-colors">KBR Dental.</a></h3>
                         <p class="text-gray-500 text-sm font-medium">Web Sayt</p>
                     </div>
 
-                    <div class="flex items-center gap-4 pt-2">
-                        <div class="w-12 h-[1px] bg-gray-300"></div>
-                        <span class="text-sm font-medium text-gray-400">2026</span>
+                    <div class="flex flex-col items-end gap-3 pt-2 shrink-0">
+                        <a href="loyiha-kbr.html" class="case-link">
+                            Batafsil ma'lumot
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-[1px] bg-gray-300"></div>
+                            <span class="text-sm font-medium text-gray-400">2026</span>
+                        </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
             </div>
 
@@ -676,34 +741,45 @@
             
             <div>
                 <p class="text-sm text-gray-400 mb-6">Keling, suhbatlashamiz</p>
-                <a href="tel:+998900376699" class="text-4xl md:text-[44px] font-medium tracking-tight hover:text-gray-300 transition-colors inline-block mb-16">
+                <a href="tel:+998900376699" class="text-4xl md:text-[44px] font-medium tracking-tight hover:text-gray-300 transition-colors inline-block mb-3">
                     +998 90 037 66 99
+                </a>
+                <a href="tel:+998958611014" class="block text-xl md:text-2xl font-medium tracking-tight text-gray-400 hover:text-white transition-colors mb-16">
+                    +998 95 861 1014
                 </a>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <div>
                         <h4 class="text-sm font-semibold mb-3">Telegram</h4>
-                        <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-white transition-colors">@artlife_studio_uz</a>
+                        <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-white transition-colors">@artlifestudio</a>
                     </div>
                     <div>
                         <h4 class="text-sm font-semibold mb-3">Instagram</h4>
-                        <a href="https://instagram.com/shaha.gxl" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-white transition-colors">@shaha.gxl</a>
+                        <a href="https://www.instagram.com/artlifestudio.uz" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-white transition-colors">@artlifestudio.uz</a>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold mb-3">Email</h4>
+                        <a href="mailto:support@artlifestudio.uz" class="text-gray-400 text-sm hover:text-white transition-colors">support@artlifestudio.uz</a>
                     </div>
                 </div>
             </div>
 
             <div class="md:flex md:justify-end">
                 <div class="flex flex-col gap-6">
-                    <a href="https://t.me/artlife_studio_uz" target="_blank" rel="noopener" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                    <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
                         Telegram
                         <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                     </a>
-                    <a href="https://instagram.com/shaha.gxl" target="_blank" rel="noopener" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                    <a href="https://www.instagram.com/artlifestudio.uz" target="_blank" rel="noopener" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
                         Instagram
                         <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                     </a>
                     <a href="tel:+998900376699" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
                         Telefon
+                        <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    </a>
+                    <a href="mailto:support@artlifestudio.uz" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                        Email
                         <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                     </a>
                 </div>

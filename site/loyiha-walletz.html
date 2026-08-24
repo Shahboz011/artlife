@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet-Z loyihasi | ArtLife Studio</title>
+    <meta name="description" content="Wallet-Z - ArtLife Studio yaratgan shaxsiy moliya veb ilovasi: xarajatlarni kuzatish va byudjetni boshqarish uchun qorong'i mavzudagi zamonaviy interfeys.">
+    <link rel="canonical" href="https://artlife-studio.uz/loyiha-walletz.html">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="ArtLife Studio">
+    <meta name="theme-color" content="#2563eb">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="ArtLife Studio">
+    <meta property="og:locale" content="uz_UZ">
+    <meta property="og:title" content="Wallet-Z loyihasi | ArtLife Studio">
+    <meta property="og:description" content="Wallet-Z - ArtLife Studio yaratgan shaxsiy moliya veb ilovasi: xarajatlarni kuzatish va byudjetni boshqarish uchun qorong'i mavzudagi zamonaviy interfeys.">
+    <meta property="og:url" content="https://artlife-studio.uz/loyiha-walletz.html">
+    <meta property="og:image" content="https://artlife-studio.uz/Project-imgs/walletz.png">
+    <meta property="og:image:alt" content="Wallet-Z - ArtLife Studio loyihasi">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Wallet-Z loyihasi | ArtLife Studio">
+    <meta name="twitter:description" content="Wallet-Z - ArtLife Studio yaratgan shaxsiy moliya veb ilovasi: xarajatlarni kuzatish va byudjetni boshqarish uchun qorong'i mavzudagi zamonaviy interfeys.">
+    <meta name="twitter:image" content="https://artlife-studio.uz/Project-imgs/walletz.png">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold'>A</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            position: relative;
+        }
+        .grid-bg {
+            background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+            background-size: 24px 24px;
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.4;
+        }
+        .glow {
+            position: absolute;
+            width: 540px;
+            height: 540px;
+            border-radius: 9999px;
+            background: radial-gradient(circle, rgba(37,99,235,0.18), transparent 70%);
+            filter: blur(40px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);
+        }
+        .reveal.in { opacity: 1; transform: none; }
+        .d1 { transition-delay: .08s; }
+        .d2 { transition-delay: .16s; }
+        .d3 { transition-delay: .24s; }
+
+        /* --- case study --- */
+        .crumb { font-size: .8rem; font-weight: 600; color: #6b7280; }
+        .crumb a:hover { color: #2563eb; }
+        .crumb span { margin: 0 .45rem; }
+        .crumb span.cur { margin: 0; color: #111827; }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0,1fr));
+            gap: 2rem 1.5rem;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 2.25rem 0;
+        }
+        @media (min-width: 768px) { .meta-grid { grid-template-columns: repeat(4, minmax(0,1fr)); } }
+        .meta-k {
+            display: block;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: #9ca3af;
+            margin-bottom: .6rem;
+        }
+        .meta-v { font-size: 1rem; font-weight: 600; color: #1a1a1a; line-height: 1.45; }
+
+        .shot {
+            border-radius: 28px;
+            overflow: hidden;
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 30px 60px -30px rgba(0,0,0,.28);
+        }
+
+        .step { display: flex; gap: 1.5rem; padding: 2.25rem 0; border-top: 1px solid #f3f4f6; }
+        .step:first-child { border-top: 0; padding-top: 0; }
+        .step-n {
+            flex-shrink: 0;
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 9999px;
+            background: #eff6ff;
+            color: #2563eb;
+            font-weight: 800;
+            font-size: .9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .step h3 { font-size: 1.2rem; font-weight: 700; letter-spacing: -.01em; margin-bottom: .6rem; }
+        .step p { color: #6b7280; font-size: 15px; line-height: 1.75; max-width: 46rem; }
+
+        .stat-grid { display: grid; grid-template-columns: repeat(1, minmax(0,1fr)); gap: 1.25rem; }
+        @media (min-width: 640px) { .stat-grid { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+        .stat {
+            border: 1px solid #1f2937;
+            border-radius: 24px;
+            padding: 2rem 1.75rem;
+            background: rgba(255,255,255,.02);
+        }
+        .stat-v { font-size: 2.6rem; font-weight: 800; letter-spacing: -.03em; line-height: 1; margin-bottom: .7rem; }
+        .stat-k { font-size: .82rem; color: #9ca3af; line-height: 1.5; }
+
+        .deliv { display: grid; grid-template-columns: repeat(1, minmax(0,1fr)); }
+        @media (min-width: 640px) { .deliv { grid-template-columns: repeat(2, minmax(0,1fr)); column-gap: 3rem; } }
+        .deliv-i {
+            display: flex;
+            align-items: center;
+            gap: .85rem;
+            padding: 1.05rem 0;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .deliv-i svg { flex-shrink: 0; width: 1.15rem; height: 1.15rem; color: #2563eb; }
+
+        .next-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            padding: 2.5rem 0;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .next-card:hover .next-t { color: #2563eb; }
+        .next-t { font-size: 1.75rem; font-weight: 800; letter-spacing: -.02em; transition: color .25s ease; }
+        @media (min-width: 768px) { .next-t { font-size: 2.25rem; } }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+    </style>
+</head>
+<body class="antialiased px-6 md:px-12">
+
+    <div class="grid-bg"></div>
+
+<!-- Full Screen Menu Overlay -->
+    <div id="menuOverlay" class="fixed inset-0 z-[60] bg-white translate-y-full transition-transform duration-500 ease-in-out">
+        <div class="grid-bg"></div>
+
+        <div class="flex justify-between items-center px-6 md:px-12 pt-6 pb-4">
+            <a href="index.html" class="flex flex-col leading-none">
+                <span class="text-2xl font-extrabold tracking-tight">ArtLife</span>
+                <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 ml-0.5">Studio</span>
+            </a>
+            <div onclick="toggleMenu()" class="cursor-pointer group">
+                <div class="relative w-8 h-8 flex items-center justify-center">
+                    <div class="absolute w-6 h-0.5 bg-black rotate-45"></div>
+                    <div class="absolute w-6 h-0.5 bg-black -rotate-45"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col items-center justify-center h-[60vh] space-y-8">
+            <a href="index.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Asosiy</a>
+            <a href="loyihalar.html" class="text-xl font-bold text-blue-600 transition text-center">Loyihalar</a>
+            <a href="about-us.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Biz haqimizda</a>
+            <a href="index.html#services" class="text-xl font-bold hover:text-blue-600 transition text-center">Xizmatlar</a>
+            <a href="blog.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Blog</a>
+
+            <a href="#contact" onclick="toggleMenu()" class="mt-4 border-2 border-blue-600 text-blue-600 px-10 py-3 rounded-full font-bold hover:bg-blue-600 hover:text-white transition">
+                Bog'lanish
+            </a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-[55] bg-white/80 backdrop-blur-md -mx-6 md:-mx-12 px-6 md:px-12 border-b border-gray-50/50">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center py-6">
+            <a href="index.html" class="flex flex-col leading-none">
+                <span class="text-2xl font-extrabold tracking-tight">ArtLife</span>
+                <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 ml-0.5">Studio</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-10">
+                <a href="index.html" class="text-sm font-semibold hover:text-blue-600 transition">Asosiy</a>
+                <a href="loyihalar.html" class="text-sm font-semibold text-blue-600 transition">Loyihalar</a>
+                <a href="about-us.html" class="text-sm font-semibold hover:text-blue-600 transition">Biz haqimizda</a>
+                <a href="index.html#services" class="text-sm font-semibold hover:text-blue-600 transition">Xizmatlar</a>
+                <a href="blog.html" class="text-sm font-semibold hover:text-blue-600 transition">Blog</a>
+                <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="border border-gray-400 px-6 py-2 rounded-full text-sm font-bold hover:border-black transition">Biz bilan bog'lanish</a>
+            </div>
+
+            <div id="menuBtn" onclick="toggleMenu()" class="md:hidden group cursor-pointer w-6 h-5 relative flex flex-col justify-between">
+                <div id="bar1" class="w-6 h-0.5 bg-black transition-all duration-300 origin-center"></div>
+                <div id="bar2" class="w-6 h-0.5 bg-black transition-all duration-300 origin-center"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto">
+
+        <!-- Breadcrumb -->
+        <nav class="pt-8 pb-4 crumb reveal" aria-label="Breadcrumb">
+            <a href="index.html">Asosiy</a>
+            <span>/</span>
+            <a href="loyihalar.html">Loyihalar</a>
+            <span>/</span>
+            <span class="cur">Wallet-Z</span>
+        </nav>
+
+        <!-- Hero -->
+        <section class="relative pt-8 pb-16">
+            <div class="glow -top-20 -left-10 hidden md:block"></div>
+
+            <div class="flex flex-wrap gap-2 mb-7 reveal">
+                <span class="text-[11px] font-bold uppercase tracking-wide text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Veb Ilova</span>
+                <span class="text-[11px] font-bold uppercase tracking-wide text-gray-500 bg-gray-100 px-3 py-1 rounded-full">Fintex</span>
+            </div>
+
+            <h1 class="text-[40px] md:text-[84px] leading-[1.04] font-extrabold tracking-tight max-w-5xl mb-8 reveal d1">
+                Wallet-Z - <span class="text-blue-600">moliyani</span> nazorat qiladigan ilova.
+            </h1>
+
+            <p class="text-lg md:text-2xl text-gray-600 font-medium leading-relaxed max-w-3xl mb-14 reveal d2">
+                Shaxsiy moliya yordamchisi - xarajatlarni kuzatish va byudjetni boshqarish uchun qorong'i mavzudagi zamonaviy veb ilova.
+            </p>
+
+            <div class="meta-grid reveal d2">
+                <div>
+                    <span class="meta-k">Mijoz</span>
+                    <span class="meta-v">Wallet-Z</span>
+                </div>
+                <div>
+                    <span class="meta-k">Yo'nalish</span>
+                    <span class="meta-v">Fintex</span>
+                </div>
+                <div>
+                    <span class="meta-k">Format</span>
+                    <span class="meta-v">Veb ilova</span>
+                </div>
+                <div>
+                    <span class="meta-k">Yil</span>
+                    <span class="meta-v">2026</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screenshot -->
+        <section class="pb-24">
+            <div class="shot reveal">
+                <img src="Project-imgs/walletz.png" alt="Wallet-Z sayti - bosh sahifa" class="w-full">
+            </div>
+        </section>
+
+        <!-- Vazifa -->
+        <section class="pb-24">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
+                <div class="md:col-span-4">
+                    <div class="flex items-center gap-3 mb-4 reveal">
+                        <div class="w-8 h-[1px] bg-blue-600"></div>
+                        <span class="text-xs font-bold tracking-[0.25em] uppercase text-blue-600">Vazifa</span>
+                    </div>
+                </div>
+                <div class="md:col-span-8">
+                    <p class="text-xl md:text-2xl font-medium leading-relaxed tracking-tight mb-6 reveal">Odamlar xarajatlarini yozmaydi, chunki bu zerikarli.</p>
+                    <p class="text-gray-500 text-[15px] leading-relaxed max-w-3xl reveal d1">Shaxsiy moliya ilovalarining asosiy muammosi - foydalanuvchi bir hafta ishlatib, keyin tashlab yuboradi. Wallet-Z uchun vazifa xarajat qo'shishni imkon qadar tez qilish va foydalanuvchiga puli qayerga ketayotganini bir qarashda ko'rsatish edi. Qorong'i mavzu esa tasodifiy tanlov emas: bunday ilova kun davomida ko'p marta, ko'pincha kechqurun ochiladi.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Yechim -->
+        <section class="pb-24">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
+                <div class="md:col-span-4">
+                    <div class="flex items-center gap-3 mb-4 reveal">
+                        <div class="w-8 h-[1px] bg-blue-600"></div>
+                        <span class="text-xs font-bold tracking-[0.25em] uppercase text-blue-600">Yechim</span>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold tracking-tight reveal d1">Biz nima qildik.</h2>
+                </div>
+                <div class="md:col-span-8">
+                <div class="step reveal">
+                    <div class="step-n">01</div>
+                    <div>
+                        <h3>Qorong'i mavzudagi zamonaviy interfeys</h3>
+                        <p>Kontrast va rang balansi uzoq ishlatishda ko'zni charchatmaydigan qilib tanlandi. Muhim raqamlar ajralib turadi, ikkinchi darajali ma'lumot esa fon bo'lib qoladi.</p>
+                    </div>
+                </div>
+                <div class="step reveal">
+                    <div class="step-n">02</div>
+                    <div>
+                        <h3>Xarajat qo'shishni bir necha soniyaga qisqartirish</h3>
+                        <p>Eng ko'p takrorlanadigan amal - yangi xarajat kiritish - eng qisqa yo'lga chiqarildi. Qancha kam bosish talab qilinsa, foydalanuvchi shuncha uzoq ilovada qoladi.</p>
+                    </div>
+                </div>
+                <div class="step reveal">
+                    <div class="step-n">03</div>
+                    <div>
+                        <h3>Ma'lumotni tushunarli vizual ko'rinishda berish</h3>
+                        <p>Quruq raqamlar o'rniga toifalar bo'yicha taqsimot va dinamika ko'rsatiladi. Foydalanuvchi hisob-kitob qilmasdan, bir qarashda xulosa chiqaradi.</p>
+                    </div>
+                </div>
+                <div class="step reveal">
+                    <div class="step-n">04</div>
+                    <div>
+                        <h3>Tezlik va barcha qurilmalarga moslik</h3>
+                        <p>Ilova telefonda asosiy ish quroli sifatida ishlatilishini hisobga olib optimallashtirildi - ochilish tez, o'tishlar kutishsiz.</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Natija -->
+        <section class="pb-24">
+            <div class="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] bg-[#121212] text-white py-24">
+                <div class="max-w-7xl mx-auto px-6 md:px-12">
+                    <div class="flex items-center gap-3 mb-4 reveal">
+                        <div class="w-8 h-[1px] bg-blue-500"></div>
+                        <span class="text-xs font-bold tracking-[0.25em] uppercase text-blue-400">Natija</span>
+                    </div>
+                    <h2 class="text-3xl md:text-[38px] font-bold tracking-tight mb-12 max-w-2xl reveal d1">Byudjet nazorati kundalik odatga aylanadigan darajada oson.</h2>
+
+                    <!-- =============================================================
+                         DIQQAT: quyidagi 3 ta raqam - VAQTINCHALIK O'RINBOSAR.
+                         Saytni chop etishdan oldin haqiqiy ko'rsatkichlar bilan
+                         almashtiring va data-placeholder="true" atributini o'chiring.
+                         ============================================================= -->
+                    <div class="stat-grid reveal d2">
+                        <div class="stat">
+                            <div class="stat-v" data-placeholder="true">00%</div>
+                            <div class="stat-k">Bir oydan keyin foydalanishda davom etganlar ulushi</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-v" data-placeholder="true">0.0s</div>
+                            <div class="stat-k">Yangi xarajat qo'shishga ketadigan o'rtacha vaqt</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-v" data-placeholder="true">00 kun</div>
+                            <div class="stat-k">Loyihani ishga tushirish muddati</div>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-500 text-sm mt-10 max-w-2xl reveal d3">Ko'rsatkichlar loyiha ishga tushirilganidan keyingi davr uchun berilgan.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ish hajmi -->
+        <section class="pb-24">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
+                <div class="md:col-span-4">
+                    <div class="flex items-center gap-3 mb-4 reveal">
+                        <div class="w-8 h-[1px] bg-blue-600"></div>
+                        <span class="text-xs font-bold tracking-[0.25em] uppercase text-blue-600">Ish hajmi</span>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold tracking-tight reveal d1">Loyihaga nimalar kirdi.</h2>
+                </div>
+                <div class="md:col-span-8">
+                    <div class="deliv reveal">
+                        <div class="deliv-i"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span>UI/UX dizayn</span></div>
+                        <div class="deliv-i"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span>Qorong'i mavzu dizayn tizimi</span></div>
+                        <div class="deliv-i"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span>Frontend ishlab chiqish</span></div>
+                        <div class="deliv-i"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span>Ma'lumotlarni vizuallashtirish</span></div>
+                        <div class="deliv-i"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span>Moslashuvchan verstka</span></div>
+                        <div class="deliv-i"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span>Tezlik optimizatsiyasi</span></div>
+                        <div class="deliv-i"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span>Test va xatolarni tuzatish</span></div>
+                        <div class="deliv-i"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span>Ishga tushirishdan keyingi qo'llab-quvvatlash</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live site CTA -->
+        <section class="pb-24">
+            <div class="border border-gray-200 rounded-[32px] p-10 md:p-16 flex flex-col md:flex-row md:items-center md:justify-between gap-8 reveal">
+                <div>
+                    <h2 class="text-2xl md:text-[34px] font-bold tracking-tight mb-3">Saytni jonli ko'ring.</h2>
+                    <p class="text-gray-500 text-[15px] leading-relaxed max-w-md">Loyiha ishlab turibdi - wallet-z.uz manzilida to'liq tanishishingiz mumkin.</p>
+                </div>
+                <a href="https://wallet-z.uz/" target="_blank" rel="noopener" class="bg-[#2563eb] text-white px-10 py-4 rounded-full font-bold text-sm hover:bg-blue-700 transition shadow-lg shadow-blue-100 inline-flex items-center gap-2 w-fit shrink-0">
+                    Saytga o'tish
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Keyingi loyiha -->
+        <section class="pb-24">
+            <span class="meta-k reveal">Keyingi loyiha</span>
+            <a href="loyiha-kbr.html" class="next-card group reveal">
+                <span class="next-t">KBR Dental</span>
+                <span class="text-blue-600 shrink-0"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+            </a>
+            <a href="loyihalar.html" class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-blue-600 transition-colors reveal">
+                Barcha loyihalar
+            </a>
+        </section>
+
+    </main>
+
+<footer id="contact" class="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] bg-[#151515] text-white pt-24 pb-10 scroll-mt-24">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 mb-24">
+                <div>
+                    <p class="text-sm text-gray-400 mb-6">Keling, suhbatlashamiz</p>
+                    <a href="tel:+998900376699" class="text-4xl md:text-[44px] font-medium tracking-tight hover:text-gray-300 transition-colors inline-block mb-3">
+                        +998 90 037 66 99
+                    </a>
+                    <a href="tel:+998958611014" class="block text-xl md:text-2xl font-medium tracking-tight text-gray-400 hover:text-white transition-colors mb-16">
+                        +998 95 861 1014
+                    </a>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3">Telegram</h4>
+                            <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-white transition-colors">@artlifestudio</a>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3">Instagram</h4>
+                            <a href="https://www.instagram.com/artlifestudio.uz" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-white transition-colors">@artlifestudio.uz</a>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3">Email</h4>
+                            <a href="mailto:support@artlifestudio.uz" class="text-gray-400 text-sm hover:text-white transition-colors">support@artlifestudio.uz</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:flex md:justify-end">
+                    <div class="flex flex-col gap-6">
+                        <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Telegram
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/artlifestudio.uz" target="_blank" rel="noopener" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Instagram
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                        <a href="tel:+998900376699" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Telefon
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                        <a href="mailto:support@artlifestudio.uz" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Email
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <a href="index.html" class="flex flex-col leading-none">
+                    <span class="text-2xl font-extrabold tracking-tight text-white">ArtLife</span>
+                    <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 ml-0.5">Studio</span>
+                </a>
+                <p class="text-gray-500 text-sm">© 2026 ArtLife Studio. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Menu Toggle Logic
+    const menuOverlay = document.getElementById('menuOverlay');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+            menuOverlay.classList.remove('translate-y-full');
+            menuOverlay.classList.add('translate-y-0');
+            bar1.classList.add('rotate-45', 'translate-y-[9px]');
+            bar2.classList.add('-rotate-45', '-translate-y-[9px]');
+        } else {
+            menuOverlay.classList.add('translate-y-full');
+            menuOverlay.classList.remove('translate-y-0');
+            bar1.classList.remove('rotate-45', 'translate-y-[9px]');
+            bar2.classList.remove('-rotate-45', '-translate-y-[9px]');
+        }
+    }
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
+
+</body>
+</html>
