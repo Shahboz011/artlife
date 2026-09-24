@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xizmatlar — Telegram bot, CRM va UI/UX dizayn | ArtLife Studio</title>
+    <meta name="description" content="Telegram bot yaratish, CRM tizim ishlab chiqish, UI/UX dizayn va mobil ilova yaratish — ArtLife Studio, Toshkent. Bepul maslahat va aniq muddatlar.">
+    <link rel="canonical" href="https://artlife-studio.uz/xizmatlar.html">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="ArtLife Studio">
+    <meta name="theme-color" content="#2563eb">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ArtLife Studio">
+    <meta property="og:locale" content="uz_UZ">
+    <meta property="og:title" content="Xizmatlar — Telegram bot, CRM va UI/UX dizayn | ArtLife Studio">
+    <meta property="og:description" content="Telegram bot yaratish, CRM tizim ishlab chiqish, UI/UX dizayn va mobil ilova yaratish — ArtLife Studio, Toshkent. Bepul maslahat va aniq muddatlar.">
+    <meta property="og:url" content="https://artlife-studio.uz/xizmatlar.html">
+    <meta property="og:image" content="https://artlife-studio.uz/og-image-v2.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ArtLife Studio — Web Studio">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Xizmatlar — Telegram bot, CRM va UI/UX dizayn | ArtLife Studio">
+    <meta name="twitter:description" content="Telegram bot yaratish, CRM tizim ishlab chiqish, UI/UX dizayn va mobil ilova yaratish — ArtLife Studio, Toshkent. Bepul maslahat va aniq muddatlar.">
+    <meta name="twitter:image" content="https://artlife-studio.uz/og-image-v2.png">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold'>A</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            position: relative;
+        }
+        /* Dot grid background */
+        .grid-bg {
+            background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+            background-size: 24px 24px;
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.4;
+        }
+        /* Soft blue glow behind hero */
+        .glow {
+            position: absolute;
+            width: 540px;
+            height: 540px;
+            border-radius: 9999px;
+            background: radial-gradient(circle, rgba(37,99,235,0.18), transparent 70%);
+            filter: blur(40px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);
+        }
+        .reveal.in { opacity: 1; transform: none; }
+        .d1 { transition-delay: .08s; }
+        .d2 { transition-delay: .16s; }
+        .d3 { transition-delay: .24s; }
+        .d4 { transition-delay: .32s; }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+        /* "Batafsil ma'lumot" link to a case study */
+        .hero-title { font-family: 'Inter', sans-serif; }
+        .case-link {
+            display: inline-flex;
+            align-items: center;
+            gap: .3rem;
+            white-space: nowrap;
+            font-size: .8rem;
+            font-weight: 700;
+            color: #4b5563;
+            border: 1px solid #e5e7eb;
+            border-radius: 9999px;
+            padding: .4rem .5rem .4rem .9rem;
+            transition: color .25s ease, border-color .25s ease, background-color .25s ease;
+        }
+        .case-link svg { width: .85rem; height: .85rem; transition: transform .25s ease; }
+        .case-link:hover { color: #2563eb; border-color: #bfdbfe; background: #eff6ff; }
+        .case-link:hover svg { transform: translateX(2px); }
+
+        /* Services track — plain stack by default (no JS, reduced motion) */
+        .hs-track { max-width: 80rem; margin: 0 auto; }
+        .hs-panel { padding: 5rem 0; border-top: 1px solid #f3f4f6; }
+        .hs-inner { display: grid; gap: 2.5rem; }
+        .hs-progress { display: none; }
+        @media (min-width: 768px) {
+            .hs-inner { grid-template-columns: 5fr 7fr; gap: 4rem; }
+        }
+
+        /* Track mode — toggled by JS (off only for reduced motion).
+           Vertical scroll over the tall wrapper scrolls each panel's content,
+           then moves the track sideways to the next panel. */
+        .hscroll.is-horizontal {
+            width: var(--hs-vw);
+            margin-left: calc(50% - var(--hs-vw) / 2);
+        }
+        .is-horizontal .hs-sticky {
+            position: sticky;
+            top: var(--hs-top);
+            height: var(--hs-h);
+            overflow: hidden;
+        }
+        .is-horizontal .hs-track {
+            display: flex;
+            max-width: none;
+            height: 100%;
+            will-change: transform;
+        }
+        .is-horizontal .hs-panel {
+            flex: 0 0 var(--hs-vw);
+            height: 100%;
+            padding: 0 1.5rem;
+            border-top: 0;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        /* Content taller than the screen: start at the top, JS scrolls it up */
+        .is-horizontal .hs-panel.is-tall { align-items: flex-start; }
+        .is-horizontal .hs-panel.is-tall .hs-inner { padding: 1.5rem 0 2.5rem; }
+        .is-horizontal .hs-inner { will-change: transform; }
+        @media (min-width: 768px) {
+            .is-horizontal .hs-panel { padding: 0 3rem; }
+        }
+        .is-horizontal .hs-panel + .hs-panel { border-left: 1px solid #f3f4f6; }
+        .is-horizontal .hs-inner { width: 100%; max-width: 80rem; margin: 0 auto; }
+        .is-horizontal .hs-left p { font-size: 1rem; }
+        .is-horizontal .hs-left h2 { margin-bottom: 1.5rem; }
+        .is-horizontal .hs-right ul,
+        .is-horizontal .hs-right .grid { margin-bottom: 2rem; }
+        .is-horizontal .hs-progress {
+            display: block;
+            position: absolute;
+            left: 1.5rem;
+            right: 1.5rem;
+            bottom: 1rem;
+            height: 2px;
+            background: #e5e7eb;
+        }
+        /* Shorter laptop screens: tighten spacing so a panel still fits */
+        @media (min-width: 768px) {
+            .is-horizontal .hs-progress { left: 3rem; right: 3rem; }
+        }
+        @media (min-width: 1024px) and (max-height: 820px) {
+            .is-horizontal .hs-left h2 { font-size: 36px; margin-bottom: 1rem; }
+            .is-horizontal .hs-left p { font-size: 15px; line-height: 1.6; margin-bottom: 1rem; }
+            .is-horizontal .hs-right h3 { margin-bottom: .75rem; }
+            .is-horizontal .hs-right ul { gap: .5rem; font-size: 15px; }
+            .is-horizontal .hs-right ul,
+            .is-horizontal .hs-right .grid { margin-bottom: 1.25rem; }
+            .is-horizontal .hs-right .rounded-3xl { padding: 1.5rem; }
+        }
+        .hs-progress span {
+            display: block;
+            height: 100%;
+            background: #2563eb;
+            transform-origin: left;
+            transform: scaleX(0);
+        }
+    </style>
+    <!-- FAQ structured data (mirrors the FAQ section below) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Telegram bot yaratish qancha vaqt oladi?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oddiy ma'lumot beruvchi yoki ariza qabul qiluvchi bot odatda 1–2 hafta ichida tayyor bo'ladi. To'lov tizimi, admin panel va CRM bilan integratsiyasi bor murakkab bot uchun 3–4 hafta kerak bo'ladi."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Tayyor CRM o'rniga alohida CRM ishlab chiqish nima uchun kerak?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tayyor CRM'lar umumiy jarayonga moslangan va ko'pincha oylik obuna talab qiladi. Buyurtma asosida ishlab chiqilgan CRM aynan sizning ish tartibingizga quriladi, ortiqcha funksiyalarsiz ishlaydi va tizim to'liq sizga tegishli bo'ladi."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "UI/UX dizaynni alohida buyurtma qilsa bo'ladimi?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ha. Agar o'z dasturchilaringiz bo'lsa, faqat UI/UX dizayn buyurtma qilishingiz mumkin. Maketlar, prototip va dizayn tizimi dasturchilarga topshirishga tayyor holda beriladi."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Mobil ilova iOS va Android uchun alohida yoziladimi?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ko'p hollarda ilovani yagona kod bazasida ikkala platforma uchun ishlab chiqamiz — bu muddat va xarajatni sezilarli qisqartiradi. Qaysi yondashuv mos kelishini loyiha talablaridan kelib chiqib birga hal qilamiz."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Xizmatlar narxi qanday belgilanadi?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Narx tayyor jadval bo'yicha emas, har bir loyiha uchun alohida hisoblanadi: funksiyalar soni, dizayn murakkabligi va kerakli integratsiyalar asosida. Dastlabki suhbat va taxminiy hisob-kitob bepul."
+                }
+            }
+        ]
+    }
+    </script>
+    <!-- Organization structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "@id": "https://artlife-studio.uz/#organization",
+        "name": "ArtLife Studio",
+        "url": "https://artlife-studio.uz",
+        "logo": "https://artlife-studio.uz/logo.png",
+        "image": "https://artlife-studio.uz/og-image-v2.png",
+        "description": "ArtLife Studio — Toshkentda veb-sayt yaratish, Telegram bot va CRM tizimlari ishlab chiqish.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Tashkent",
+            "addressCountry": "UZ"
+        },
+        "telephone": "+998900376699",
+        "email": "support@artlifestudio.uz",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "telephone": "+998958611014",
+            "areaServed": "UZ"
+        },
+        "sameAs": [
+            "https://t.me/artlifestudio",
+            "https://www.instagram.com/artlifestudio.uz"
+        ]
+    }
+    </script>
+    <script src="/analytics.js" defer></script>
+</head>
+<body class="antialiased px-6 md:px-12">
+
+    <div class="grid-bg"></div>
+
+    <!-- Full Screen Menu Overlay -->
+    <div id="menuOverlay" class="fixed inset-0 z-[60] bg-white translate-y-full transition-transform duration-500 ease-in-out">
+        <div class="grid-bg"></div>
+
+        <div class="flex justify-between items-center px-6 md:px-12 pt-6 pb-4">
+            <a href="index.html" class="flex flex-col leading-none">
+                <span class="text-2xl font-extrabold tracking-tight">ArtLife</span>
+                <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 ml-0.5">Studio</span>
+            </a>
+            <div onclick="toggleMenu()" class="cursor-pointer group">
+                <div class="relative w-8 h-8 flex items-center justify-center">
+                    <div class="absolute w-6 h-0.5 bg-black rotate-45"></div>
+                    <div class="absolute w-6 h-0.5 bg-black -rotate-45"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col items-center justify-center h-[60vh] space-y-8">
+            <a href="index.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Asosiy</a>
+            <a href="loyihalar.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Loyihalar</a>
+            <a href="about-us.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Biz haqimizda</a>
+            <a href="xizmatlar.html" class="text-xl font-bold text-blue-600 transition text-center">Xizmatlar</a>
+            <a href="blog.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Blog</a>
+
+            <a href="#contact" onclick="toggleMenu()" class="mt-4 border-2 border-blue-600 text-blue-600 px-10 py-3 rounded-full font-bold hover:bg-blue-600 hover:text-white transition">
+                Bog'lanish
+            </a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-[55] bg-white/80 backdrop-blur-md -mx-6 md:-mx-12 px-6 md:px-12 border-b border-gray-50/50">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center py-6">
+            <a href="index.html" class="flex flex-col leading-none">
+                <span class="text-2xl font-extrabold tracking-tight">ArtLife</span>
+                <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 ml-0.5">Studio</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-10">
+                <a href="index.html" class="text-sm font-semibold hover:text-blue-600 transition">Asosiy</a>
+                <a href="loyihalar.html" class="text-sm font-semibold hover:text-blue-600 transition">Loyihalar</a>
+                <a href="about-us.html" class="text-sm font-semibold hover:text-blue-600 transition">Biz haqimizda</a>
+                <a href="xizmatlar.html" class="text-sm font-semibold text-blue-600 transition">Xizmatlar</a>
+                <a href="blog.html" class="text-sm font-semibold hover:text-blue-600 transition">Blog</a>
+                <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="border border-gray-400 px-6 py-2 rounded-full text-sm font-bold hover:border-black transition">Biz bilan bog'lanish</a>
+            </div>
+
+            <div id="menuBtn" onclick="toggleMenu()" class="md:hidden group cursor-pointer w-6 h-5 relative flex flex-col justify-between">
+                <div id="bar1" class="w-6 h-0.5 bg-black transition-all duration-300 origin-center"></div>
+                <div id="bar2" class="w-6 h-0.5 bg-black transition-all duration-300 origin-center"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto">
+
+        <!-- Hero -->
+        <section class="relative pt-20 md:pt-28 pb-16">
+            <div class="glow -top-20 -left-10 hidden md:block"></div>
+
+            <div class="flex items-center gap-3 mb-8 reveal">
+                <div class="w-8 h-[1px] bg-black"></div>
+                <span class="text-xs font-bold tracking-[0.25em] uppercase text-gray-900">Xizmatlar</span>
+            </div>
+
+            <h1 id="typewriter" class="hero-title text-[40px] md:text-[84px] leading-[1.04] font-extrabold tracking-tight max-w-5xl mb-10">
+                Bot, CRM, dizayn va <span class="text-blue-600">mobil ilova</span> — bitta jamoada.
+            </h1>
+
+            <p class="text-lg md:text-2xl text-gray-600 font-medium leading-relaxed max-w-3xl mb-12 reveal d2">
+                Veb-saytdan tashqari, biznesingizni avtomatlashtiradigan va mijozlarga yaqinlashtiradigan raqamli mahsulotlarni ishlab chiqamiz — g'oyadan ishga tushirishgacha.
+            </p>
+
+            <div class="flex flex-wrap gap-3 reveal d3">
+                <a href="#telegram-bot" class="px-6 py-3 rounded-full font-bold text-sm border border-gray-300 hover:border-black transition">Telegram bot</a>
+                <a href="#crm" class="px-6 py-3 rounded-full font-bold text-sm border border-gray-300 hover:border-black transition">CRM tizim</a>
+                <a href="#ui-ux" class="px-6 py-3 rounded-full font-bold text-sm border border-gray-300 hover:border-black transition">UI/UX dizayn</a>
+                <a href="#mobil-ilova" class="px-6 py-3 rounded-full font-bold text-sm border border-gray-300 hover:border-black transition">Mobil ilova</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Services: sideways track; each panel scrolls through its content, then the next slides in -->
+    <div id="hscroll" class="hscroll">
+        <div class="hs-sticky">
+            <div class="hs-track">
+
+            <!-- 01. Telegram bot -->
+            <section id="telegram-bot" class="hs-panel scroll-mt-24">
+                <div class="hs-inner">
+                    <div class="hs-left reveal">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-2 h-2 bg-blue-600"></div>
+                            <span class="text-xs font-bold tracking-[0.2em] uppercase text-gray-900">01 — Telegram bot</span>
+                        </div>
+                        <h2 class="text-3xl md:text-[44px] font-bold leading-tight tracking-tight mb-8">Telegram bot yaratish</h2>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                            Telegram — O'zbekistonda mijozlar bilan eng ko'p muloqot qilinadigan kanal. Telegram bot yaratish orqali buyurtma qabul qilish, qabulga yozish, to'lovlarni qabul qilish va savollarga avtomatik javob berishni bir joyga jamlaymiz. Bot kechayu kunduz ishlaydi, operatorlar yukini kamaytiradi va hech bir murojaatni yo'qotmaydi.
+                        </p>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-10">
+                            Onlayn do'konlar, klinikalar, o'quv markazlari, yetkazib berish xizmatlari va mijozlari asosan Telegramda bo'lgan har qanday biznes uchun mos. Bot tayyor bo'lgach, uni o'zingiz boshqarasiz: yangi mahsulot qo'shish, narxni o'zgartirish yoki barcha foydalanuvchilarga xabar yuborish dasturchisiz bajariladi.
+                        </p>
+                    </div>
+                    <div class="hs-right reveal d1">
+                        <h3 class="text-sm font-bold tracking-[0.15em] uppercase text-gray-900 mb-5">Nimalar kiradi</h3>
+                        <ul class="flex flex-col gap-3 text-gray-600 leading-relaxed mb-10">
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Bot ssenariysi va menyu tuzilmasi: tugmalar, bosqichlar, bir nechta til</li>
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Buyurtma, ariza yoki qabulga yozilish funksiyasi</li>
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Mahalliy to'lov tizimlari bilan integratsiya</li>
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Admin panel: foydalanuvchilar, buyurtmalar va ommaviy xabar yuborish</li>
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Saytingiz yoki CRM tizimingiz bilan ulash</li>
+                        </ul>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
+                            <div>
+                                <h3 class="text-sm font-bold tracking-[0.15em] uppercase text-gray-900 mb-3">Jarayon</h3>
+                                <p class="text-gray-500 text-[15px] leading-relaxed">Avval biznes jarayoningizni o'rganib, bot ssenariysini chizamiz. Ssenariy tasdiqlangach, bot ishlab chiqiladi, test guruhida sinovdan o'tkaziladi va serverga joylanadi.</p>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-bold tracking-[0.15em] uppercase text-gray-900 mb-3">Muddat</h3>
+                                <p class="text-gray-500 text-[15px] leading-relaxed">Oddiy bot 1–2 hafta, to'lov va admin panelli murakkab bot 3–4 hafta ichida tayyor bo'ladi.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-8 rounded-3xl border border-gray-200">
+                            <p class="text-gray-600 text-[15px] leading-relaxed mb-4">
+                                <strong class="text-gray-900">Loyihadan misol:</strong> KBR Dental klinikasi uchun bemorlar telefon qilmasdan, bir necha bosishda qabulga yoziladigan tizim qurdik. Xuddi shu mantiqni Telegram bot orqali ham ishga tushirish mumkin.
+                            </p>
+                            <a href="loyiha-kbr.html" class="case-link">
+                                KBR Dental loyihasi
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 02. CRM -->
+            <section id="crm" class="hs-panel scroll-mt-24">
+                <div class="hs-inner">
+                    <div class="hs-left reveal">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-2 h-2 bg-blue-600"></div>
+                            <span class="text-xs font-bold tracking-[0.2em] uppercase text-gray-900">02 — CRM tizim</span>
+                        </div>
+                        <h2 class="text-3xl md:text-[44px] font-bold leading-tight tracking-tight mb-8">CRM tizim ishlab chiqish</h2>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                            Tayyor CRM'lar ko'pincha biznesingizga to'liq mos kelmaydi: keraksiz funksiyalar ko'p, keraklisi esa yo'q. CRM tizim ishlab chiqishda biz sizning ish jarayoningizdan kelib chiqamiz — mijozlar bazasi, sotuv bosqichlari, vazifalar va hisobotlar aynan jamoangiz ishlaydigan tartibda quriladi. Natijada xodimlar tizimga moslashmaydi, tizim ularga moslashadi.
+                        </p>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-10">
+                            Savdo bo'limi, xizmat ko'rsatish kompaniyalari, logistika va ishlab chiqarish uchun ayniqsa foydali: murojaatlar Excel jadvallari va shaxsiy yozishmalar orasida yo'qolmaydi, rahbar esa jamoaning ishini real vaqtda ko'radi. Tizim biznes o'sishi bilan birga yangi bo'limlar va funksiyalar bilan kengaytiriladi.
+                        </p>
+                    </div>
+                    <div class="hs-right reveal d1">
+                        <h3 class="text-sm font-bold tracking-[0.15em] uppercase text-gray-900 mb-5">Nimalar kiradi</h3>
+                        <ul class="flex flex-col gap-3 text-gray-600 leading-relaxed mb-10">
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Mijozlar va murojaatlar bazasi, sotuv voronkasi</li>
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Rollar va kirish huquqlari: rahbar, menejer, operator</li>
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Asosiy ko'rsatkichlar paneli va hisobotlar</li>
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Telegram bot, sayt va to'lov tizimlari bilan integratsiya</li>
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Xodimlarni o'rgatish va texnik qo'llab-quvvatlash</li>
+                        </ul>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
+                            <div>
+                                <h3 class="text-sm font-bold tracking-[0.15em] uppercase text-gray-900 mb-3">Jarayon</h3>
+                                <p class="text-gray-500 text-[15px] leading-relaxed">Jarayonlaringizni tahlil qilamiz, ekranlar sxemasini tayyorlaymiz va tasdiqlangach bosqichma-bosqich ishlab chiqamiz. Har bosqich oxirida ishlaydigan versiyani ko'rasiz.</p>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-bold tracking-[0.15em] uppercase text-gray-900 mb-3">Muddat</h3>
+                                <p class="text-gray-500 text-[15px] leading-relaxed">Asosiy funksiyali CRM 4–6 hafta, murakkab integratsiyalar bilan 2–3 oy ichida tayyor bo'ladi.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-8 rounded-3xl border border-gray-200">
+                            <p class="text-gray-600 text-[15px] leading-relaxed mb-4">
+                                <strong class="text-gray-900">Loyihadan misol:</strong> Chovkar — fermer xo'jaliklari uchun boshqaruv tizimi. Asosiy ko'rsatkichlar bitta panelga jamlangan, katta hajmdagi ma'lumotlar bilan filtrlash va qidiruv kutishsiz ishlaydi.
+                            </p>
+                            <div class="flex flex-wrap gap-3">
+                                <a href="loyiha-chovkar.html" class="case-link">
+                                    Chovkar loyihasi
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                </a>
+                                <a href="loyiha-rizqana.html" class="case-link">
+                                    Rizqana loyihasi
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 03. UI/UX -->
+            <section id="ui-ux" class="hs-panel scroll-mt-24">
+                <div class="hs-inner">
+                    <div class="hs-left reveal">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-2 h-2 bg-blue-600"></div>
+                            <span class="text-xs font-bold tracking-[0.2em] uppercase text-gray-900">03 — UI/UX dizayn</span>
+                        </div>
+                        <h2 class="text-3xl md:text-[44px] font-bold leading-tight tracking-tight mb-8">UI/UX dizayn</h2>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                            Yaxshi dizayn — bu faqat chiroyli ekran emas, balki foydalanuvchi o'ylab o'tirmasdan nima qilishni tushunishi. UI/UX dizayn xizmatimiz veb-sayt, veb ilova, mobil ilova va Telegram bot interfeyslarini qamrab oladi. Biz ishni ranglardan emas, foydalanuvchi yo'lidan boshlaymiz — vizual uslub esa shu tuzilma ustiga quriladi.
+                        </p>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-10">
+                            Yangi mahsulot ishga tushirayotgan startaplar, eskirgan interfeysini yangilamoqchi bo'lgan kompaniyalar va o'z dasturchilari bor, lekin dizayneri yo'q jamoalar uchun mos. Natijada foydalanuvchi maqsadiga tezroq yetadi, konversiya oshadi, dasturchilar esa har bir ekran va holat aniq tasvirlangan maketlar bilan ishlaydi.
+                        </p>
+                    </div>
+                    <div class="hs-right reveal d1">
+                        <h3 class="text-sm font-bold tracking-[0.15em] uppercase text-gray-900 mb-5">Nimalar kiradi</h3>
+                        <ul class="flex flex-col gap-3 text-gray-600 leading-relaxed mb-10">
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Foydalanuvchilar va raqobatchilar tahlili</li>
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Foydalanuvchi yo'li va ekranlar sxemasi (wireframe)</li>
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Vizual dizayn va interaktiv prototip</li>
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Dizayn tizimi: ranglar, shriftlar, komponentlar</li>
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Dasturchilarga topshirishga tayyor maketlar</li>
+                        </ul>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
+                            <div>
+                                <h3 class="text-sm font-bold tracking-[0.15em] uppercase text-gray-900 mb-3">Jarayon</h3>
+                                <p class="text-gray-500 text-[15px] leading-relaxed">Tahlil, wireframe, vizual dizayn va prototip sinovi. Har bosqichda fikringizni olib, kelishilgan holda keyingisiga o'tamiz.</p>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-bold tracking-[0.15em] uppercase text-gray-900 mb-3">Muddat</h3>
+                                <p class="text-gray-500 text-[15px] leading-relaxed">Landing sahifa dizayni taxminan 1 hafta, ko'p ekranli ilova dizayni 2–4 hafta davom etadi.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-8 rounded-3xl border border-gray-200">
+                            <p class="text-gray-600 text-[15px] leading-relaxed mb-4">
+                                <strong class="text-gray-900">Loyihadan misol:</strong> Aura Agency uchun yorqin ranglar va kuchli tipografiyaga asoslangan jonli vizual til yaratdik — brend xarakteri birinchi ekrandayoq seziladi. Munfareed Logistics uchun esa aksincha: AQSH bozori kutgan bosiq, ishonch uyg'otadigan korporativ dizayn.
+                            </p>
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://aura-agency.uz/?utm_source=artlife-studio.uz&amp;utm_medium=referral&amp;utm_campaign=portfolio" target="_blank" rel="noopener" class="case-link">
+                                    aura-agency.uz
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                                </a>
+                                <a href="https://munfareedlogistics.com/?utm_source=artlife-studio.uz&amp;utm_medium=referral&amp;utm_campaign=portfolio" target="_blank" rel="noopener" class="case-link">
+                                    munfareedlogistics.com
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 04. Mobil ilova -->
+            <section id="mobil-ilova" class="hs-panel scroll-mt-24">
+                <div class="hs-inner">
+                    <div class="hs-left reveal">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-2 h-2 bg-blue-600"></div>
+                            <span class="text-xs font-bold tracking-[0.2em] uppercase text-gray-900">04 — Mobil ilova</span>
+                        </div>
+                        <h2 class="text-3xl md:text-[44px] font-bold leading-tight tracking-tight mb-8">Mobil ilova yaratish</h2>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                            Mijozlaringiz vaqtining katta qismini telefonda o'tkazadi. Mobil ilova yaratish orqali biznesingiz doim ularning qo'l ostida bo'ladi: buyurtma, sodiqlik dasturi, bildirishnomalar va shaxsiy kabinet — hammasi bitta ilovada. iOS va Android uchun ilovani odatda yagona kod bazasida ishlab chiqamiz, bu esa muddat va xarajatni qisqartiradi.
+                        </p>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-10">
+                            Mobil ilova ayniqsa takroriy xaridlar, doimiy mijozlar va shaxsiy kabinet muhim bo'lgan bizneslar uchun o'zini oqlaydi: restoranlar, do'konlar tarmog'i, xizmat ko'rsatish va ta'lim platformalari. Agar hozircha to'liq ilova kerak bo'lmasa, avval telefonda ilovadek ishlaydigan veb ilovadan boshlashni ham taklif qilamiz.
+                        </p>
+                    </div>
+                    <div class="hs-right reveal d1">
+                        <h3 class="text-sm font-bold tracking-[0.15em] uppercase text-gray-900 mb-5">Nimalar kiradi</h3>
+                        <ul class="flex flex-col gap-3 text-gray-600 leading-relaxed mb-10">
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>UI/UX dizayn va interaktiv prototip</li>
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>iOS va Android uchun ilova</li>
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Server qismi va boshqaruv uchun admin panel</li>
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Push-bildirishnomalar va to'lov integratsiyasi</li>
+                            <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>App Store va Google Play'ga joylash</li>
+                        </ul>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
+                            <div>
+                                <h3 class="text-sm font-bold tracking-[0.15em] uppercase text-gray-900 mb-3">Jarayon</h3>
+                                <p class="text-gray-500 text-[15px] leading-relaxed">Avval eng zarur funksiyalar bilan birinchi versiya (MVP) chiqariladi. Keyingi versiyalar foydalanuvchilar fikri asosida kengaytiriladi.</p>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-bold tracking-[0.15em] uppercase text-gray-900 mb-3">Muddat</h3>
+                                <p class="text-gray-500 text-[15px] leading-relaxed">MVP odatda 6–10 hafta, to'liq funksional ilova esa 3–4 oy ichida tayyor bo'ladi.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-8 rounded-3xl border border-gray-200">
+                            <p class="text-gray-600 text-[15px] leading-relaxed mb-4">
+                                <strong class="text-gray-900">Loyihadan misol:</strong> Wallet-Z telefonda asosiy ish quroli sifatida ishlatilishini hisobga olib optimallashtirilgan. Chovkar esa dala sharoitida telefondan to'liq ishlaydi — interfeys kichik ekranga qisqartirilmasdan qayta joylashtirilgan.
+                            </p>
+                            <div class="flex flex-wrap gap-3">
+                                <a href="loyiha-walletz.html" class="case-link">
+                                    Wallet-Z loyihasi
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                </a>
+                                <a href="loyiha-chovkar.html" class="case-link">
+                                    Chovkar loyihasi
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            </div>
+            <div class="hs-progress" aria-hidden="true"><span></span></div>
+        </div>
+    </div>
+
+    <main class="max-w-7xl mx-auto">
+
+        <!-- FAQ -->
+        <section class="py-24 border-t border-gray-100">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+
+                <div class="md:col-span-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-2.5 h-2.5 bg-[#2563eb]"></div>
+                        <span class="text-[11px] font-black tracking-[0.25em] uppercase text-gray-900">Ko'p Beriladigan Savollar</span>
+                    </div>
+                </div>
+
+                <div class="md:col-span-8">
+
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-6 flex items-center justify-between gap-4 text-left focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-[19px] font-medium text-gray-900">Telegram bot yaratish qancha vaqt oladi?</span>
+                            <svg class="w-5 h-5 text-gray-900 transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-500 leading-relaxed text-[15px]">
+                                Oddiy ma'lumot beruvchi yoki ariza qabul qiluvchi bot odatda 1–2 hafta ichida tayyor bo'ladi. To'lov tizimi, admin panel va CRM bilan integratsiyasi bor murakkab bot uchun 3–4 hafta kerak bo'ladi.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-6 flex items-center justify-between gap-4 text-left focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-[19px] font-medium text-gray-900">Tayyor CRM o'rniga alohida CRM ishlab chiqish nima uchun kerak?</span>
+                            <svg class="w-5 h-5 text-gray-900 transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-500 leading-relaxed text-[15px]">
+                                Tayyor CRM'lar umumiy jarayonga moslangan va ko'pincha oylik obuna talab qiladi. Buyurtma asosida ishlab chiqilgan CRM aynan sizning ish tartibingizga quriladi, ortiqcha funksiyalarsiz ishlaydi va tizim to'liq sizga tegishli bo'ladi.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-6 flex items-center justify-between gap-4 text-left focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-[19px] font-medium text-gray-900">UI/UX dizaynni alohida buyurtma qilsa bo'ladimi?</span>
+                            <svg class="w-5 h-5 text-gray-900 transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-500 leading-relaxed text-[15px]">
+                                Ha. Agar o'z dasturchilaringiz bo'lsa, faqat UI/UX dizayn buyurtma qilishingiz mumkin. Maketlar, prototip va dizayn tizimi dasturchilarga topshirishga tayyor holda beriladi.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-6 flex items-center justify-between gap-4 text-left focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-[19px] font-medium text-gray-900">Mobil ilova iOS va Android uchun alohida yoziladimi?</span>
+                            <svg class="w-5 h-5 text-gray-900 transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-500 leading-relaxed text-[15px]">
+                                Ko'p hollarda ilovani yagona kod bazasida ikkala platforma uchun ishlab chiqamiz — bu muddat va xarajatni sezilarli qisqartiradi. Qaysi yondashuv mos kelishini loyiha talablaridan kelib chiqib birga hal qilamiz.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-6 flex items-center justify-between gap-4 text-left focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-[19px] font-medium text-gray-900">Xizmatlar narxi qanday belgilanadi?</span>
+                            <svg class="w-5 h-5 text-gray-900 transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-500 leading-relaxed text-[15px]">
+                                Narx tayyor jadval bo'yicha emas, har bir loyiha uchun alohida hisoblanadi: funksiyalar soni, dizayn murakkabligi va kerakli integratsiyalar asosida. Dastlabki suhbat va taxminiy hisob-kitob bepul.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="pb-24">
+            <div class="relative overflow-hidden rounded-[32px] bg-[#121212] text-white px-8 md:px-16 py-20 md:py-28 text-center reveal">
+                <div class="glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight max-w-3xl mx-auto mb-8">
+                    Qaysi xizmat sizga mos — birga aniqlaymiz.
+                </h2>
+                <p class="text-gray-400 text-lg max-w-xl mx-auto mb-10">
+                    Vazifangizni yozing — bepul maslahat berib, muddat va taxminiy narxni aytamiz.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="bg-[#2563eb] text-white px-10 py-4 rounded-full font-bold text-sm hover:bg-blue-700 transition">
+                        Telegram orqali yozish
+                    </a>
+                    <a href="tel:+998900376699" class="px-10 py-4 rounded-full font-bold text-sm border border-gray-600 hover:border-white transition">
+                        +998 90 037 66 99
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] bg-[#151515] text-white pt-24 pb-10 scroll-mt-24">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 mb-24">
+                <div>
+                    <p class="text-sm text-gray-400 mb-6">Keling, suhbatlashamiz</p>
+                    <a href="tel:+998900376699" class="text-4xl md:text-[44px] font-medium tracking-tight hover:text-gray-300 transition-colors inline-block mb-3">
+                        +998 90 037 66 99
+                    </a>
+                    <a href="tel:+998958611014" class="block text-xl md:text-2xl font-medium tracking-tight text-gray-400 hover:text-white transition-colors mb-16">
+                        +998 95 861 1014
+                    </a>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3">Telegram</h4>
+                            <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-white transition-colors">@artlifestudio</a>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3">Instagram</h4>
+                            <a href="https://www.instagram.com/artlifestudio.uz" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-white transition-colors">@artlifestudio.uz</a>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3">Email</h4>
+                            <a href="mailto:support@artlifestudio.uz" class="text-gray-400 text-sm hover:text-white transition-colors">support@artlifestudio.uz</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:flex md:justify-end">
+                    <div class="flex flex-col gap-6">
+                        <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Telegram
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/artlifestudio.uz" target="_blank" rel="noopener" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Instagram
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                        <a href="tel:+998900376699" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Telefon
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                        <a href="mailto:support@artlifestudio.uz" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Email
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <a href="index.html" class="flex flex-col leading-none">
+                    <span class="text-2xl font-extrabold tracking-tight text-white">ArtLife</span>
+                    <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 ml-0.5">Studio</span>
+                </a>
+                <p class="text-gray-500 text-sm">© 2026 ArtLife Studio. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Menu Toggle Logic
+    const menuOverlay = document.getElementById('menuOverlay');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+            menuOverlay.classList.remove('translate-y-full');
+            menuOverlay.classList.add('translate-y-0');
+            bar1.classList.add('rotate-45', 'translate-y-[9px]');
+            bar2.classList.add('-rotate-45', '-translate-y-[9px]');
+        } else {
+            menuOverlay.classList.add('translate-y-full');
+            menuOverlay.classList.remove('translate-y-0');
+            bar1.classList.remove('rotate-45', 'translate-y-[9px]');
+            bar2.classList.remove('-rotate-45', '-translate-y-[9px]');
+        }
+    }
+
+    // Typewriter (same effect as the homepage heading)
+    (function () {
+        const element = document.getElementById('typewriter');
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const text = element.innerHTML.trim();
+        let i = 0, isTag = false, currentText = '';
+
+        // Wait for Inter so the reserved height matches the final line wrapping
+        element.style.visibility = 'hidden';
+        (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => {
+            // Hold the final height so the content below doesn't jump while typing
+            element.style.minHeight = element.offsetHeight + 'px';
+            element.innerHTML = '';
+            element.style.visibility = '';
+            type();
+        });
+
+        function type() {
+            if (i < text.length) {
+                const char = text.charAt(i);
+                if (char === '<') isTag = true;
+                if (char === '>') isTag = false;
+                currentText += char;
+                element.innerHTML = currentText;
+                i++;
+                setTimeout(type, isTag ? 0 : 30);
+            } else {
+                element.style.minHeight = '';
+            }
+        }
+    })();
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // FAQ Accordion Logic
+    function toggleFAQ(button) {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('svg');
+
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+            icon.classList.remove('rotate-45');
+        } else {
+            document.querySelectorAll('.max-h-0').forEach(el => {
+                el.style.maxHeight = null;
+            });
+            document.querySelectorAll('button[onclick="toggleFAQ(this)"] svg').forEach(svg => {
+                svg.classList.remove('rotate-45');
+            });
+
+            content.style.maxHeight = content.scrollHeight + "px";
+            icon.classList.add('rotate-45');
+        }
+    }
+
+    // Services track: each panel scrolls vertically through its own content,
+    // then the next panel slides in from the right.
+    (function () {
+        const wrap = document.getElementById('hscroll');
+        const track = wrap.querySelector('.hs-track');
+        const panels = Array.from(track.querySelectorAll('.hs-panel'));
+        const inners = panels.map(p => p.querySelector('.hs-inner'));
+        const bar = wrap.querySelector('.hs-progress span');
+        const header = document.querySelector('header');
+        const mq = window.matchMedia('(prefers-reduced-motion: no-preference)');
+
+        // 100svh doesn't change when mobile browser toolbars show/hide,
+        // so the layout stays stable while scrolling on phones.
+        const probe = document.createElement('div');
+        probe.style.cssText = 'position:fixed;top:0;left:0;width:0;height:100vh;height:100svh;visibility:hidden;pointer-events:none';
+        document.body.appendChild(probe);
+
+        let headerH = 0, stickyH = 0, step = 0, slide = 0, total = 0;
+        let extras = [], starts = [], lastW = 0, lastH = 0, ticking = false;
+
+        function isOn() { return wrap.classList.contains('is-horizontal'); }
+
+        function disable() {
+            wrap.classList.remove('is-horizontal');
+            wrap.style.height = '';
+            track.style.transform = '';
+            panels.forEach(p => p.classList.remove('is-tall'));
+            inners.forEach(el => el.style.transform = '');
+        }
+
+        function layout() {
+            lastW = document.documentElement.clientWidth;
+            lastH = probe.offsetHeight;
+            disable();
+            if (!mq.matches) return;
+
+            headerH = header.offsetHeight;
+            step = lastW;
+            stickyH = lastH - headerH;
+            wrap.style.setProperty('--hs-top', headerH + 'px');
+            wrap.style.setProperty('--hs-h', stickyH + 'px');
+            wrap.style.setProperty('--hs-vw', step + 'px');
+            wrap.classList.add('is-horizontal');
+
+            // Scroll distance for one slide: a full screen width on desktop,
+            // a bit longer on narrow phones so the slide doesn't feel abrupt.
+            slide = Math.max(step, lastH * 0.75);
+
+            // How far each panel's content must scroll up before the next slide
+            extras = inners.map((el, i) => {
+                // +64 = top/bottom padding a tall panel gets (clears the progress bar)
+                const extra = Math.max(0, el.offsetHeight + 64 - stickyH);
+                panels[i].classList.toggle('is-tall', extra > 0);
+                return extra;
+            });
+
+            // Scroll offset where each panel is fully in view
+            starts = [];
+            total = 0;
+            extras.forEach((extra, i) => {
+                starts.push(total);
+                total += extra + (i < panels.length - 1 ? slide : 0);
+            });
+
+            wrap.style.height = (stickyH + total) + 'px';
+            update();
+        }
+
+        function update() {
+            ticking = false;
+            if (!isOn()) return;
+            const s = Math.min(Math.max(headerH - wrap.getBoundingClientRect().top, 0), total);
+
+            let x = 0;
+            panels.forEach((p, i) => {
+                const local = s - starts[i];
+                inners[i].style.transform = 'translate3d(0,' + (-Math.min(Math.max(local, 0), extras[i])) + 'px,0)';
+                if (i < panels.length - 1 && local > extras[i]) {
+                    x += Math.min((local - extras[i]) / slide, 1);
+                }
+            });
+
+            track.style.transform = 'translate3d(' + (-x * step) + 'px,0,0)';
+            bar.style.transform = 'scaleX(' + (total ? s / total : 0) + ')';
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) { ticking = true; requestAnimationFrame(update); }
+        }, { passive: true });
+        // Only re-measure when the width or the stable viewport height changes,
+        // not when a phone's address bar collapses.
+        window.addEventListener('resize', () => {
+            if (document.documentElement.clientWidth !== lastW || probe.offsetHeight !== lastH) layout();
+        });
+        mq.addEventListener('change', layout);
+        window.addEventListener('load', layout);
+        if (document.fonts) document.fonts.ready.then(layout);
+        layout();
+
+        // Hero chips (#telegram-bot, #crm, ...) scroll to the matching point of the track
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            const i = panels.findIndex(p => '#' + p.id === a.getAttribute('href'));
+            if (i < 0) return;
+            a.addEventListener('click', e => {
+                if (!isOn()) return;
+                e.preventDefault();
+                const top = wrap.getBoundingClientRect().top + window.scrollY - headerH + starts[i];
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            });
+        });
+    })();
+    </script>
+</body>
+</html>
