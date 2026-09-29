@@ -116,8 +116,10 @@
         .step h3 { font-size: 1.2rem; font-weight: 700; letter-spacing: -.01em; margin-bottom: .6rem; }
         .step p { color: #6b7280; font-size: 15px; line-height: 1.75; max-width: 46rem; }
 
-        .stat-grid { display: grid; grid-template-columns: repeat(1, minmax(0,1fr)); gap: 1.25rem; }
-        @media (min-width: 640px) { .stat-grid { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+        .stat-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 1.5rem; }
+        @media (min-width: 640px) { .stat-grid { grid-template-columns: minmax(0,18rem) minmax(0,1fr); gap: 3rem; align-items: center; } }
+        .stat-note { font-size: 1.25rem; font-weight: 500; line-height: 1.6; letter-spacing: -.01em; color: #d1d5db; max-width: 36rem; }
+        @media (min-width: 768px) { .stat-note { font-size: 1.5rem; } }
         .stat {
             border: 1px solid #1f2937;
             border-radius: 24px;
@@ -385,27 +387,13 @@
                     </div>
                     <h2 class="text-3xl md:text-[38px] font-bold tracking-tight mb-12 max-w-2xl reveal d1">Kompaniya endi hamkorlar bilan suhbatni tayyor ishonch bazasidan boshlaydi.</h2>
 
-                    <!-- =============================================================
-                         DIQQAT: quyidagi 3 ta raqam - VAQTINCHALIK O'RINBOSAR.
-                         Saytni chop etishdan oldin haqiqiy ko'rsatkichlar bilan
-                         almashtiring va data-placeholder="true" atributini o'chiring.
-                         ============================================================= -->
                     <div class="stat-grid reveal d2">
                         <div class="stat">
-                            <div class="stat-v" data-placeholder="true">00%</div>
-                            <div class="stat-k">Saytdan kelgan yangi hamkorlik so'rovlari ulushi</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-v" data-placeholder="true">0.0s</div>
-                            <div class="stat-k">AQSHdan o'rtacha yuklanish vaqti</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-v" data-placeholder="true">00 kun</div>
+                            <div class="stat-v">8-12 kun</div>
                             <div class="stat-k">Loyihani ishga tushirish muddati</div>
                         </div>
+                        <p class="stat-note">Dispetcherlik xizmati, ish jarayoni va hamkorlik shartlari ingliz tilidagi saytda aniq bloklarga ajratilgan, bog'lanish tugmasi esa doim yaqin turadi.</p>
                     </div>
-
-                    <p class="text-gray-500 text-sm mt-10 max-w-2xl reveal d3">Ko'rsatkichlar loyiha ishga tushirilganidan keyingi davr uchun berilgan.</p>
                 </div>
             </div>
         </section>
