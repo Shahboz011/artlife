@@ -1,9 +1,9 @@
-/* ArtLife Studio — cross-domain tracking (mijoz sayti uchun)
+/* ArtLife Web Studio — cross-domain tracking (mijoz sayti uchun)
    Bu faylni mijoz saytiga qo'ying va <head> ichida ulang:
      <script src="/artlife-analytics.js" defer></script>
    Diqqat: mijozning O'Z GA4 tegi bo'lsa, uni o'chirmang — ikkalasi birga ishlaydi. */
 (function () {
-  var GA_ID = 'G-6W3MP9377W'; // ArtLife Studio property
+  var GA_ID = 'G-6W3MP9377W'; // ArtLife Web Studio property
 
   var DOMAINS = [
     'artlife-studio.uz',

@@ -1,4 +1,4 @@
-/* ArtLife Studio — analytics
+/* ArtLife Web Studio — analytics
    Barcha sozlamalar shu yerda. ID ni o'zgartirish uchun faqat shu faylni tahrirlang. */
 (function () {
   var GA_ID = 'G-6W3MP9377W'; // GA4 Measurement ID (Admin > Data streams)

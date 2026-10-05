@@ -1,4 +1,4 @@
-/* ArtLife Studio — lead tugmalarini kuzatish (GA4 + Yandex Metrika).
+/* ArtLife Web Studio — lead tugmalarini kuzatish (GA4 + Yandex Metrika).
    Hodisa document darajasida ushlanadi, shuning uchun keyin qo'shilgan havolalar ham hisoblanadi. */
 (function () {
   var YM_ID = 113121866;
