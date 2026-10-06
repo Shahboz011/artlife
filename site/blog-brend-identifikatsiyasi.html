@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brend identifikatsiyasi nima uchun kerak? | ArtLife</title>
+    <meta name="description" content="Brend identifikatsiyasi — bu faqat logotip emas: ranglar, shriftlar va muloqot ohangi. Kichik biznes brendingni nimadan boshlashi kerak — amaliy qadamlar.">
+    <link rel="canonical" href="https://artlife-studio.uz/blog-brend-identifikatsiyasi.html">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="ArtLife Web Studio">
+    <meta name="theme-color" content="#2563eb">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="ArtLife Web Studio">
+    <meta property="og:locale" content="uz_UZ">
+    <meta property="og:title" content="Brend identifikatsiyasi nima uchun kerak? | ArtLife">
+    <meta property="og:description" content="Brend identifikatsiyasi — bu faqat logotip emas: ranglar, shriftlar va muloqot ohangi. Kichik biznes brendingni nimadan boshlashi kerak — amaliy qadamlar.">
+    <meta property="og:url" content="https://artlife-studio.uz/blog-brend-identifikatsiyasi.html">
+    <meta property="og:image" content="https://artlife-studio.uz/og-image-v2.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ArtLife Web Studio">
+    <meta property="article:published_time" content="2026-04-20">
+    <meta property="article:modified_time" content="2026-10-06">
+    <meta property="article:section" content="Brending">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Brend identifikatsiyasi nima uchun kerak? | ArtLife">
+    <meta name="twitter:description" content="Brend identifikatsiyasi — bu faqat logotip emas: ranglar, shriftlar va muloqot ohangi. Kichik biznes brendingni nimadan boshlashi kerak — amaliy qadamlar.">
+    <meta name="twitter:image" content="https://artlife-studio.uz/og-image-v2.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            position: relative;
+        }
+        /* Dot grid background */
+        .grid-bg {
+            background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+            background-size: 24px 24px;
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.4;
+        }
+        /* Soft blue glow behind hero */
+        .glow {
+            position: absolute;
+            width: 540px;
+            height: 540px;
+            border-radius: 9999px;
+            background: radial-gradient(circle, rgba(37,99,235,0.18), transparent 70%);
+            filter: blur(40px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);
+        }
+        .reveal.in { opacity: 1; transform: none; }
+        .d1 { transition-delay: .08s; }
+        .d2 { transition-delay: .16s; }
+        .d3 { transition-delay: .24s; }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+        .crumb { font-size: .8rem; font-weight: 600; color: #6b7280; }
+        .crumb a:hover { color: #2563eb; }
+        .crumb span { margin: 0 .45rem; }
+        .crumb span.cur { margin: 0; color: #111827; }
+
+        /* Article */
+        .article-wrap { max-width: 46rem; margin: 0 auto; padding-top: 2.5rem; }
+        @media (min-width: 768px) { .article-wrap { padding-top: 4rem; } }
+        .article-title { font-size: 36px; line-height: 1.08; font-weight: 800; letter-spacing: -0.025em; }
+        @media (min-width: 768px) { .article-title { font-size: 56px; } }
+        .article-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #9ca3af; }
+        .article-meta .dot { width: 4px; height: 4px; border-radius: 9999px; background: #d1d5db; }
+        .article-body { font-size: 1.125rem; line-height: 1.8; color: #374151; }
+        .article-body p { margin-bottom: 1.25rem; }
+        .article-body h2 { font-size: 1.625rem; line-height: 1.25; font-weight: 800; letter-spacing: -0.02em; color: #111827; margin: 3rem 0 1rem; }
+        @media (min-width: 768px) { .article-body h2 { font-size: 1.875rem; } }
+        .article-body ul, .article-body ol { margin: 0 0 1.5rem; padding-left: 1.4rem; }
+        .article-body ul { list-style: disc; }
+        .article-body ol { list-style: decimal; }
+        .article-body li { margin-bottom: .6rem; padding-left: .25rem; }
+        .article-body li::marker { color: #2563eb; font-weight: 700; }
+        .article-body strong { color: #111827; font-weight: 700; }
+        .article-body a { color: #2563eb; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+        .article-body a:hover { color: #1d4ed8; }
+        .article-body code { font-size: .9em; background: #f3f4f6; border-radius: 6px; padding: .1em .4em; }
+    </style>
+    <!-- Article structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Brend identifikatsiyasi nima uchun kerak?",
+        "description": "Brend identifikatsiyasi — bu faqat logotip emas: ranglar, shriftlar va muloqot ohangi. Kichik biznes brendingni nimadan boshlashi kerak — amaliy qadamlar.",
+        "image": "https://artlife-studio.uz/og-image-v2.png",
+        "datePublished": "2026-04-20",
+        "dateModified": "2026-10-06",
+        "inLanguage": "uz",
+        "articleSection": "Brending",
+        "keywords": "brend identifikatsiyasi, brending, logotip, brendbuk, muloqot ohangi",
+        "wordCount": 787,
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://artlife-studio.uz/blog-brend-identifikatsiyasi.html"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "ArtLife Web Studio",
+            "url": "https://artlife-studio.uz"
+        },
+        "publisher": {
+            "@id": "https://artlife-studio.uz/#organization"
+        }
+    }
+    </script>
+    <!-- Organization structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "@id": "https://artlife-studio.uz/#organization",
+        "name": "ArtLife Web Studio",
+        "url": "https://artlife-studio.uz",
+        "logo": "https://artlife-studio.uz/logo.png",
+        "image": "https://artlife-studio.uz/og-image-v2.png",
+        "description": "ArtLife Web Studio — Toshkentda veb-sayt yaratish, Telegram bot va CRM tizimlari ishlab chiqish.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Tashkent",
+            "addressCountry": "UZ"
+        },
+        "telephone": "+998900376699",
+        "email": "support@artlifestudio.uz",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "telephone": "+998958611014",
+            "areaServed": "UZ"
+        },
+        "sameAs": [
+            "https://t.me/artlifestudio",
+            "https://www.instagram.com/artlifestudio.uz"
+        ]
+    }
+    </script>
+    <script src="/analytics.js" defer></script>
+    <script src="/tracking.js" defer></script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113121866', 'ym');
+
+        ym(113121866, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/113121866" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+<body class="antialiased px-6 md:px-12">
+
+    <div class="grid-bg"></div>
+
+    <!-- Full Screen Menu Overlay -->
+    <div id="menuOverlay" class="fixed inset-0 z-[60] bg-white translate-y-full transition-transform duration-500 ease-in-out">
+        <div class="grid-bg"></div>
+
+        <div class="flex justify-between items-center px-6 md:px-12 pt-6 pb-4">
+            <a href="index.html" class="flex flex-col leading-none">
+                <span class="text-2xl font-extrabold tracking-tight">ArtLife</span>
+                <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 ml-0.5">Web Studio</span>
+            </a>
+            <div onclick="toggleMenu()" class="cursor-pointer group">
+                <div class="relative w-8 h-8 flex items-center justify-center">
+                    <div class="absolute w-6 h-0.5 bg-black rotate-45"></div>
+                    <div class="absolute w-6 h-0.5 bg-black -rotate-45"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col items-center justify-center h-[60vh] space-y-8">
+            <a href="index.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Asosiy</a>
+            <a href="loyihalar.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Loyihalar</a>
+            <a href="about-us.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Biz haqimizda</a>
+            <a href="xizmatlar.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Xizmatlar</a>
+            <a href="blog.html" class="text-xl font-bold text-blue-600 transition text-center">Blog</a>
+
+            <a href="#contact" onclick="toggleMenu()" class="mt-4 border-2 border-blue-600 text-blue-600 px-10 py-3 rounded-full font-bold hover:bg-blue-600 hover:text-white transition">
+                Bog'lanish
+            </a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-[55] bg-white/80 backdrop-blur-md -mx-6 md:-mx-12 px-6 md:px-12 border-b border-gray-50/50">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center py-6">
+            <a href="index.html" class="flex flex-col leading-none">
+                <span class="text-2xl font-extrabold tracking-tight">ArtLife</span>
+                <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 ml-0.5">Web Studio</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-10">
+                <a href="index.html" class="text-sm font-semibold hover:text-blue-600 transition">Asosiy</a>
+                <a href="loyihalar.html" class="text-sm font-semibold hover:text-blue-600 transition">Loyihalar</a>
+                <a href="about-us.html" class="text-sm font-semibold hover:text-blue-600 transition">Biz haqimizda</a>
+                <a href="xizmatlar.html" class="text-sm font-semibold hover:text-blue-600 transition">Xizmatlar</a>
+                <a href="blog.html" class="text-sm font-semibold text-blue-600 transition">Blog</a>
+                <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="border border-gray-400 px-6 py-2 rounded-full text-sm font-bold hover:border-black transition">Biz bilan bog'lanish</a>
+            </div>
+
+            <div id="menuBtn" onclick="toggleMenu()" class="md:hidden group cursor-pointer w-6 h-5 relative flex flex-col justify-between">
+                <div id="bar1" class="w-6 h-0.5 bg-black transition-all duration-300 origin-center"></div>
+                <div id="bar2" class="w-6 h-0.5 bg-black transition-all duration-300 origin-center"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto">
+
+        <!-- Breadcrumb -->
+        <nav class="pt-8 pb-4 crumb reveal" aria-label="Breadcrumb">
+            <a href="index.html">Asosiy</a>
+            <span>/</span>
+            <a href="blog.html">Blog</a>
+            <span>/</span>
+            <span class="cur">Brend identifikatsiyasi</span>
+        </nav>
+
+        <article class="article-wrap relative pb-24">
+            <div class="glow -top-20 -left-10 hidden md:block"></div>
+
+            <header class="mb-12">
+                <div class="flex items-center gap-3 mb-8 reveal">
+                    <div class="w-8 h-[1px] bg-blue-600"></div>
+                    <span class="text-xs font-bold tracking-[0.25em] uppercase text-blue-600">Brending</span>
+                </div>
+
+                <h1 class="article-title mb-8 reveal d1">Brend identifikatsiyasi nima uchun kerak?</h1>
+
+                <p class="text-lg md:text-xl text-gray-600 font-medium leading-relaxed mb-8 reveal d2">Ko'pchilik brendni logotip bilan tenglashtiradi. Aslida mijoz sizni ranglaringiz, shriftlaringiz va gapirish uslubingiz orqali ham taniydi. Brend identifikatsiyasi nimalardan iborat va uni nimadan boshlash kerakligini tushuntiramiz.</p>
+
+                <div class="article-meta reveal d3">
+                    <span>ArtLife Web Studio jamoasi</span>
+                    <span class="dot"></span>
+                    <time datetime="2026-04-20">20-Aprel, 2026</time>
+                    <span class="dot"></span>
+                    <span>4 daqiqa o'qish</span>
+                </div>
+            </header>
+
+            <div class="article-body">
+<p>Yangi biznes ochilganda odatda birinchi bo'lib logotip buyurtma qilinadi. U peshlavhaga va Instagram profiliga qo'yiladi — va shu bilan brending tugadi, deb hisoblanadi. Keyin esa har bir post boshqa rangda, har bir menyu boshqa shriftda chiqadi, mijozlarga yozilgan xabarlar esa kim yozganiga qarab goh rasmiy, goh haddan tashqari erkin bo'ladi. Natijada mijoz siz bilan har safar go'yo yangidan tanishadi.</p>
+<p>Bu maqolada brend identifikatsiyasi aslida nimani anglatishini, kichik va o'rta biznes uchun nega kerakligini hamda dizaynerga murojaat qilishdan oldin o'zingiz bajara oladigan amaliy qadamlarni ko'rib chiqamiz.</p>
+
+<h2>Brend identifikatsiyasi nima?</h2>
+<p>Brend — odamlarning kompaniyangiz haqidagi umumiy taassuroti: siz haqingizda nima o'ylashadi, nimani his qilishadi, do'stlariga sizni qanday tavsiflashadi. Bu taassurotni to'liq boshqarib bo'lmaydi, lekin unga ta'sir qilish mumkin.</p>
+<p>Brend identifikatsiyasi — shu taassurotni shakllantirish uchun siz ongli ravishda tanlagan va doimiy ishlatadigan belgilar to'plami. Ya'ni brend — natija, identifikatsiya esa vosita. Logotip bu to'plamning faqat bir qismi.</p>
+
+<h2>Identifikatsiya nimalardan iborat</h2>
+<ul>
+<li><strong>Logotip.</strong> Brendning "imzosi". Yaxshi logotip sodda bo'ladi: kichik o'lchamda, oq-qora variantda va telefon ekranida ham aniq o'qiladi.</li>
+<li><strong>Ranglar.</strong> Odatda bir-ikkita asosiy va bir nechta yordamchi rang. Har bir rangning aniq kodi yozib qo'yiladi, aks holda har bir dizayner "taxminan shu ko'k"ni ishlatadi.</li>
+<li><strong>Tipografiya.</strong> Sarlavhalar va asosiy matn uchun bir-ikkita shrift. Tanlangan shrift lotin va kirill harflarini, o' va g' kabi belgilarni to'g'ri ko'rsatishini oldindan tekshiring.</li>
+<li><strong>Muloqot ohangi.</strong> Mijoz bilan qanday gaplashasiz: rasmiymi yoki samimiymi, hazilga o'rin bormi, qanday so'zlarni ishlatmaysiz. Bu ohang sayt matnlarida, Telegram javoblarida va telefon suhbatida bir xil bo'lishi kerak.</li>
+<li><strong>Vizual uslub.</strong> Fotosuratlar qanday bo'ladi (yorqin va jonli yoki bosiq), ikonkalar, naqshlar va bezak elementlari.</li>
+</ul>
+<p>Bularning hammasi odatda bitta hujjatga — brendbukka (brend qo'llanmasiga) yig'iladi. Kichik biznes uchun bir necha sahifalik oddiy PDF ham yetarli: asosiysi, qoidalar yozib qo'yilgan va hamma uchun ochiq bo'lsin.</p>
+
+<h2>Kichik va o'rta biznes uchun nega muhim?</h2>
+<p>Brending ko'pincha katta kompaniyalarning ishi, kichik biznes uchun esa hashamatdek tuyuladi. Aslida izchil identifikatsiya kichik biznesga ham kerak, sabablari oddiy:</p>
+<ul>
+<li><strong>Tanib olish.</strong> Mijoz postingizni lentada, peshlavhangizni ko'chada, saytingizni qidiruvda ko'rganda bir xil brendni ko'radi. Har bir uchrashuv avvalgisini mustahkamlaydi va noldan boshlanmaydi.</li>
+<li><strong>Ishonch.</strong> Tartibli va izchil ko'rinish kompaniya o'z ishiga jiddiy qarashini ko'rsatadi. Mijoz sizni hali sinab ko'rmagan paytda ko'pincha aynan tashqi ko'rinishga qarab xulosa chiqaradi.</li>
+<li><strong>Raqobatchilardan ajralib turish.</strong> Bir ko'chada uchta o'xshash qahvaxona bo'lsa, mijoz esda qolgan rang, nom yoki gapirish uslubiga qarab tanlov qilishi mumkin.</li>
+<li><strong>Vaqt va pulni tejash.</strong> Qoidalar tayyor bo'lsa, har bir banner, menyu yoki taqdimot uchun noldan bahslashish shart emas. Yangi dizayner yoki SMM mutaxassisi ham ishni tezroq boshlaydi.</li>
+</ul>
+
+<h2>Dizaynerga murojaat qilishdan oldin: 7 ta qadam</h2>
+<p>Dizayner biznesingizni sizdan yaxshiroq bilmaydi. Quyidagi savollarga oldindan javob tayyorlasangiz, natija aniqroq bo'ladi va qayta ishlashlar kamayadi.</p>
+<ol>
+<li><strong>Biznesingizni bir gapda ta'riflang.</strong> Kimga, nima taklif qilasiz va nimasi bilan boshqalardan farq qilasiz?</li>
+<li><strong>Ideal mijozingizni tasvirlang.</strong> Yoshi, qayerda yashaydi, qaysi tilda o'qiydi, tanlov qilishda nimaga e'tibor beradi.</li>
+<li><strong>Brendingizni 3–5 ta sifat bilan tasvirlang.</strong> Masalan: "ishonchli, samimiy, zamonaviy" yoki "premium, bosiq, nafis". Keyingi har bir dizayn qarori shu so'zlar bilan tekshiriladi.</li>
+<li><strong>Raqobatchilarni o'rganing.</strong> Bir nechta raqobatchining logotipi, ranglari va Instagram sahifasini bir joyga yig'ing. Hamma bir xil rangni ishlatayotgan bo'lsa, siz ham shuni tanlasangiz, ajralib turish qiyinlashadi.</li>
+<li><strong>Yoqqan va yoqmagan misollarni yig'ing.</strong> Boshqa sohalardan bo'lsa ham mayli — har biri nima uchun yoqqanini bir jumla bilan yozib qo'ying.</li>
+<li><strong>Brend qayerda ishlatilishini ro'yxatlang.</strong> Sayt, Instagram, Telegram, peshlavha, qadoq, forma, vizitka — har bir joy logotip va ranglarga o'z talabini qo'yadi.</li>
+<li><strong>Mavjud materiallarni baholang.</strong> Hozirgi logotip va ranglaringizdan nimani saqlab qolish kerak? Mijozlar allaqachon taniydigan narsadan butunlay voz kechish ham yo'qotish.</li>
+</ol>
+
+<h2>Tekshiruv ro'yxati: ish yakunida qo'lingizda nima bo'lishi kerak</h2>
+<ul>
+<li>Logotipning asosiy, soddalashtirilgan va oq-qora variantlari — SVG va PNG formatlarida.</li>
+<li>Rang kodlari: ekran uchun HEX va RGB, bosma uchun CMYK.</li>
+<li>Shriftlar nomi va ularni tijoriy maqsadda ishlatish huquqi (litsenziya).</li>
+<li>Muloqot ohangi bo'yicha qisqa qoidalar va namuna matnlar.</li>
+<li>Barcha manba fayllar sizda saqlanadi — faqat dizayner yoki agentlikda emas.</li>
+</ul>
+
+<h2>Ko'p uchraydigan xatolar</h2>
+<ul>
+<li>Trenddagi uslubni ko'r-ko'rona nusxalash — bugungi moda bir necha yildan keyin eskirgan ko'rinishi mumkin.</li>
+<li>Juda murakkab logotip: mayda detallar telefon ekranida va kichik o'lchamda yo'qolib ketadi.</li>
+<li>Har bir platformada boshqa rang va boshqa shrift.</li>
+<li>Identifikatsiyani faqat dizaynerning ishi deb bilish. Uni har kuni sotuvchi, SMM mutaxassisi va menejer ishlatadi — qoidalarni ular ham bilishi kerak.</li>
+</ul>
+
+<h2>Identifikatsiya va veb-sayt</h2>
+<p>Sayt ko'pincha mijoz brendingiz bilan to'liq tanishadigan birinchi joy. Identifikatsiya tayyor bo'lsa, sayt dizayni shu asosda quriladi: ranglar va shriftlar interfeysga, muloqot ohangi esa sahifa matnlariga o'tadi. Masalan, <a href="loyiha-aura.html">Aura Agency</a> saytida agentlikning brend uslubini yorqin ranglar, kuchli tipografiya va jonli harakatlar orqali veb-sahifa tiliga o'tkazdik — tashrif buyuruvchi matnni o'qishdan oldin ham brend xarakterini his qiladi.</p>
+<p><a href="xizmatlar.html#ui-ux">UI/UX dizayn xizmatimizga</a> dizayn tizimi — ranglar, shriftlar va komponentlar — ham kiradi, shunda brendingiz saytda, ilovada va Telegram botda bir xil ko'rinadi. Brendingizni raqamli muhitga olib chiqish bo'yicha maslahat kerak bo'lsa, Telegram orqali yozing yoki <a href="index.html">ArtLife Web Studio</a> bosh sahifasida ishlarimiz bilan tanishing.</p>
+            </div>
+        </article>
+
+        <!-- CTA -->
+        <section class="pb-24">
+            <div class="relative overflow-hidden rounded-[32px] bg-[#121212] text-white px-8 md:px-16 py-20 md:py-28 text-center reveal">
+                <div class="glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight max-w-3xl mx-auto mb-8">
+                    Keling, birgalikda ajoyib mahsulot yaratamiz.
+                </h2>
+                <p class="text-gray-400 text-lg max-w-xl mx-auto mb-10">
+                    G'oyangiz bormi? Bizga yozing — bepul maslahat berib, eng mos yechimni taklif qilamiz.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="bg-[#2563eb] text-white px-10 py-4 rounded-full font-bold text-sm hover:bg-blue-700 transition">
+                        Telegram orqali yozish
+                    </a>
+                    <a href="tel:+998900376699" class="px-10 py-4 rounded-full font-bold text-sm border border-gray-600 hover:border-white transition">
+                        +998 90 037 66 99
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] bg-[#151515] text-white pt-24 pb-10 scroll-mt-24">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 mb-24">
+                <div>
+                    <p class="text-sm text-gray-400 mb-6">Keling, suhbatlashamiz</p>
+                    <a href="tel:+998900376699" class="text-4xl md:text-[44px] font-medium tracking-tight hover:text-gray-300 transition-colors inline-block mb-3">
+                        +998 90 037 66 99
+                    </a>
+                    <a href="tel:+998958611014" class="block text-xl md:text-2xl font-medium tracking-tight text-gray-400 hover:text-white transition-colors mb-16">
+                        +998 95 861 1014
+                    </a>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3">Telegram</h4>
+                            <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-white transition-colors">@artlifestudio</a>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3">Instagram</h4>
+                            <a href="https://www.instagram.com/artlifestudio.uz" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-white transition-colors">@artlifestudio.uz</a>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3">Email</h4>
+                            <a href="mailto:support@artlifestudio.uz" class="text-gray-400 text-sm hover:text-white transition-colors">support@artlifestudio.uz</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:flex md:justify-end">
+                    <div class="flex flex-col gap-6">
+                        <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Telegram
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/artlifestudio.uz" target="_blank" rel="noopener" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Instagram
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                        <a href="tel:+998900376699" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Telefon
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                        <a href="mailto:support@artlifestudio.uz" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Email
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <a href="index.html" class="flex flex-col leading-none">
+                    <span class="text-2xl font-extrabold tracking-tight text-white">ArtLife</span>
+                    <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 ml-0.5">Web Studio</span>
+                </a>
+                <p class="text-gray-500 text-sm">© 2026 ArtLife Web Studio. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Menu Toggle Logic
+    const menuOverlay = document.getElementById('menuOverlay');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+            menuOverlay.classList.remove('translate-y-full');
+            menuOverlay.classList.add('translate-y-0');
+            bar1.classList.add('rotate-45', 'translate-y-[9px]');
+            bar2.classList.add('-rotate-45', '-translate-y-[9px]');
+        } else {
+            menuOverlay.classList.add('translate-y-full');
+            menuOverlay.classList.remove('translate-y-0');
+            bar1.classList.remove('rotate-45', 'translate-y-[9px]');
+            bar2.classList.remove('-rotate-45', '-translate-y-[9px]');
+        }
+    }
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
