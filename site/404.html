@@ -1,28 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="uz">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Page Not Found</title>
+    <title>Sahifa topilmadi (404) | ArtLife Web Studio</title>
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#2563eb">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px 16px; border-radius: 3px; }
-      #message h3 { color: #888; font-weight: normal; font-size: 16px; margin: 16px 0 12px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; background: #151515; color: #fff; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+      a { color: inherit; }
+      header, main, footer { width: 100%; max-width: 80rem; margin: 0 auto; padding: 0 24px; }
+      header { padding-top: 24px; padding-bottom: 24px; }
+      .logo { display: inline-flex; flex-direction: column; line-height: 1; text-decoration: none; }
+      .logo b { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
+      .logo span { font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #2563eb; margin-left: 2px; }
+      main { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-top: 48px; padding-bottom: 48px; }
+      .code { font-size: clamp(96px, 22vw, 200px); font-weight: 800; letter-spacing: -0.04em; line-height: 0.9; color: #2563eb; margin: 0; }
+      h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 600; letter-spacing: -0.02em; margin: 24px 0 12px; }
+      p { color: #9ca3af; font-size: 16px; line-height: 1.6; max-width: 36rem; margin: 0; }
+      .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+      .btn { display: inline-block; padding: 14px 24px; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; transition: background-color .2s, color .2s; }
+      .btn-primary { background: #2563eb; }
+      .btn-primary:hover { background: #1d4ed8; }
+      .btn-ghost { border: 1px solid #374151; }
+      .btn-ghost:hover { background: #fff; color: #151515; }
+      .links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 40px; padding: 0; list-style: none; }
+      .links a { color: #9ca3af; text-decoration: none; font-size: 15px; }
+      .links a:hover { color: #fff; }
+      footer { border-top: 1px solid #1f2937; padding-top: 24px; padding-bottom: 32px; color: #6b7280; font-size: 14px; }
+      footer a { text-decoration: none; }
+      footer a:hover { color: #fff; }
     </style>
       <script src="/analytics.js" defer></script>
       <script src="/tracking.js" defer></script>
@@ -34,19 +48,35 @@
               for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
               k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
           })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113121866', 'ym');
-
           ym(113121866, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
       </script>
       <noscript><div><img src="https://mc.yandex.ru/watch/113121866" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
       <!-- /Yandex.Metrika counter -->
-</head>
+  </head>
   <body>
-    <div id="message">
-      <h2>404</h2>
-      <h1>Page Not Found</h1>
-      <p>The specified file was not found on this website. Please check the URL for mistakes and try again.</p>
-      <h3>Why am I seeing this?</h3>
-      <p>This page was generated by the Firebase Command-Line Interface. To modify it, edit the <code>404.html</code> file in your project's configured <code>public</code> directory.</p>
-    </div>
+    <header>
+      <a href="/" class="logo" aria-label="ArtLife Web Studio — bosh sahifa"><b>ArtLife</b><span>Web Studio</span></a>
+    </header>
+
+    <main>
+      <p class="code">404</p>
+      <h1>Bunday sahifa topilmadi</h1>
+      <p>Sahifa o'chirilgan, ko'chirilgan yoki manzil xato yozilgan bo'lishi mumkin. Bosh sahifaga qayting yoki kerakli bo'limni tanlang.</p>
+      <div class="actions">
+        <a href="/" class="btn btn-primary">Bosh sahifaga qaytish</a>
+        <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="btn btn-ghost">Telegram orqali yozish</a>
+      </div>
+      <ul class="links">
+        <li><a href="/xizmatlar.html">Xizmatlar</a></li>
+        <li><a href="/loyihalar.html">Loyihalar</a></li>
+        <li><a href="/about-us.html">Biz haqimizda</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li><a href="/#contact">Aloqa</a></li>
+      </ul>
+    </main>
+
+    <footer>
+      <a href="tel:+998900376699">+998 90 037 66 99</a> · © 2026 ArtLife Web Studio
+    </footer>
   </body>
 </html>
