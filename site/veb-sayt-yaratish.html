@@ -55,7 +55,7 @@
         .steps { display: grid; gap: 1.25rem; counter-reset: step; }
         .step::before { counter-increment: step; content: "0" counter(step); display: block; font-weight: 800; color: #2563eb; font-size: .85rem; letter-spacing: .15em; margin-bottom: 1rem; }
         .card { padding: 2rem; border-radius: 1.5rem; border: 1px solid #e5e7eb; background: #fff; }
-        .card-time { display: inline-block; margin-top: 1rem; font-size: .75rem; font-weight: 700; color: #2563eb; background: #eff6ff; border-radius: 9999px; padding: .3rem .75rem; }
+        .card-time { display: inline-block; margin-top: 1rem; margin-right: .5rem; font-size: .75rem; font-weight: 700; color: #2563eb; background: #eff6ff; border-radius: 9999px; padding: .3rem .75rem; }
         .related a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid #e5e7eb; font-weight: 600; font-size: 1.05rem; transition: color .2s; }
         .related a:hover { color: #2563eb; }
         @media (min-width: 768px) {
@@ -85,6 +85,16 @@
                 "areaServed": {
                     "@type": "City",
                     "name": "Tashkent"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "priceCurrency": "USD",
+                    "price": 100,
+                    "priceSpecification": {
+                        "@type": "PriceSpecification",
+                        "minPrice": 100,
+                        "priceCurrency": "USD"
+                    }
                 }
             },
             {
@@ -124,7 +134,7 @@
                 "name": "Veb-sayt yaratish narxi qancha?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Narx har bir loyiha uchun alohida hisoblanadi: funksiyalar soni, dizayn murakkabligi va kerakli integratsiyalar asosida. Dastlabki suhbat va taxminiy hisob-kitob bepul — vazifangizni yozing, narx va muddatni aytamiz."
+                    "text": "Landing page narxi $100 dan, vizitka sayt narxi $200 dan boshlanadi. Korporativ va katalog saytlar narxi sahifalar soni va funksiyalarga qarab hisoblanadi. Dastlabki suhbat va aniq hisob-kitob bepul."
                 }
             },
             {
@@ -246,6 +256,7 @@
             <a href="loyihalar.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Loyihalar</a>
             <a href="about-us.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Biz haqimizda</a>
             <a href="xizmatlar.html" class="text-xl font-bold text-blue-600 transition text-center">Xizmatlar</a>
+            <a href="narxlar.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Narxlar</a>
             <a href="blog.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Blog</a>
 
             <a href="#contact" onclick="toggleMenu()" class="mt-4 border-2 border-blue-600 text-blue-600 px-10 py-3 rounded-full font-bold hover:bg-blue-600 hover:text-white transition">
@@ -267,6 +278,7 @@
                 <a href="loyihalar.html" class="text-sm font-semibold hover:text-blue-600 transition">Loyihalar</a>
                 <a href="about-us.html" class="text-sm font-semibold hover:text-blue-600 transition">Biz haqimizda</a>
                 <a href="xizmatlar.html" class="text-sm font-semibold text-blue-600 transition">Xizmatlar</a>
+                <a href="narxlar.html" class="nav-lg text-sm font-semibold hover:text-blue-600 transition">Narxlar</a>
                 <a href="blog.html" class="text-sm font-semibold hover:text-blue-600 transition">Blog</a>
                 <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="border border-gray-400 px-6 py-2 rounded-full text-sm font-bold hover:border-black transition">Biz bilan bog'lanish</a>
             </div>
@@ -324,11 +336,13 @@
                     <h3 class="text-xl font-bold mb-3">Landing page</h3>
                     <p class="text-gray-600 text-[15px] leading-relaxed">Bitta xizmat yoki aksiya uchun bir sahifali sayt. Reklamadan kelgan mijozni arizaga aylantirishga mo'ljallangan.</p>
                     <span class="card-time">1–2 hafta</span>
+                    <span class="card-time">$100 dan</span>
                 </div>
                 <div class="card reveal d1">
                     <h3 class="text-xl font-bold mb-3">Vizitka sayt</h3>
                     <p class="text-gray-600 text-[15px] leading-relaxed">Kompaniya haqida, xizmatlar, narxlar va aloqa — kichik biznes uchun ixcham va tez sayt.</p>
                     <span class="card-time">1–2 hafta</span>
+                    <span class="card-time">$200 dan</span>
                 </div>
                 <div class="card reveal">
                     <h3 class="text-xl font-bold mb-3">Korporativ sayt</h3>
@@ -365,7 +379,9 @@
                     </div>
                     <div class="card">
                         <h3 class="text-sm font-bold tracking-[0.15em] uppercase text-gray-900 mb-3">Narxi</h3>
-                    <p class="text-gray-600 text-lg leading-relaxed">Narx funksiyalar soni, dizayn murakkabligi va integratsiyalar asosida hisoblanadi. Vazifangizni yozing — taxminiy narx va muddatni bepul aytamiz.</p>
+                    <p class="text-3xl md:text-[44px] font-bold tracking-tight mb-3">$100 dan</p>
+                    <p class="text-gray-500 text-[15px] leading-relaxed mb-4">Yakuniy narx funksiyalar va dizayn murakkabligiga bog'liq. Aniq hisob-kitob bepul.</p>
+                    <a href="narxlar.html" class="case-link">Barcha narxlar <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
                     </div>
                 </div>
             </div>
@@ -424,7 +440,7 @@
                             <svg class="w-5 h-5 text-gray-900 transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
                         </button>
                         <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                            <p class="pb-6 text-gray-500 leading-relaxed text-[15px]">Narx har bir loyiha uchun alohida hisoblanadi: funksiyalar soni, dizayn murakkabligi va kerakli integratsiyalar asosida. Dastlabki suhbat va taxminiy hisob-kitob bepul — vazifangizni yozing, narx va muddatni aytamiz.</p>
+                            <p class="pb-6 text-gray-500 leading-relaxed text-[15px]">Landing page narxi $100 dan, vizitka sayt narxi $200 dan boshlanadi. Korporativ va katalog saytlar narxi sahifalar soni va funksiyalarga qarab hisoblanadi. Dastlabki suhbat va aniq hisob-kitob bepul.</p>
                         </div>
                     </div>
                     <div class="border-b border-gray-200">
@@ -478,6 +494,7 @@
                     <a href="telegram-bot-yaratish.html">Telegram bot yaratish <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
                     <a href="crm-tizim-yaratish.html">CRM tizim ishlab chiqish <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
                     <a href="mobil-ilova-yaratish.html">Mobil ilova yaratish <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+                    <a href="narxlar.html">Narxlar <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
                     <a href="xizmatlar.html">Barcha xizmatlar <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
                 </div>
             </div>
@@ -572,6 +589,7 @@
                 <a href="telegram-bot-yaratish.html" class="text-gray-400 text-sm hover:text-white transition-colors">Telegram bot yaratish</a>
                 <a href="crm-tizim-yaratish.html" class="text-gray-400 text-sm hover:text-white transition-colors">CRM tizim ishlab chiqish</a>
                 <a href="mobil-ilova-yaratish.html" class="text-gray-400 text-sm hover:text-white transition-colors">Mobil ilova yaratish</a>
+                <a href="narxlar.html" class="text-gray-400 text-sm hover:text-white transition-colors">Narxlar</a>
             </nav>
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
                 <a href="index.html" class="flex flex-col leading-none">
