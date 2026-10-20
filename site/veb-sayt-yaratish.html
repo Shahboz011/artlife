@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veb-sayt yaratish Toshkentda — narxi va muddati | ArtLife Web Studio</title>
+    <meta name="description" content="Toshkentda veb-sayt yaratish: landing page, vizitka va korporativ sayt. Individual dizayn, mobil moslashuv, admin panel va SEO sozlamalari. Bepul maslahat.">
+    <link rel="canonical" href="https://artlife-studio.uz/veb-sayt-yaratish.html">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="ArtLife Web Studio">
+    <meta name="theme-color" content="#2563eb">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ArtLife Web Studio">
+    <meta property="og:locale" content="uz_UZ">
+    <meta property="og:title" content="Veb-sayt yaratish Toshkentda — narxi va muddati | ArtLife Web Studio">
+    <meta property="og:description" content="Toshkentda veb-sayt yaratish: landing page, vizitka va korporativ sayt. Individual dizayn, mobil moslashuv, admin panel va SEO sozlamalari. Bepul maslahat.">
+    <meta property="og:url" content="https://artlife-studio.uz/veb-sayt-yaratish.html">
+    <meta property="og:image" content="https://artlife-studio.uz/og-image-v2.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ArtLife Web Studio — Veb-sayt yaratish">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Veb-sayt yaratish Toshkentda — narxi va muddati | ArtLife Web Studio">
+    <meta name="twitter:description" content="Toshkentda veb-sayt yaratish: landing page, vizitka va korporativ sayt. Individual dizayn, mobil moslashuv, admin panel va SEO sozlamalari. Bepul maslahat.">
+    <meta name="twitter:image" content="https://artlife-studio.uz/og-image-v2.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #ffffff; color: #1a1a1a; position: relative; }
+        .grid-bg { background-image: radial-gradient(#d1d5db 1px, transparent 1px); background-size: 24px 24px; position: fixed; inset: 0; z-index: -1; opacity: 0.4; }
+        .glow { position: absolute; width: 540px; height: 540px; border-radius: 9999px; background: radial-gradient(circle, rgba(37,99,235,0.18), transparent 70%); filter: blur(40px); z-index: -1; pointer-events: none; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
+        .reveal.in { opacity: 1; transform: none; }
+        .d1 { transition-delay: .08s; }
+        .d2 { transition-delay: .16s; }
+        .d3 { transition-delay: .24s; }
+        @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+        .hero-title { font-family: 'Inter', sans-serif; }
+        .case-link { display: inline-flex; align-items: center; gap: .3rem; white-space: nowrap; font-size: .8rem; font-weight: 700; color: #4b5563; border: 1px solid #e5e7eb; border-radius: 9999px; padding: .4rem .5rem .4rem .9rem; transition: color .25s ease, border-color .25s ease, background-color .25s ease; }
+        .case-link svg { width: .85rem; height: .85rem; transition: transform .25s ease; }
+        .case-link:hover { color: #2563eb; border-color: #bfdbfe; background: #eff6ff; }
+        .case-link:hover svg { transform: translateX(2px); }
+        .crumbs { display: flex; flex-wrap: wrap; gap: .5rem; font-size: .8rem; color: #6b7280; padding-top: 2rem; }
+        .crumbs a:hover { color: #2563eb; }
+        .hero-pad { padding-top: 3rem; }
+        .split { display: grid; gap: 2.5rem; }
+        .cards { display: grid; gap: 1.25rem; }
+        .steps { display: grid; gap: 1.25rem; counter-reset: step; }
+        .step::before { counter-increment: step; content: "0" counter(step); display: block; font-weight: 800; color: #2563eb; font-size: .85rem; letter-spacing: .15em; margin-bottom: 1rem; }
+        .card { padding: 2rem; border-radius: 1.5rem; border: 1px solid #e5e7eb; background: #fff; }
+        .card-time { display: inline-block; margin-top: 1rem; font-size: .75rem; font-weight: 700; color: #2563eb; background: #eff6ff; border-radius: 9999px; padding: .3rem .75rem; }
+        .related a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid #e5e7eb; font-weight: 600; font-size: 1.05rem; transition: color .2s; }
+        .related a:hover { color: #2563eb; }
+        @media (min-width: 768px) {
+            .hero-pad { padding-top: 5rem; }
+            .h1-size { font-size: 68px; }
+            .card-lg { padding: 3rem; }
+            .split { grid-template-columns: 5fr 7fr; gap: 4rem; }
+            .cards { grid-template-columns: repeat(2, 1fr); }
+            .steps { grid-template-columns: repeat(4, 1fr); }
+        }
+    </style>
+    <!-- Service + breadcrumbs structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Service",
+                "@id": "https://artlife-studio.uz/veb-sayt-yaratish.html#service",
+                "name": "Veb-sayt yaratish",
+                "serviceType": "Veb-sayt yaratish",
+                "description": "Toshkentda veb-sayt yaratish: landing page, vizitka va korporativ sayt. Individual dizayn, mobil moslashuv, admin panel va SEO sozlamalari. Bepul maslahat.",
+                "url": "https://artlife-studio.uz/veb-sayt-yaratish.html",
+                "provider": {
+                    "@id": "https://artlife-studio.uz/#organization"
+                },
+                "areaServed": {
+                    "@type": "City",
+                    "name": "Tashkent"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Asosiy",
+                        "item": "https://artlife-studio.uz/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Xizmatlar",
+                        "item": "https://artlife-studio.uz/xizmatlar.html"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Veb-sayt yaratish",
+                        "item": "https://artlife-studio.uz/veb-sayt-yaratish.html"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    <!-- FAQ structured data (mirrors the FAQ section below) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Veb-sayt yaratish narxi qancha?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Narx har bir loyiha uchun alohida hisoblanadi: funksiyalar soni, dizayn murakkabligi va kerakli integratsiyalar asosida. Dastlabki suhbat va taxminiy hisob-kitob bepul — vazifangizni yozing, narx va muddatni aytamiz."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Sayt yaratish qancha vaqt oladi?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Landing page va vizitka sayt odatda 1–2 hafta, korporativ sayt 3–6 hafta ichida tayyor bo'ladi. Muddat shartnomada aniq belgilanadi."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Saytni keyin o'zim boshqara olamanmi?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ha. Har bir saytga admin panel ulanadi: matn, rasm, narx va yangi sahifalarni dasturchisiz o'zingiz o'zgartirasiz. Ishga tushirishda qisqa yo'riqnoma beramiz."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Domen va hosting bilan yordam berasizmi?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ha. .uz yoki boshqa domenni tanlash, hostingni sozlash va saytni ulashda yordam beramiz. Domen va hosting sizning nomingizga rasmiylashtiriladi."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Sayt Google va Yandex'da chiqadimi?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Har bir saytga boshlang'ich SEO sozlamalari kiradi va uni Google Search Console hamda Yandex Webmaster'ga ulaymiz. Raqobatli so'rovlarda yuqori o'rinlar esa vaqt, kontent va muntazam ish talab qiladi — buni ochiq aytamiz."
+                }
+            }
+        ]
+    }
+    </script>
+    <!-- Organization structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "@id": "https://artlife-studio.uz/#organization",
+        "name": "ArtLife Web Studio",
+        "url": "https://artlife-studio.uz",
+        "logo": "https://artlife-studio.uz/logo.png",
+        "image": "https://artlife-studio.uz/og-image-v2.png",
+        "description": "ArtLife Web Studio — Toshkentda veb-sayt yaratish, Telegram bot va CRM tizimlari ishlab chiqish.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Saida Baraka ko'chasi, 34A",
+            "addressLocality": "Tashkent",
+            "addressRegion": "Mirobod tumani",
+            "postalCode": "100115",
+            "addressCountry": "UZ"
+        },
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=ArtLife+Web+Studio+Toshkent",
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "09:00",
+                "closes": "18:00"
+            }
+        ],
+        "telephone": "+998900376699",
+        "email": "support@artlife-studio.uz",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "telephone": "+998958611014",
+            "areaServed": "UZ"
+        },
+        "sameAs": [
+            "https://t.me/artlifestudio",
+            "https://www.instagram.com/artlifestudio.uz"
+        ]
+    }
+    </script>
+    <script src="/analytics.js" defer></script>
+    <script src="/tracking.js" defer></script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113121866', 'ym');
+
+        ym(113121866, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/113121866" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+<body class="antialiased px-6 md:px-12">
+
+    <div class="grid-bg"></div>
+
+    <!-- Full Screen Menu Overlay -->
+    <div id="menuOverlay" class="fixed inset-0 z-[60] bg-white translate-y-full transition-transform duration-500 ease-in-out">
+        <div class="grid-bg"></div>
+
+        <div class="flex justify-between items-center px-6 md:px-12 pt-6 pb-4">
+            <a href="index.html" class="flex flex-col leading-none">
+                <span class="text-2xl font-extrabold tracking-tight">ArtLife</span>
+                <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 ml-0.5">Web Studio</span>
+            </a>
+            <div onclick="toggleMenu()" class="cursor-pointer group">
+                <div class="relative w-8 h-8 flex items-center justify-center">
+                    <div class="absolute w-6 h-0.5 bg-black rotate-45"></div>
+                    <div class="absolute w-6 h-0.5 bg-black -rotate-45"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col items-center justify-center h-[60vh] space-y-8">
+            <a href="index.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Asosiy</a>
+            <a href="loyihalar.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Loyihalar</a>
+            <a href="about-us.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Biz haqimizda</a>
+            <a href="xizmatlar.html" class="text-xl font-bold text-blue-600 transition text-center">Xizmatlar</a>
+            <a href="blog.html" class="text-xl font-bold hover:text-blue-600 transition text-center">Blog</a>
+
+            <a href="#contact" onclick="toggleMenu()" class="mt-4 border-2 border-blue-600 text-blue-600 px-10 py-3 rounded-full font-bold hover:bg-blue-600 hover:text-white transition">
+                Bog'lanish
+            </a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-[55] bg-white/80 backdrop-blur-md -mx-6 md:-mx-12 px-6 md:px-12 border-b border-gray-50/50">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center py-6">
+            <a href="index.html" class="flex flex-col leading-none">
+                <span class="text-2xl font-extrabold tracking-tight">ArtLife</span>
+                <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 ml-0.5">Web Studio</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-10">
+                <a href="index.html" class="text-sm font-semibold hover:text-blue-600 transition">Asosiy</a>
+                <a href="loyihalar.html" class="text-sm font-semibold hover:text-blue-600 transition">Loyihalar</a>
+                <a href="about-us.html" class="text-sm font-semibold hover:text-blue-600 transition">Biz haqimizda</a>
+                <a href="xizmatlar.html" class="text-sm font-semibold text-blue-600 transition">Xizmatlar</a>
+                <a href="blog.html" class="text-sm font-semibold hover:text-blue-600 transition">Blog</a>
+                <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="border border-gray-400 px-6 py-2 rounded-full text-sm font-bold hover:border-black transition">Biz bilan bog'lanish</a>
+            </div>
+
+            <div id="menuBtn" onclick="toggleMenu()" class="md:hidden group cursor-pointer w-6 h-5 relative flex flex-col justify-between">
+                <div id="bar1" class="w-6 h-0.5 bg-black transition-all duration-300 origin-center"></div>
+                <div id="bar2" class="w-6 h-0.5 bg-black transition-all duration-300 origin-center"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto">
+
+        <nav class="crumbs" aria-label="Breadcrumb">
+            <a href="index.html">Asosiy</a><span>/</span>
+            <a href="xizmatlar.html">Xizmatlar</a><span>/</span>
+            <span class="text-gray-900">Veb-sayt yaratish</span>
+        </nav>
+
+        <!-- Hero -->
+        <section class="relative hero-pad pb-16">
+            <div class="glow -top-20 -left-10 hidden md:block"></div>
+            <div class="flex items-center gap-3 mb-8 reveal">
+                <div class="w-8 h-[1px] bg-black"></div>
+                <span class="text-xs font-bold tracking-[0.25em] uppercase text-gray-900">Veb-sayt</span>
+            </div>
+            <h1 class="hero-title text-[40px] h1-size leading-[1.04] font-extrabold tracking-tight max-w-5xl mb-10">
+                Toshkentda <span class="text-blue-600">veb-sayt yaratish</span> — mijoz olib keladigan sayt.
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-600 font-medium leading-relaxed max-w-3xl mb-12 reveal d2">
+                Landing page'dan korporativ saytgacha: tez yuklanadigan, telefonda qulay va Google hamda Yandex qidiruvida topiladigan saytlar yaratamiz.
+            </p>
+            <div class="flex flex-wrap gap-3 reveal d3">
+                <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="bg-[#2563eb] text-white px-10 py-4 rounded-full font-bold text-sm hover:bg-blue-700 transition">Bepul maslahat olish</a>
+                <a href="tel:+998900376699" class="px-10 py-4 rounded-full font-bold text-sm border border-gray-300 hover:border-black transition">+998 90 037 66 99</a>
+            </div>
+        </section>
+
+        <!-- Why -->
+        <section class="py-20 border-t border-gray-100">
+            <div class="split">
+                <h2 class="text-3xl md:text-[44px] font-bold leading-tight tracking-tight reveal">Instagram sahifa bor — sayt nima uchun kerak?</h2>
+                <div class="reveal d1">
+                    <p class="text-gray-600 text-lg leading-relaxed mb-6">Mijoz xizmat qidirganda avval Google yoki Yandex'ga yozadi: "Toshkentda stomatologiya", "yuk tashish xizmati", "o'quv markazi Chilonzor". Sayti bo'lmagan kompaniya bu qidiruvlarda umuman ko'rinmaydi va mijoz raqobatchiga ketadi. Veb-sayt — bu kechayu kunduz ishlaydigan, sizni qidiruvda ko'rsatadigan va mijozga ishonch beradigan asosiy raqamli manzil.</p>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-6">Biz saytni chiroyli ekran uchun emas, natija uchun quramiz: har bir sahifa aniq maqsadga — qo'ng'iroq, ariza yoki Telegram'ga yozishga — olib boradi. Tuzilma, matnlar va texnik SEO birinchi kundan qidiruv tizimlari talablariga mos ravishda tayyorlanadi, shuning uchun sayt ishga tushgandan so'ng qayta qurish shart bo'lmaydi.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Types -->
+        <section class="py-20 border-t border-gray-100">
+            <h2 class="text-3xl md:text-[44px] font-bold leading-tight tracking-tight mb-12 reveal">Qanday saytlar yaratamiz</h2>
+            <div class="cards">
+                <div class="card reveal">
+                    <h3 class="text-xl font-bold mb-3">Landing page</h3>
+                    <p class="text-gray-600 text-[15px] leading-relaxed">Bitta xizmat yoki aksiya uchun bir sahifali sayt. Reklamadan kelgan mijozni arizaga aylantirishga mo'ljallangan.</p>
+                    <span class="card-time">1–2 hafta</span>
+                </div>
+                <div class="card reveal d1">
+                    <h3 class="text-xl font-bold mb-3">Vizitka sayt</h3>
+                    <p class="text-gray-600 text-[15px] leading-relaxed">Kompaniya haqida, xizmatlar, narxlar va aloqa — kichik biznes uchun ixcham va tez sayt.</p>
+                    <span class="card-time">1–2 hafta</span>
+                </div>
+                <div class="card reveal">
+                    <h3 class="text-xl font-bold mb-3">Korporativ sayt</h3>
+                    <p class="text-gray-600 text-[15px] leading-relaxed">Ko'p sahifali sayt: xizmatlar, loyihalar, blog, jamoa, bir nechta til. O'rta va yirik kompaniyalar uchun.</p>
+                    <span class="card-time">3–6 hafta</span>
+                </div>
+                <div class="card reveal d1">
+                    <h3 class="text-xl font-bold mb-3">Katalog sayt</h3>
+                    <p class="text-gray-600 text-[15px] leading-relaxed">Mahsulotlar katalogi filtr va qidiruv bilan. Onlayn to'lov kerak bo'lsa — internet-do'kon formatiga o'tadi.</p>
+                    <span class="card-time">3–5 hafta</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Includes, timeline, price -->
+        <section class="py-20 border-t border-gray-100">
+            <div class="split">
+                <div class="reveal">
+                    <h2 class="text-3xl md:text-[44px] font-bold leading-tight tracking-tight mb-8">Nimalar kiradi</h2>
+                    <ul class="flex flex-col gap-3 text-gray-600 leading-relaxed">
+                        <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Shablonsiz, brendingizga mos individual dizayn</li>
+                        <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Telefon, planshet va kompyuterga to'liq moslashuv</li>
+                        <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Matn, rasm va sahifalarni o'zingiz boshqaradigan admin panel</li>
+                        <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Boshlang'ich SEO: sarlavhalar, meta teglar, sitemap, structured data</li>
+                        <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Yuqori tezlik: rasmlar va kod optimallashtiriladi</li>
+                        <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Google Analytics va Yandex Metrika ulash</li>
+                        <li class="flex gap-3"><span class="text-blue-600 font-bold">—</span>Domen va hostingni ulashda yordam, ishga tushirilgandan keyingi texnik qo'llab-quvvatlash</li>
+                    </ul>
+                </div>
+                <div class="reveal d1">
+                    <div class="card mb-6">
+                        <h3 class="text-sm font-bold tracking-[0.15em] uppercase text-gray-900 mb-3">Muddat</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed">Landing page va vizitka sayt 1–2 hafta, korporativ sayt 3–6 hafta ichida tayyor bo'ladi. Aniq muddat sahifalar soni va funksiyalarga bog'liq.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-sm font-bold tracking-[0.15em] uppercase text-gray-900 mb-3">Narxi</h3>
+                    <p class="text-gray-600 text-lg leading-relaxed">Narx funksiyalar soni, dizayn murakkabligi va integratsiyalar asosida hisoblanadi. Vazifangizni yozing — taxminiy narx va muddatni bepul aytamiz.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="py-20 border-t border-gray-100">
+            <h2 class="text-3xl md:text-[44px] font-bold leading-tight tracking-tight mb-12 reveal">Qanday ishlaymiz</h2>
+            <div class="steps">
+                <div class="step reveal">
+                    <h3 class="text-lg font-bold mb-2">Brif va tahlil</h3>
+                    <p class="text-gray-500 text-[15px] leading-relaxed">Biznesingiz, mijozlaringiz va raqobatchilarni o'rganamiz, sayt tuzilmasini kelishamiz.</p>
+                </div>
+                <div class="step reveal d1">
+                    <h3 class="text-lg font-bold mb-2">Prototip va dizayn</h3>
+                    <p class="text-gray-500 text-[15px] leading-relaxed">Sahifalar sxemasi, so'ng vizual dizayn. Har bosqichda tasdiqlab borasiz.</p>
+                </div>
+                <div class="step reveal d2">
+                    <h3 class="text-lg font-bold mb-2">Dasturlash va kontent</h3>
+                    <p class="text-gray-500 text-[15px] leading-relaxed">Saytni yig'amiz, matnlar va rasmlarni joylaymiz, admin panelni sozlaymiz.</p>
+                </div>
+                <div class="step reveal d3">
+                    <h3 class="text-lg font-bold mb-2">Test va ishga tushirish</h3>
+                    <p class="text-gray-500 text-[15px] leading-relaxed">Barcha qurilmalarda tekshiramiz, SEO sozlamalari bilan domenga joylaymiz.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cases -->
+        <section class="py-20 border-t border-gray-100">
+            <div class="p-8 card-lg rounded-3xl border border-gray-200 reveal">
+                <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-4">Loyihalarimizdan</h2>
+                <p class="text-gray-600 text-lg leading-relaxed mb-6 max-w-3xl">Klinikalar, marketing agentligi va logistika kompaniyasi uchun yaratgan saytlarimiz — har biri o'z auditoriyasiga mos tuzilma va dizayn bilan.</p>
+                <div class="flex flex-wrap gap-3">
+                    <a href="loyiha-aura.html" class="case-link">Aura Agency loyihasi <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+                    <a href="loyiha-humotib.html" class="case-link">Humotib klinikasi loyihasi <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+                    <a href="loyiha-kbr.html" class="case-link">KBR Dental loyihasi <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+                    <a href="loyiha-munfareed.html" class="case-link">Munfareed Logistics loyihasi <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="py-24 border-t border-gray-100">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+                <div class="md:col-span-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-2.5 h-2.5 bg-[#2563eb]"></div>
+                        <h2 class="text-[11px] font-black tracking-[0.25em] uppercase text-gray-900">Ko'p Beriladigan Savollar</h2>
+                    </div>
+                </div>
+                <div class="md:col-span-8">
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-6 flex items-center justify-between gap-4 text-left focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-[19px] font-medium text-gray-900">Veb-sayt yaratish narxi qancha?</span>
+                            <svg class="w-5 h-5 text-gray-900 transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-500 leading-relaxed text-[15px]">Narx har bir loyiha uchun alohida hisoblanadi: funksiyalar soni, dizayn murakkabligi va kerakli integratsiyalar asosida. Dastlabki suhbat va taxminiy hisob-kitob bepul — vazifangizni yozing, narx va muddatni aytamiz.</p>
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-6 flex items-center justify-between gap-4 text-left focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-[19px] font-medium text-gray-900">Sayt yaratish qancha vaqt oladi?</span>
+                            <svg class="w-5 h-5 text-gray-900 transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-500 leading-relaxed text-[15px]">Landing page va vizitka sayt odatda 1–2 hafta, korporativ sayt 3–6 hafta ichida tayyor bo'ladi. Muddat shartnomada aniq belgilanadi.</p>
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-6 flex items-center justify-between gap-4 text-left focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-[19px] font-medium text-gray-900">Saytni keyin o'zim boshqara olamanmi?</span>
+                            <svg class="w-5 h-5 text-gray-900 transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-500 leading-relaxed text-[15px]">Ha. Har bir saytga admin panel ulanadi: matn, rasm, narx va yangi sahifalarni dasturchisiz o'zingiz o'zgartirasiz. Ishga tushirishda qisqa yo'riqnoma beramiz.</p>
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-6 flex items-center justify-between gap-4 text-left focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-[19px] font-medium text-gray-900">Domen va hosting bilan yordam berasizmi?</span>
+                            <svg class="w-5 h-5 text-gray-900 transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-500 leading-relaxed text-[15px]">Ha. .uz yoki boshqa domenni tanlash, hostingni sozlash va saytni ulashda yordam beramiz. Domen va hosting sizning nomingizga rasmiylashtiriladi.</p>
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-6 flex items-center justify-between gap-4 text-left focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-[19px] font-medium text-gray-900">Sayt Google va Yandex'da chiqadimi?</span>
+                            <svg class="w-5 h-5 text-gray-900 transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-500 leading-relaxed text-[15px]">Har bir saytga boshlang'ich SEO sozlamalari kiradi va uni Google Search Console hamda Yandex Webmaster'ga ulaymiz. Raqobatli so'rovlarda yuqori o'rinlar esa vaqt, kontent va muntazam ish talab qiladi — buni ochiq aytamiz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related services -->
+        <section class="pb-24">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+                <div class="md:col-span-4">
+                    <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Boshqa xizmatlar</h2>
+                </div>
+                <div class="md:col-span-8 related">
+                    <a href="internet-dokon-yaratish.html">Internet-do'kon yaratish <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+                    <a href="telegram-bot-yaratish.html">Telegram bot yaratish <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+                    <a href="crm-tizim-yaratish.html">CRM tizim ishlab chiqish <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+                    <a href="mobil-ilova-yaratish.html">Mobil ilova yaratish <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+                    <a href="xizmatlar.html">Barcha xizmatlar <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="pb-24">
+            <div class="relative overflow-hidden rounded-[32px] bg-[#121212] text-white px-8 md:px-16 py-20 md:py-28 text-center reveal">
+                <div class="glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight max-w-3xl mx-auto mb-8">
+                    Veb-sayt yaratish bo'yicha bepul maslahat oling.
+                </h2>
+                <p class="text-gray-400 text-lg max-w-xl mx-auto mb-10">
+                    Vazifangizni yozing — muddat va taxminiy narxni aytamiz.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="bg-[#2563eb] text-white px-10 py-4 rounded-full font-bold text-sm hover:bg-blue-700 transition">
+                        Telegram orqali yozish
+                    </a>
+                    <a href="tel:+998900376699" class="px-10 py-4 rounded-full font-bold text-sm border border-gray-600 hover:border-white transition">
+                        +998 90 037 66 99
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] bg-[#151515] text-white pt-24 pb-10 scroll-mt-24">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 mb-24">
+                <div>
+                    <p class="text-sm text-gray-400 mb-6">Keling, suhbatlashamiz</p>
+                    <a href="tel:+998900376699" class="text-4xl md:text-[44px] font-medium tracking-tight hover:text-gray-300 transition-colors inline-block mb-3">
+                        +998 90 037 66 99
+                    </a>
+                    <a href="tel:+998958611014" class="block text-xl md:text-2xl font-medium tracking-tight text-gray-400 hover:text-white transition-colors mb-16">
+                        +998 95 861 1014
+                    </a>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3">Telegram</h4>
+                            <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-white transition-colors">@artlifestudio</a>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3">Instagram</h4>
+                            <a href="https://www.instagram.com/artlifestudio.uz" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-white transition-colors">@artlifestudio.uz</a>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3">Email</h4>
+                            <a href="mailto:support@artlife-studio.uz" class="text-gray-400 text-sm hover:text-white transition-colors">support@artlife-studio.uz</a>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3">Manzil</h4>
+                            <a href="https://www.google.com/maps/search/?api=1&amp;query=ArtLife+Web+Studio+Toshkent" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-white transition-colors">Toshkent, Mirobod tumani,<br>Saida Baraka ko'chasi, 34A</a>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3">Ish vaqti</h4>
+                            <p class="text-gray-400 text-sm">Har kuni 09:00–18:00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:flex md:justify-end">
+                    <div class="flex flex-col gap-6">
+                        <a href="https://t.me/artlifestudio" target="_blank" rel="noopener" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Telegram
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/artlifestudio.uz" target="_blank" rel="noopener" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Instagram
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                        <a href="tel:+998900376699" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Telefon
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                        <a href="mailto:support@artlife-studio.uz" class="flex items-center justify-between gap-2 text-[15px] font-medium hover:text-gray-300 transition-colors group">
+                            Email
+                            <svg class="w-4 h-4 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="flex flex-wrap gap-4 mb-12" aria-label="Xizmatlar">
+                <a href="veb-sayt-yaratish.html" class="text-gray-400 text-sm hover:text-white transition-colors">Veb-sayt yaratish</a>
+                <a href="internet-dokon-yaratish.html" class="text-gray-400 text-sm hover:text-white transition-colors">Internet-do'kon yaratish</a>
+                <a href="telegram-bot-yaratish.html" class="text-gray-400 text-sm hover:text-white transition-colors">Telegram bot yaratish</a>
+                <a href="crm-tizim-yaratish.html" class="text-gray-400 text-sm hover:text-white transition-colors">CRM tizim ishlab chiqish</a>
+                <a href="mobil-ilova-yaratish.html" class="text-gray-400 text-sm hover:text-white transition-colors">Mobil ilova yaratish</a>
+            </nav>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <a href="index.html" class="flex flex-col leading-none">
+                    <span class="text-2xl font-extrabold tracking-tight text-white">ArtLife</span>
+                    <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 ml-0.5">Web Studio</span>
+                </a>
+                <p class="text-gray-500 text-sm">© 2026 ArtLife Web Studio. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Menu Toggle Logic
+    const menuOverlay = document.getElementById('menuOverlay');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+            menuOverlay.classList.remove('translate-y-full');
+            menuOverlay.classList.add('translate-y-0');
+            bar1.classList.add('rotate-45', 'translate-y-[9px]');
+            bar2.classList.add('-rotate-45', '-translate-y-[9px]');
+        } else {
+            menuOverlay.classList.add('translate-y-full');
+            menuOverlay.classList.remove('translate-y-0');
+            bar1.classList.remove('rotate-45', 'translate-y-[9px]');
+            bar2.classList.remove('-rotate-45', '-translate-y-[9px]');
+        }
+    }
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // FAQ Accordion Logic
+    function toggleFAQ(button) {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('svg');
+
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+            icon.classList.remove('rotate-45');
+        } else {
+            document.querySelectorAll('.max-h-0').forEach(el => {
+                el.style.maxHeight = null;
+            });
+            document.querySelectorAll('button[onclick="toggleFAQ(this)"] svg').forEach(svg => {
+                svg.classList.remove('rotate-45');
+            });
+
+            content.style.maxHeight = content.scrollHeight + "px";
+            icon.classList.add('rotate-45');
+        }
+    }
+    </script>
+</body>
+</html>
