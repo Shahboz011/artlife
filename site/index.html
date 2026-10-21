@@ -51,53 +51,60 @@
     z-index: -1;
     opacity: 0.4;
 }
-/* Animatsiyalar faqat desktop (768px dan katta) uchun */
+/* Mijozlar qatori: ikki qator cheksiz aylanadi (mobil va desktop) */
+        @keyframes scrollLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes scrollRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+        .animate-scroll-left,
+        .animate-scroll-right {
+            display: flex;
+            width: max-content;
+            gap: 0;
+            animation: scrollLeft 30s linear infinite;
+        }
+        .animate-scroll-right { animation-name: scrollRight; }
+        .logo-item {
+            width: 180px;
+            height: 96px;
+            margin-right: .5rem; /* spacing as margin, not gap, so -50% lands exactly on the repeat */
+            background-color: #f8f9fa;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-item img {
+            width: 120px;
+            opacity: 0.5;
+            filter: grayscale(1);
+        }
+        .logo-item span {
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #6b7280;
+            opacity: 0.6;
+            white-space: nowrap;
+            transition: opacity .3s ease, color .3s ease;
+        }
+        .logo-item:hover span {
+            opacity: 1;
+            color: #2563eb;
+        }
         @media (min-width: 768px) {
-            @keyframes scrollLeft {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-            }
-            @keyframes scrollRight {
-                0% { transform: translateX(-50%); }
-                100% { transform: translateX(0); }
-            }
-            .animate-scroll-left {
-                animation: scrollLeft 40s linear infinite;
-                display: flex;
-                width: max-content;
-            }
-            .animate-scroll-right {
-                animation: scrollRight 40s linear infinite;
-                display: flex;
-                width: max-content;
-            }
-            .logo-item {
-                width: 280px;
-                height: 140px;
-                background-color: #f8f9fa;
-                flex-shrink: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .logo-item img {
-                width: 120px;
-                opacity: 0.5;
-                filter: grayscale(1);
-            }
-            .logo-item span {
-                font-size: 22px;
-                font-weight: 800;
-                letter-spacing: -0.02em;
-                color: #6b7280;
-                opacity: 0.6;
-                white-space: nowrap;
-                transition: opacity .3s ease, color .3s ease;
-            }
-            .logo-item:hover span {
-                opacity: 1;
-                color: #2563eb;
-            }
+            .animate-scroll-left,
+            .animate-scroll-right { animation-duration: 40s; }
+            .logo-item { width: 280px; height: 140px; }
+            .logo-item span { font-size: 22px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-scroll-left,
+            .animate-scroll-right { animation-play-state: paused; }
         }
         .proj-extra.hide { display: none; }
         /* "Batafsil ma'lumot" link on a project card */
@@ -348,29 +355,19 @@
     </section>
         <!-- Partner/Brand Grid -->
    <div class="mb-32">
-            
-            <div class="grid grid-cols-2 gap-2 md:hidden">
-                <div class="h-32 bg-gray-50 flex items-center justify-center font-extrabold text-gray-500 tracking-tight text-center px-2">Chovkar</div>
-                <div class="h-32 bg-gray-50 flex items-center justify-center font-extrabold text-gray-500 tracking-tight text-center px-2">Rizqana</div>
-                <div class="h-32 bg-gray-50 flex items-center justify-center font-extrabold text-gray-500 tracking-tight text-center px-2">Humotib</div>
-                <div class="h-32 bg-gray-50 flex items-center justify-center font-extrabold text-gray-500 tracking-tight text-center px-2">Solid Industries</div>
-                <div class="h-32 bg-gray-50 flex items-center justify-center font-extrabold text-gray-500 tracking-tight text-center px-2">Munfareed</div>
-                <div class="h-32 bg-gray-50 flex items-center justify-center font-extrabold text-gray-500 tracking-tight text-center px-2">Aura Agency</div>
-                <div class="h-32 bg-gray-50 flex items-center justify-center font-extrabold text-gray-500 tracking-tight text-center px-2">Aurum Tabac</div>
-                <div class="h-32 bg-gray-50 flex items-center justify-center font-extrabold text-gray-500 tracking-tight text-center px-2">Wallet-Z</div>
-                <div class="h-32 bg-gray-50 flex items-center justify-center font-extrabold text-gray-500 tracking-tight text-center px-2">KBR Dental</div>
-            </div>
 
-            <div class="hidden md:block overflow-hidden space-y-2 -mx-12">
-                
+            <div class="overflow-hidden space-y-2 -mx-6 md:-mx-12" aria-label="Mijozlarimiz">
+
                 <div class="flex overflow-hidden">
                     <div class="animate-scroll-left flex gap-2">
                         <div class="logo-item"><span>Chovkar</span></div>
                         <div class="logo-item"><span>Rizqana</span></div>
                         <div class="logo-item"><span>Humotib</span></div>
                         <div class="logo-item"><span>Solid Industries</span></div>
+                        <div class="logo-item"><span>XGENS LABS</span></div>
                         <div class="logo-item"><span>Munfareed</span></div>
                         <div class="logo-item"><span>Aura Agency</span></div>
+                        <div class="logo-item"><span>RoboSTEAM</span></div>
                         <div class="logo-item"><span>Aurum Tabac</span></div>
                         <div class="logo-item"><span>Wallet-Z</span></div>
                         <div class="logo-item"><span>KBR Dental</span></div>
@@ -378,8 +375,10 @@
                         <div class="logo-item"><span>Rizqana</span></div>
                         <div class="logo-item"><span>Humotib</span></div>
                         <div class="logo-item"><span>Solid Industries</span></div>
+                        <div class="logo-item"><span>XGENS LABS</span></div>
                         <div class="logo-item"><span>Munfareed</span></div>
                         <div class="logo-item"><span>Aura Agency</span></div>
+                        <div class="logo-item"><span>RoboSTEAM</span></div>
                         <div class="logo-item"><span>Aurum Tabac</span></div>
                         <div class="logo-item"><span>Wallet-Z</span></div>
                         <div class="logo-item"><span>KBR Dental</span></div>
@@ -391,8 +390,10 @@
                         <div class="logo-item"><span>KBR Dental</span></div>
                         <div class="logo-item"><span>Wallet-Z</span></div>
                         <div class="logo-item"><span>Aurum Tabac</span></div>
+                        <div class="logo-item"><span>RoboSTEAM</span></div>
                         <div class="logo-item"><span>Aura Agency</span></div>
                         <div class="logo-item"><span>Munfareed</span></div>
+                        <div class="logo-item"><span>XGENS LABS</span></div>
                         <div class="logo-item"><span>Solid Industries</span></div>
                         <div class="logo-item"><span>Humotib</span></div>
                         <div class="logo-item"><span>Rizqana</span></div>
@@ -400,8 +401,10 @@
                         <div class="logo-item"><span>KBR Dental</span></div>
                         <div class="logo-item"><span>Wallet-Z</span></div>
                         <div class="logo-item"><span>Aurum Tabac</span></div>
+                        <div class="logo-item"><span>RoboSTEAM</span></div>
                         <div class="logo-item"><span>Aura Agency</span></div>
                         <div class="logo-item"><span>Munfareed</span></div>
+                        <div class="logo-item"><span>XGENS LABS</span></div>
                         <div class="logo-item"><span>Solid Industries</span></div>
                         <div class="logo-item"><span>Humotib</span></div>
                         <div class="logo-item"><span>Rizqana</span></div>
