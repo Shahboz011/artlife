@@ -8,6 +8,48 @@
       "**/_backup-original/**"
     ],
     "cleanUrls": false,
-    "trailingSlash": false
+    "trailingSlash": false,
+    "redirects": [
+      {
+        "source": "/Project-imgs/Rizqana.png",
+        "destination": "/Project-imgs/rizqana.jpg",
+        "type": 301
+      },
+      {
+        "source": "/Project-imgs/aura.png",
+        "destination": "/Project-imgs/aura.jpg",
+        "type": 301
+      },
+      {
+        "source": "/Project-imgs/aurum.png",
+        "destination": "/Project-imgs/aurum.jpg",
+        "type": 301
+      },
+      {
+        "source": "/Project-imgs/humotib.png",
+        "destination": "/Project-imgs/humotib.jpg",
+        "type": 301
+      },
+      {
+        "source": "/Project-imgs/kbr.png",
+        "destination": "/Project-imgs/kbr.jpg",
+        "type": 301
+      },
+      {
+        "source": "/Project-imgs/munfareed.png",
+        "destination": "/Project-imgs/munfareed.jpg",
+        "type": 301
+      },
+      {
+        "source": "/Project-imgs/myferma.png",
+        "destination": "/Project-imgs/myferma.jpg",
+        "type": 301
+      },
+      {
+        "source": "/Project-imgs/walletz.png",
+        "destination": "/Project-imgs/walletz.jpg",
+        "type": 301
+      }
+    ]
   }
 }
