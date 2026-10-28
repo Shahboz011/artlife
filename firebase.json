@@ -11,6 +11,16 @@
     "trailingSlash": false,
     "redirects": [
       {
+        "source": "/index.html",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/ru/index.html",
+        "destination": "/ru",
+        "type": 301
+      },
+      {
         "source": "/Project-imgs/Rizqana.png",
         "destination": "/Project-imgs/rizqana.jpg",
         "type": 301
