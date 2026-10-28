@@ -13,7 +13,14 @@
     'humotib.uz':             'humotib',
     'kbrdentalclinic.uz':     'kbr',
     'rizqana.uz':             'rizqana',
-    'wallet-z.uz':            'walletz'
+    'wallet-z.uz':            'walletz',
+    'solidindustries.uz':     'solid',
+    'xgenslabsnutrition.com': 'xgens',
+    'robosteam.uz':           'robosteam',
+    'saimmed.uz':             'saimmed',
+    'vertebroclinic.uz':      'vertebro',
+    'ironfuelnutritionglobal.com': 'ironfuel',
+    'timelux.uz':             'timelux'
   };
 
   if (GA_ID.indexOf('XXXX') !== -1) return; // ID kiritilmagan — hech narsa yuklanmaydi

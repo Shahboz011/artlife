@@ -8,3 +8,7 @@ desktop.ini
 
 # Firebase local deploy cache
 .firebase/
+
+# Firebase CLI logs
+firebase-debug.log
+*-debug.log
